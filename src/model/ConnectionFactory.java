@@ -10,9 +10,11 @@ public class ConnectionFactory {
 	private static ConnectionFactory object=null;
 	
 	Connection cn=null;
-	Driver driver=null;
+	Driver driver= null;
 	
-	private String URL=null;
+	private String URL="jdbc:mysql://sql7.freesqldatabase.com:3306/sql7281796";
+	private String USERNAME="sql7281796";
+	private String PASSWORD="j76igHvYd3";
 	private ConnectionFactory() {}
 	
 	/**
@@ -30,15 +32,20 @@ public class ConnectionFactory {
 	 * Used to fetch the single time connection instance of the database.
 	 * @return {@link Connection}
 	 */
-	public Connection getConnection(String uri) {
-		URL="jdbc:sqlite:"+uri;
+	public Connection getConnection() {
 		if(cn==null && driver==null) {
 			try {
-				driver= new org.sqlite.JDBC();
+				driver= new com.mysql.jdbc.Driver();
 				DriverManager.registerDriver(driver);
-				cn=DriverManager.getConnection(URL);
+				cn=DriverManager.getConnection(URL,USERNAME,PASSWORD);
 			}catch (SQLException e) {
 				e.printStackTrace();
+			}finally {
+				try {
+					DriverManager.deregisterDriver(driver);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return cn;
