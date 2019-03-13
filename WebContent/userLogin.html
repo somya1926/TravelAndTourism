@@ -2,15 +2,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Login portal</title>
+<title>User Login</title>
 <style type="text/css">
-#home{
+	#home{
 		width: 300px;
 	    padding: 40px;
 	    position: absolute;
 	    top:20%;
     	left: 50%;
-    	transform: translate(-20%, -70%);
+    	transform: translate(-20%, -30%);
 	}
 	.f1{
 	width: 300px;
@@ -29,23 +29,28 @@
 	</style>
 </head>
 <body>
-	<h1 id="home"><a href="home.jsp">Home</a></h1>
-	<form action="validateAdmin.jsp" class="f1" method="post">
-		<h2>Admin Login Portal</h2>
+<h1 id="home"><a href="home.jsp">Home</a></h1>
+	<form action="validateUser.jsp" class="f1" method="post">
+		<h2>User Login Portal</h2>
 		<table>
 			<tr>
-				<td>Admin name:</td>
-				<td><input type="text" name="adminName"><br></td>
+				<td>User name:</td>
+				<td><input type="text" name="userName"><br></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="adminPass"><br></td>
+				<td><input type="password" name="userPass"><br></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td><input type="submit" value="Login"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="userReg.html">Register Now</a></td>
 				<td></td>
 			</tr>
 		</table>
