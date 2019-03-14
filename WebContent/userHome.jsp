@@ -40,7 +40,7 @@
 <body>
 		<%if(session.getAttribute("name")==null){
 	//session.invalidate(); response.sendRedirect("adminLogin.html"); %>
-		<P align=center><IMG SRC="Images/error.gif" WIDTH="17" HEIGHT="13" BORDER="0" ALT="">
+		<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
 			<FONT COLOR="Red" Face="Georgia">You are not permitted to Access the Admin Portal !</FONT>
 			<BR>
 			<A HREF="adminLogin.html">&lt;&lt;Back</A>

@@ -11,6 +11,8 @@
 	if(session.getAttribute("name")!=null){
 		session.invalidate();
 		System.out.println("\nLogged out Successfully!\n");
+	}else{
+		System.out.println("\nNothing to log out!\n");
 	}
 
 	response.sendRedirect("adminLogin.html");%>

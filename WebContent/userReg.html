@@ -31,7 +31,7 @@
 </head>
 <body>
 <h1 id="home"><a href="home.jsp">Home</a></h1>
-	<form action="#" class="f1" method="post">
+	<form action="userReg.jsp" class="f1" method="post">
 		<h2>User Registration Portal</h2>
 		<table>
 			<tr>
@@ -45,18 +45,23 @@
 				<td></td>
 			</tr>
 			<tr>
+				<td> Confirm Password:</td>
+				<td><input type="password" name="cPass"><br></td>
+				<td></td>
+			</tr>
+			<tr>
 				<td>Name:</td>
 				<td><input type="text" name="name"></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="email"></td>
+				<td><input type="email" name="email" title="Enter Email Address with @ following a domain name !"></td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Phone No:</td>
-				<td><input type="number" name="phone"></td>
+				<td>Mobile No:</td>
+				<td><input type="tel" name="phone" pattern="[1-9]{1}[0-9]{9}" required="required" title="Enter a valid 10 digit Mobile Number !"></td>
 				<td></td>
 			</tr>
 			<tr>

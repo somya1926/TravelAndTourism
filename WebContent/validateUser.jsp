@@ -48,7 +48,7 @@
 					</P>
 					
 				<%}else{ %>
-					<P align=center><IMG SRC="Images/error.gif" WIDTH="17" HEIGHT="13" BORDER="0" ALT="">
+					<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
 						<FONT COLOR="Red" Face="Georgia">Administrators are prohibited from using User Portal !</FONT>
 						<BR>
 						<A HREF="userLogin.html">&lt;&lt;Back</A>
@@ -58,7 +58,7 @@
 			}else{
 				
 				%>
-				<P align=center><IMG SRC="Images/error.gif" WIDTH="17" HEIGHT="13" BORDER="0" ALT=""><FONT COLOR="Red" Face="Georgia">SORRY! Invalid username/password please try again</FONT>
+				<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT=""><FONT COLOR="Red" Face="Georgia">SORRY! Invalid username/password please try again</FONT>
 				<BR>
 				<A HREF="userLogin.html">&lt;&lt;Back</A>
 				</P>
