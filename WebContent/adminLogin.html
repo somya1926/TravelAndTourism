@@ -34,13 +34,17 @@
 		<h2>Admin Login Portal</h2>
 		<table>
 			<tr>
-				<td>Admin name:</td>
-				<td><input type="text" name="adminName"><br></td>
+				<td>Email:</td>
+				<td><input type="text" name="adminEmail"
+					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+					required="required"
+					title="Enter a valid emailID !"><br></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="adminPass"><br></td>
+				<td><input type="password" name="adminPass"
+				required="required" title="Required field !"><br></td>
 				<td></td>
 			</tr>
 			<tr>

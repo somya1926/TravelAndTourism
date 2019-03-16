@@ -7,65 +7,65 @@
 <title>Validating User</title>
 </head>
 <body>
-<%!boolean validUser=false;
+<%!boolean validResult=false;
 	Connection connection=null;%>
 
 	<%
-	String QUERY= "SELECT AUTH,NAME,UNAME  FROM userAccount WHERE UNAME=? AND PASSWORD=?";
+	String QUERY= "SELECT U_ADMIN, U_NAME,U_EMAIL  FROM userAccount WHERE U_EMAIL=? AND U_PASS=?";
 		PreparedStatement statement=null;
 		ResultSet resultSet=null;
 		
 		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
 		try{
 			connection=ConnectionFactory.getInstance().getConnection(
-					part[0]+this.getServletContext().getContextPath()+"/database/userInfo.db");
+					part[0]+this.getServletContext().getContextPath());
 			
 			statement= connection.prepareStatement(QUERY);
-			statement.setString(1, (String)request.getParameter("userName"));
+			statement.setString(1, (String)request.getParameter("userEmail"));
 			statement.setString(2, (String)request.getParameter("userPass"));
 			resultSet=statement.executeQuery();
 			
 			if(resultSet.next()){
-				if(resultSet.getString(3).equals(request.getParameter("userName"))){
+				if(resultSet.getString(3).equals(request.getParameter("userEmail"))){
 					session.setAttribute("auth", resultSet.getInt(1));
 					session.setAttribute("name", resultSet.getString(2));
-					validUser=true;
+					validResult=true;
 				}
-				System.out.println("\nauth:"+resultSet.getInt(1)+"\nName: "+resultSet.getString(2)+"\nUName: "+resultSet.getString(3));
+				System.out.println("\nauth:"+resultSet.getInt(1)+"\nName: "+resultSet.getString(2)+"\nEmail: "+resultSet.getString(3));
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}%>
 		
 		<%
-			if(validUser){
-				validUser=false;
+			if(validResult){
+				validResult=false;
 				if(resultSet.getInt(1)==0){
 					%>
-					<P align=center><FONT COLOR="Green" Face="Georgia"><I><B>Welcome <%=request.getParameter("userName")%></B></I></FONT>
+					<P align=center><FONT COLOR="Green" Face="Georgia"><I><B>Welcome <%=resultSet.getString(2)%></B></I></FONT>
 						<BR><BR>
 						<jsp:forward page="userHome.jsp"/>
 					</P>
 					
 				<%}else{ %>
-					<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
-						<FONT COLOR="Red" Face="Georgia">Administrators are prohibited from using User Portal !</FONT>
+					<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+						<FONT COLOR="Red" size=5 Face="verdana">Administrators are prohibited from accessing the User Portal !</FONT>
 						<BR>
-						<A HREF="userLogin.html">&lt;&lt;Back</A>
+						<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Back</A></font>
 					</P>
 				<%
 				}
 			}else{
 				
 				%>
-				<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT=""><FONT COLOR="Red" Face="Georgia">SORRY! Invalid username/password please try again</FONT>
+				<P align=center>
+				<IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+				<FONT COLOR="Red" size=5 Face="verdana">SORRY! Invalid Email/password please try again</FONT>
 				<BR>
-				<A HREF="userLogin.html">&lt;&lt;Back</A>
+				<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Back</A></font>
 				</P>
 				<%
 			}
 		%>
-</body>
-</html>
 </body>
 </html>

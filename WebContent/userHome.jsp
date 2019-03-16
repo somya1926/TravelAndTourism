@@ -38,12 +38,12 @@
 	</style>
 </head>
 <body>
-		<%if(session.getAttribute("name")==null){
+		<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){
 	//session.invalidate(); response.sendRedirect("adminLogin.html"); %>
-		<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
-			<FONT COLOR="Red" Face="Georgia">You are not permitted to Access the Admin Portal !</FONT>
+		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the User Portal !</FONT>
 			<BR>
-			<A HREF="adminLogin.html">&lt;&lt;Back</A>
+			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{%>
 	<h1 id="home"><a href="home.jsp">Home</a></h1>

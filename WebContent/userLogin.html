@@ -34,13 +34,18 @@
 		<h2>User Login Portal</h2>
 		<table>
 			<tr>
-				<td>User name:</td>
-				<td><input type="text" name="userName"><br></td>
+				<td>Email:</td>
+				<td><input type="text" name="userEmail"
+					required="required"
+					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+					title="Required field !"><br></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="userPass"><br></td>
+				<td><input type="password" name="userPass"
+					required="required"
+					title="Required field !"><br></td>
 				<td></td>
 			</tr>
 			<tr>

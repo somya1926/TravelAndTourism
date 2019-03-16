@@ -37,7 +37,8 @@ public class ConnectionFactory {
 			try {
 				driver= new org.sqlite.JDBC();
 				DriverManager.registerDriver(driver);
-				cn=DriverManager.getConnection("jdbc:sqlite:"+URL);
+				//Database entry point.
+				cn=DriverManager.getConnection("jdbc:sqlite:"+URL+"/database/ttmsDS.db");
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}finally {

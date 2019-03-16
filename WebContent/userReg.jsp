@@ -11,22 +11,22 @@
 	Connection connection=null;%>
 
 	<%
-		String QUERY= "INSERT INTO userAccount VALUES(?,?,?,?,?,0)";
+		String QUERY= "INSERT INTO userAccount (U_PASS,U_NAME,U_EMAIL,U_MOB)VALUES(?,?,?,?)";
 		PreparedStatement statement=null;
 		int updatecode=-1;
 		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
 		try{
 			connection=ConnectionFactory.getInstance().getConnection(
-					part[0]+this.getServletContext().getContextPath()+"/database/userInfo.db");
+					part[0]+this.getServletContext().getContextPath());
 			statement= connection.prepareStatement(QUERY);
-			System.out.println("\n"+(String)request.getParameter("uName"));
+			
+			System.out.println("\n REGISTRATION INFO:");
+			System.out.println((String)request.getParameter("name"));
 			System.out.println((String)request.getParameter("pass"));
 			System.out.println((String)request.getParameter("cPass"));
-			System.out.println((String)request.getParameter("name"));
 			System.out.println((String)request.getParameter("email"));
-			System.out.println(Long.parseLong((String)request.getParameter("phone"))+"\n");
+			System.out.println(Long.parseLong((String)request.getParameter("phone")));
 			
-			statement.setString(1, (String)request.getParameter("uName"));
 			if(!(request.getParameter("pass").equals(request.getParameter("cPass")))){%>
 				<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
 					<FONT COLOR="Red" Face="Georgia">Password Mismatch !</FONT>
@@ -34,38 +34,38 @@
 					<A HREF="userReg.html">&lt;&lt;Retry Again</A>
 				</P>
 			<%}else{
-				statement.setString(2, (String)request.getParameter("pass"));
+				statement.setString(1, (String)request.getParameter("pass"));
 			}
-			statement.setString(2, (String)request.getParameter("pass"));
-			statement.setString(3, (String)request.getParameter("name"));
-			statement.setString(4, (String)request.getParameter("email"));
-			statement.setLong(5, Long.parseLong((String)request.getParameter("phone")));
+			statement.setString(2, (String)request.getParameter("name"));
+			statement.setString(3, (String)request.getParameter("email"));
+			statement.setLong(4, Long.parseLong((String)request.getParameter("phone")));
 			updatecode=statement.executeUpdate();
 			
 		}catch(SQLIntegrityConstraintViolationException e){
 			e.printStackTrace();%>
-			<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
-				<FONT COLOR="Red" Face="Georgia">Either of the user name, email or mobile number has be registered !</FONT>
+			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+				<FONT COLOR="Red" size=5 Face="verdana">Either of the user name, email or mobile number has be registered !</FONT>
 				<BR>
-				<A HREF="userReg.html">&lt;&lt;Back</A>
+				<font Face="Comic Sans MS" size=3><A HREF="userReg.html">&lt;&lt; Back</A></font>
 			</P>
 		<%}catch(SQLException c){
 			c.printStackTrace();
 		}
 		
-		if(updatecode>0){%>
+		if(updatecode>0){
+			System.out.println("Registration Successful !\n");%>
 		
-		<P align=center><IMG SRC="Images/correct.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
-				<FONT COLOR="Green" Face="Georgia">User Registration unsuccessful !</FONT>
+		<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+				<FONT COLOR="Green" size=5 Face="verdana">User Registration Successful !</FONT>
 				<BR>
-				<A HREF="userLogin.html">&lt;&lt;Login Now</A>
+				<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Login Now</A></font>
 		</P>
 		
 		<%}else{%>
-			<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
-				<FONT COLOR="Red" Face="Georgia">User Registration unsuccessful ! <br> Retry again.</FONT>
+			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+				<FONT COLOR="Red" size=5 Face="verdana">User Registration Unsuccessful ! <br> Retry again.</FONT>
 				<BR>
-				<A HREF="userReg.html">&lt;&lt;Back</A>
+				<font Face="Comic Sans MS" size=3><A HREF="userReg.html">&lt;&lt; Back</A></font>
 			</P>
 		<%}%>
 </body>

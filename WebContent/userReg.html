@@ -10,7 +10,7 @@
 	    position: absolute;
 	    top:20%;
     	left: 50%;
-    	transform: translate(-20%, -60%);
+    	transform: translate(-20%, -70%);
 	}
 	.f1{
 	width: 300px;
@@ -35,46 +35,50 @@
 		<h2>User Registration Portal</h2>
 		<table>
 			<tr>
-				<td>User name:</td>
-				<td><input type="text" name="uName"><br></td>
-				<td></td>
+				<td>Email:</td>
+				<td><input type="text" name="email"
+						title="Enter a valid Email Address!"
+						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+						required="required">
+				</td>
+
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="pass"><br></td>
-				<td></td>
+				<td><input type="password"
+					name="pass"
+					required="required"
+					title="Required field !">
+				</td>
 			</tr>
 			<tr>
 				<td> Confirm Password:</td>
-				<td><input type="password" name="cPass"><br></td>
-				<td></td>
+				<td><input type="password"
+						name="cPass"
+						required="required"
+						title="Required field !">
+				</td>
 			</tr>
 			<tr>
 				<td>Name:</td>
-				<td><input type="text" name="name"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>Email:</td>
-				<td><input type="email" name="email" title="Enter Email Address with @ following a domain name !"></td>
-				<td></td>
+				<td><input type="text" name="name"
+						required="required"
+						title="Required field !">
+				</td>
 			</tr>
 			<tr>
 				<td>Mobile No:</td>
-				<td><input type="tel" name="phone" pattern="[1-9]{1}[0-9]{9}" required="required" title="Enter a valid 10 digit Mobile Number !"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Register"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><a href="userLogin.html">Login</a></td>
-				<td></td>
-			</tr>
+				<td><input type="text"
+						name="phone" 
+						pattern="[1-9]{1}[0-9]{9}"
+						required="required"
+						title="Enter a valid 10 digit Mobile Number !">
+				</td>
+
 		</table>
+		<input type="submit" value="Register">
+		<br>
+		<a href="userLogin.html">Login</a>
 	</form>
 </body>
 </html>
