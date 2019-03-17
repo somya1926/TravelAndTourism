@@ -49,7 +49,6 @@
 	</style>
 </head>
 <body>
-	<h1 id="home"><a href="home.html">Home</a></h1>
 	  <%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){%>
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
@@ -57,7 +56,7 @@
 			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{%>
-		<h1 id="home"><a href="home.jsp">Home</a></h1>
+		<h1 id="home"><a href="home.html">Home</a></h1>
 		
 		<div class="f1">
 		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>

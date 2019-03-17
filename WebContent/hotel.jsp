@@ -1,8 +1,13 @@
+<%@page import="java.sql.*,model.*,java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%! Statement statement=null; 
+    	ResultSet resultSet=null;
+    	Connection connection=null;%>
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <title>Hotel portal</title>
 <script type="text/javascript">
@@ -14,12 +19,12 @@
 	</script>
 <style type="text/css">
 #home{
-		width: 300px;
-	    padding: 40px;
+		width: 30%;
+	    padding: 5%;
 	    position: absolute;
 	    top:20%;
     	left: 50%;
-    	transform: translate(-20%, -60%);
+    	transform: translate(-20%, -75%);
 	}
 	.f1{
 	width: 300px;
@@ -55,6 +60,12 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
+	table, th, td{
+        border: 1px solid #666;
+    }
+    table th, table td{
+        padding: 10px; /* Apply cell padding */
+    }
 	</style>
 </head>
 <body>
@@ -302,9 +313,33 @@
 	</table>
 	<br><input id="btn" type="submit" value="UPDATE">
 </form>
-<%}else if(((String)request.getParameter("hotel")).equals("View Hotels")){ %>
+
 <!-- View hotels -->
-	To be implemented....
+<%}else if(((String)request.getParameter("hotel")).equals("View Hotels")){
+
+	String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
+	connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
+	statement=connection.createStatement();
+	
+	resultSet=statement.executeQuery("SELECT * FROM hotelInfo");%>
+	
+	<div class="f1" style="overflow: auto;height: 45%; width: 22%;">
+	<table>
+			<tr>
+				<td>H_ID</td>
+				<td>H_NAME</td>
+				<td>T_PLACE</td>
+			</tr>
+	
+	<%while(resultSet.next()){%>
+			<tr>
+				<td><%=resultSet.getInt(1) %></td>
+				<td><%=resultSet.getString(2) %></td>
+				<td><%=resultSet.getString(3)%></td>
+			</tr>
+		<%} resultSet.close(); %>
+		</table>
+		</div>
 <%}
 } %>
 <br><input id="logout" type="button" value="Logout" onclick="sendAlert();">

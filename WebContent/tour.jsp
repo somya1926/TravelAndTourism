@@ -1,5 +1,9 @@
+<%@page import="java.sql.*,model.*,java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%! Statement statement=null; 
+    	ResultSet resultSet=null;
+    	Connection connection=null;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,6 @@
     transform: translate(-50%, -50%);
     background: silver;
     text-align: center;
-
 	}
 	h2 {
 		align-content:center;
@@ -55,6 +58,12 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
+	table, th, td{
+        border: 1px solid #666;
+    }
+    table th, table td{
+        padding: 10px; /* Apply cell padding */
+    }
 	</style>
 </head>
 <body>
@@ -421,9 +430,41 @@
 	</table>
 	<br><input id="btn" type="submit" value="UPDATE">
 </form>
-<%}else if(((String)request.getParameter("tour")).equals("View Tours")){ %>
+
 <!-- View tours -->
-	To be implemented.
+<%}else if(((String)request.getParameter("tour")).equals("View Tours")){ 
+	String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
+	connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
+	statement=connection.createStatement();
+	
+	resultSet=statement.executeQuery("SELECT * FROM tourInfo");%>
+	
+	<div class="f1" style="overflow: auto;height: 35%; width: 48%;">
+	<table>
+			<tr>
+				<td>T_ID</td>
+				<td>T_NAME</td>
+				<td>T_PLACE_1</td>
+				<td>T_PLACE_2</td>
+				<td>T_PLACE_3</td>
+				<td>T_DAYS</td>
+				<td>T_PRICE</td>
+			</tr>
+	
+	<%while(resultSet.next()){%>
+			<tr>
+				<td><%=resultSet.getInt(1) %></td>
+				<td><%=resultSet.getString(2) %></td>
+				<td><%=resultSet.getString(3)%></td>
+				<td><%=resultSet.getString(4)%></td>
+				<td><%=resultSet.getString(5)%></td>
+				<td><%=resultSet.getInt(6)%></td>
+				<td><%=resultSet.getInt(7)%></td>
+			</tr>
+		<%} resultSet.close(); %>
+		</table>
+		</div>
+		
 	<%}
 	} %>
 	<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
