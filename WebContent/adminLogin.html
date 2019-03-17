@@ -26,10 +26,17 @@
 	h2 {
 		font-family: sans-serif;
 	}
+	#login{
+		width: 150px;
+    	padding: 5px;
+    	font-weight: bold;
+    	font-family: sans-serif;
+    	font-size: 15px;
+	}
 	</style>
 </head>
 <body>
-	<h1 id="home"><a href="home.jsp">Home</a></h1>
+	<h1 id="home"><a href="home.html">Home</a></h1>
 	<form action="validateAdmin.jsp" class="f1" method="post">
 		<h2>Admin Login Portal</h2>
 		<table>
@@ -49,7 +56,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Login"></td>
+				<td><br><input id="login" type="submit" value="Login"></td>
 				<td></td>
 			</tr>
 		</table>

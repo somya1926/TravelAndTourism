@@ -19,10 +19,10 @@
 	    position: absolute;
 	    top:20%;
     	left: 50%;
-    	transform: translate(-20%, -105%);
+    	transform: translate(-20%, -50%);
 	}
 	.f1{
-	width: 300px;
+	width: 350px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -35,9 +35,21 @@
 	h2 {
 		font-family: sans-serif;
 	}
+	#logout{
+		width: 200px;
+	    padding: 10px;
+	    position: absolute;
+	    top:20%;
+    	left: 50%;
+    	transform: translate(-50%, 500%);
+    	font-weight: bold;
+    	font-family: sans-serif;
+    	font-size: 15px;
+	}
 	</style>
 </head>
 <body>
+	<h1 id="home"><a href="home.html">Home</a></h1>
 		<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){
 	//session.invalidate(); response.sendRedirect("adminLogin.html"); %>
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
@@ -46,29 +58,23 @@
 			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{%>
-	<h1 id="home"><a href="home.jsp">Home</a></h1>
-	<h1 id="home"><a href="home.jsp">Home</a></h1>
-	<div class="f1">
-	<h2>Hi, <%=(String)session.getAttribute("name") %></h2><br>
-	<h2>Welcome to the User portal !</h2>
-	<table>
-		<tr>
-			<td><input type="button" value="Book now" onclick="location.href='#';"></td>
-			<td></td>
-			<td><input type="button" value="Search Booking" onclick="location.href='#';"></td>
-		</tr>
-		<tr>
-			<td><input type="button" value="Booking Report" onclick="location.href='#';"></td>
-			<td></td>
-			<td><input type="button" value="Tour Report" onclick="location.href='#';"></td>
-		</tr>
-		<tr>
-			<td><input type="button" value="Hotel Report" onclick="location.href='#';"></td>
-			<td></td>
-			<td><input type="button" value="Logout" onclick="sendAlert();"></td>
-		</tr>
-	</table>
-	</div>
+		<h1 id="home"><a href="home.jsp">Home</a></h1>
+		
+		<div class="f1">
+		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
+		<h2>Welcome to the User portal !</h2>
+		<form action="booking.jsp" method="post">
+			<input type="submit" name="book" value="Book now">
+			<input type="submit" name="book" value="Search Booking">
+			<input type="submit" name="book" value="Booking Report">
+		</form><br>
+		<form action="tour&Hotel.jsp" method="post">
+			<input type="submit" name="t&h" value="View tours">
+			<input type="submit" name="t&h" value="Tour Report">
+			<input type="submit" name="t&h" value="Hotel Report">
+		</form>
+		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
+		</div>
 	<%} %>
 </body>
 </html>

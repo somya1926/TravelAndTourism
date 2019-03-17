@@ -11,7 +11,7 @@
 	Connection connection=null;%>
 
 	<%
-		String QUERY= "INSERT INTO userAccount (U_PASS,U_NAME,U_EMAIL,U_MOB)VALUES(?,?,?,?)";
+		String QUERY= "INSERT INTO userAccount (U_PASS,U_NAME,U_EMAIL,U_MOB) VALUES(?,?,?,?)";
 		PreparedStatement statement=null;
 		int updatecode=-1;
 		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
@@ -44,7 +44,7 @@
 		}catch(SQLIntegrityConstraintViolationException e){
 			e.printStackTrace();%>
 			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-				<FONT COLOR="Red" size=5 Face="verdana">Either of the user name, email or mobile number has be registered !</FONT>
+				<FONT COLOR="Red" size=5 Face="verdana">Either Email or Mobile number has already been registered !</FONT>
 				<BR>
 				<font Face="Comic Sans MS" size=3><A HREF="userReg.html">&lt;&lt; Back</A></font>
 			</P>

@@ -15,6 +15,6 @@
 		System.out.println("\nNothing to log out!\n");
 	}
 
-	response.sendRedirect("adminLogin.html");%>
+	response.sendRedirect("home.html");%>
 </body>
 </html>
