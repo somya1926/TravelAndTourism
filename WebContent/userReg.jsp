@@ -1,3 +1,4 @@
+<%@page import="org.sqlite.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.lang.*,java.sql.*,model.ConnectionFactory,java.io.File"%>
 <!DOCTYPE html>
@@ -41,6 +42,23 @@
 			statement.setLong(4, Long.parseLong((String)request.getParameter("phone")));
 			updatecode=statement.executeUpdate();
 			
+			if(updatecode>0){
+				System.out.println("Registration Successful !\n");%>
+			
+			<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+					<FONT COLOR="Green" size=5 Face="verdana">User Registration Successful !</FONT>
+					<BR>
+					<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Login Now</A></font>
+			</P>
+			
+			<%}else{%>
+				<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+					<FONT COLOR="Red" size=5 Face="verdana">User Registration Unsuccessful ! <br> Retry again.</FONT>
+					<BR>
+					<font Face="Comic Sans MS" size=3><A HREF="userReg.html">&lt;&lt; Back</A></font>
+				</P>
+			<%}
+			
 		}catch(SQLIntegrityConstraintViolationException e){
 			e.printStackTrace();%>
 			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
@@ -48,25 +66,16 @@
 				<BR>
 				<font Face="Comic Sans MS" size=3><A HREF="userReg.html">&lt;&lt; Back</A></font>
 			</P>
-		<%}catch(SQLException c){
-			c.printStackTrace();
-		}
-		
-		if(updatecode>0){
-			System.out.println("Registration Successful !\n");%>
-		
-		<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-				<FONT COLOR="Green" size=5 Face="verdana">User Registration Successful !</FONT>
-				<BR>
-				<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Login Now</A></font>
-		</P>
-		
-		<%}else{%>
+		<%}catch(SQLiteException e){
+			e.printStackTrace();%>
 			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-				<FONT COLOR="Red" size=5 Face="verdana">User Registration Unsuccessful ! <br> Retry again.</FONT>
+				<FONT COLOR="Red" size=5 Face="verdana">Either Email or Mobile number has already been registered !</FONT>
 				<BR>
 				<font Face="Comic Sans MS" size=3><A HREF="userReg.html">&lt;&lt; Back</A></font>
 			</P>
-		<%}%>
+		<%
+		}catch(SQLException c){
+			c.printStackTrace();
+		}%>
 </body>
 </html>

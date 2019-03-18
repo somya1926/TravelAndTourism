@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data-sources>
-	<data-source id="sqlite_jdbc-16971adbb0a-5e34b1319981205e" provider="generic" driver="sqlite_jdbc" name="SQLite - userInfo.db" save-password="true" read-only="false">
-		<connection server="" database="C:\Users\Rajarshi_Kundu\eclipse-workspace\TravelAndTourism\database\userInfo.db" url="jdbc:sqlite:C:\Users\Rajarshi_Kundu\eclipse-workspace\TravelAndTourism\database\userInfo.db" type="dev"/>
-	</data-source>
-	<filters/>
-</data-sources>

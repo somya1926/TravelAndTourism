@@ -75,9 +75,15 @@
 		    <input type="submit" name="hotel" value="View Hotels" >
 		</form><br>
 		<form action="misc.jsp" method="post">
-		    <input type="submit" name="misc" value="Allotment">
-		    <input type="submit" name="misc" value="View Allotments" >
-		    <input type="submit" name="misc" value=" Manage Users" >
+		    <!--input type="submit" name="misc" value="Allotment">
+		    <input type="submit" name="misc" value="View Allotments" -->
+		    <input type="submit" name="misc" value="Register User" 
+		    	title="Users/Admins both can be registered. ">
+		    <input type="submit" name="misc" value="Update User"
+		    	title="Users/Admins both can be updated.">
+		    <input type="submit" name="misc" value="Delete User"
+		    	title="Users/Admins both can be deleted.">
+		    <input type="submit" name="misc" value="Show Users">
 		</form><br>
 		
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">

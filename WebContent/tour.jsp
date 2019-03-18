@@ -1,9 +1,14 @@
-<%@page import="java.sql.*,model.*,java.io.File"%>
+
+<%@page import="java.sql.*,model.*,java.io.File,java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" session="true"%>
     <%! Statement statement=null; 
-    	ResultSet resultSet=null;
-    	Connection connection=null;%>
+    	ResultSet resultSetFetch=null;
+    	ResultSet resultSetPlace=null;
+    	ResultSet resultSetTID=null;
+    	Connection connection=null;
+    	List<String> places= new ArrayList<>();
+    	List<Integer> tid= new ArrayList<>();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,11 +78,20 @@
 			<BR>
 			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
-	<%}else{%>
+	<%}else{
+		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
+		connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
+		statement=connection.createStatement();%>
 	<h1 id="home"><a href="adminHome.jsp">Home</a></h1>
 	<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
 
-<% if(((String)request.getParameter("tour")).equals("Add Tour")){ %>
+<% if(((String)request.getParameter("tour")).equals("Add Tour")){ 
+	resultSetPlace=statement.executeQuery("SELECT T_PLACE FROM hotelInfo");
+	
+	places.clear();
+		while(resultSetPlace.next()){
+			places.add(resultSetPlace.getString(1));
+		}resultSetPlace.close();%>
 <!-- Add tour -->
 <form class="f1" action="#" method="post">
 <table>
@@ -94,97 +108,9 @@
 			<td>
 			<SELECT NAME="tPlace" required="required" title="Must be different from 2 and 3">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
-				<option value="A.S.Peta">A.S.Peta</option>
-				<option value="Ahmedabad">Ahmedabad</option>
-				<option value="Amalapuram">Amalapuram</option>
-				<option value="Ambaji">Ambaji</option>
-				<option value="Anakapalli">Anakapalli</option>
-				<option value="Anantapur">Anantapur</option>
-				<option value="Annavaram">Annavaram</option>
-				<option value="Atmakur">Atmakur</option>
-				<option value="Aurangabad">Aurangabad </option>
-				<option value="Bangalore">Bangalore</option>
-				<option value="Bapatla">Bapatla</option>
-				<option value="Bhopal">Bhopal</option>
-				<option value="Bhuj">Bhuj</option>
-				<option value="Chandigarh">Chandigarh </option>
-				<option value="Chennai">Chennai</option>
-				<option value="Chilakaluripet">Chilakaluripet</option>
-				<option value="Chirala">Chirala</option>
-				<option value="Cochin">Cochin</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Devarpalli">Devarpalli</option>
-				<option value="Gandhidham">Gandhidham </option>
-				<option value="Goa">Goa</option>
-				<option value="Gokavaram">Gokavaram</option>
-				<option value="Guduru">Guduru</option>
-				<option value="Guntur">Guntur</option>
-				<option value="Hubli">Hubli</option>
-				<option value="Hyderabad">Hyderabad</option>
-				<option value="Indore">Indore </option>
-				<option value="Inkollu">Inkollu</option>
-				<option value="Jaggampet">Jaggampet</option>
-				<option value="Jaipur">Jaipur</option>
-				<option value="Jammu">Jammu</option>
-				<option value="Jamnagar">Jamnagar </option>
-				<option value="Jangareddy Gudem">Jangareddy Gudem</option>
-				<option value="Kadapa">Kadapa</option>
-				<option value="Kakinada">Kakinada</option>
-				<option value="Kaligiri">Kaligiri</option>
-				<option value="Karimnagar">Karimnagar</option>
-				<option value="Kathipudi">Kathipudi</option>
-				<option value="Katra">Katra </option>
-				<option value="Kavali">Kavali</option>
-				<option value="Kolhapur">Kolhapur </option>
-				<option value="Kovvuru">Kovvuru</option>
-				<option value="Kurnool">Kurnool</option>
-				<option value="Mahabaleshwar">Mahabaleshwar</option>
-				<option value="Mahabalipuram">Mahabalipuram </option>
-				<option value="Manali">Manali </option>
-				<option value="Mangalore">Mangalore </option>
-				<option value="MountAbu">MountAbu</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Naidupeta">Naidupeta</option>
-				<option value="Narasaraopet">Narasaraopet</option>
-				<option value="Nasik">Nasik</option>
-				<option value="Nellore">Nellore</option>
-				<option value="Ongole">Ongole</option>
-				<option value="Palitana">Palitana </option>
-				<option value="Pangidi">Pangidi</option>
-				<option value="Peddapuram">Peddapuram</option>
-				<option value="Ponnur">Ponnur</option>
-				<option value="Pune">Pune</option>
-				<option value="Railway Koduru">Railway Koduru</option>
-				<option value="Raja Nagaram">Raja Nagaram</option>
-				<option value="Rajampet">Rajampet</option>
-				<option value="Rajamundry">Rajamundry</option>
-				<option value="Rajkot">Rajkot</option>
-				<option value="Rangampeta">Rangampeta</option>
-				<option value="Razole">Razole</option>
-				<option value="S.Konda">S.Konda</option>
-				<option value="Samarla Kota">Samarla Kota</option>
-				<option value="Sathenpalli">Sathenpalli</option>
-				<option value="Shiridi">Shiridi</option>
-				<option value="Shreenathji">Shreenathji </option>
-				<option value="Srikakulam">Srikakulam</option>
-				<option value="Srinagar">Srinagar </option>
-				<option value="Sullurupeta">Sullurupeta</option>
-				<option value="Surat">Surat</option>
-				<option value="Tenali">Tenali</option>
-				<option value="Thrissur">Thrissur </option>
-				<option value="Tiruchirapally">Tiruchirapally </option>
-				<option value="Tirupathi">Tirupathi</option>
-				<option value="Tuni">Tuni</option>
-				<option value="Udaipur">Udaipur</option>
-				<option value="Ujjain">Ujjain</option>
-				<option value="Ulavapadu">Ulavapadu</option>
-				<option value="Vadodara">Vadodara</option>
-				<option value="Vetapalem">Vetapalem</option>
-				<option value="Vijayanagaram">Vijayanagaram</option>
-				<option value="Vijayawada">Vijayawada</option>
-				<option value="Vinjamoor">Vinjamoor</option>
-				<option value="Vizag">Vizag</option>
-				<option value="Warangal">Warangal</option>
+				<%for (String s1 : places){%>
+					<option value="<%=s1%>"><%=s1%></option>
+				<%} %>
 			</select>
 			</td>
 		</tr>
@@ -192,98 +118,11 @@
 			<td>Tour Place 2:</td>
 			<td>
 			<SELECT NAME="tPlace" required="required" title="Must be different from 1 and 3">
+			<option value="null">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
-				<option value="A.S.Peta">A.S.Peta</option>
-				<option value="Ahmedabad">Ahmedabad</option>
-				<option value="Amalapuram">Amalapuram</option>
-				<option value="Ambaji">Ambaji</option>
-				<option value="Anakapalli">Anakapalli</option>
-				<option value="Anantapur">Anantapur</option>
-				<option value="Annavaram">Annavaram</option>
-				<option value="Atmakur">Atmakur</option>
-				<option value="Aurangabad">Aurangabad </option>
-				<option value="Bangalore">Bangalore</option>
-				<option value="Bapatla">Bapatla</option>
-				<option value="Bhopal">Bhopal</option>
-				<option value="Bhuj">Bhuj</option>
-				<option value="Chandigarh">Chandigarh </option>
-				<option value="Chennai">Chennai</option>
-				<option value="Chilakaluripet">Chilakaluripet</option>
-				<option value="Chirala">Chirala</option>
-				<option value="Cochin">Cochin</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Devarpalli">Devarpalli</option>
-				<option value="Gandhidham">Gandhidham </option>
-				<option value="Goa">Goa</option>
-				<option value="Gokavaram">Gokavaram</option>
-				<option value="Guduru">Guduru</option>
-				<option value="Guntur">Guntur</option>
-				<option value="Hubli">Hubli</option>
-				<option value="Hyderabad">Hyderabad</option>
-				<option value="Indore">Indore </option>
-				<option value="Inkollu">Inkollu</option>
-				<option value="Jaggampet">Jaggampet</option>
-				<option value="Jaipur">Jaipur</option>
-				<option value="Jammu">Jammu</option>
-				<option value="Jamnagar">Jamnagar </option>
-				<option value="Jangareddy Gudem">Jangareddy Gudem</option>
-				<option value="Kadapa">Kadapa</option>
-				<option value="Kakinada">Kakinada</option>
-				<option value="Kaligiri">Kaligiri</option>
-				<option value="Karimnagar">Karimnagar</option>
-				<option value="Kathipudi">Kathipudi</option>
-				<option value="Katra">Katra </option>
-				<option value="Kavali">Kavali</option>
-				<option value="Kolhapur">Kolhapur </option>
-				<option value="Kovvuru">Kovvuru</option>
-				<option value="Kurnool">Kurnool</option>
-				<option value="Mahabaleshwar">Mahabaleshwar</option>
-				<option value="Mahabalipuram">Mahabalipuram </option>
-				<option value="Manali">Manali </option>
-				<option value="Mangalore">Mangalore </option>
-				<option value="MountAbu">MountAbu</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Naidupeta">Naidupeta</option>
-				<option value="Narasaraopet">Narasaraopet</option>
-				<option value="Nasik">Nasik</option>
-				<option value="Nellore">Nellore</option>
-				<option value="Ongole">Ongole</option>
-				<option value="Palitana">Palitana </option>
-				<option value="Pangidi">Pangidi</option>
-				<option value="Peddapuram">Peddapuram</option>
-				<option value="Ponnur">Ponnur</option>
-				<option value="Pune">Pune</option>
-				<option value="Railway Koduru">Railway Koduru</option>
-				<option value="Raja Nagaram">Raja Nagaram</option>
-				<option value="Rajampet">Rajampet</option>
-				<option value="Rajamundry">Rajamundry</option>
-				<option value="Rajkot">Rajkot</option>
-				<option value="Rangampeta">Rangampeta</option>
-				<option value="Razole">Razole</option>
-				<option value="S.Konda">S.Konda</option>
-				<option value="Samarla Kota">Samarla Kota</option>
-				<option value="Sathenpalli">Sathenpalli</option>
-				<option value="Shiridi">Shiridi</option>
-				<option value="Shreenathji">Shreenathji </option>
-				<option value="Srikakulam">Srikakulam</option>
-				<option value="Srinagar">Srinagar </option>
-				<option value="Sullurupeta">Sullurupeta</option>
-				<option value="Surat">Surat</option>
-				<option value="Tenali">Tenali</option>
-				<option value="Thrissur">Thrissur </option>
-				<option value="Tiruchirapally">Tiruchirapally </option>
-				<option value="Tirupathi">Tirupathi</option>
-				<option value="Tuni">Tuni</option>
-				<option value="Udaipur">Udaipur</option>
-				<option value="Ujjain">Ujjain</option>
-				<option value="Ulavapadu">Ulavapadu</option>
-				<option value="Vadodara">Vadodara</option>
-				<option value="Vetapalem">Vetapalem</option>
-				<option value="Vijayanagaram">Vijayanagaram</option>
-				<option value="Vijayawada">Vijayawada</option>
-				<option value="Vinjamoor">Vinjamoor</option>
-				<option value="Vizag">Vizag</option>
-				<option value="Warangal">Warangal</option>
+				<%for (String s2 : places){%>
+					<option value="<%=s2%>"><%=s2%></option>
+				<%} %>
 			</select>
 			</td>
 		</tr>
@@ -292,97 +131,10 @@
 			<td>
 			<SELECT NAME="tPlace" required="required" title="Must be different from 1 and 2">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
-				<option value="A.S.Peta">A.S.Peta</option>
-				<option value="Ahmedabad">Ahmedabad</option>
-				<option value="Amalapuram">Amalapuram</option>
-				<option value="Ambaji">Ambaji</option>
-				<option value="Anakapalli">Anakapalli</option>
-				<option value="Anantapur">Anantapur</option>
-				<option value="Annavaram">Annavaram</option>
-				<option value="Atmakur">Atmakur</option>
-				<option value="Aurangabad">Aurangabad </option>
-				<option value="Bangalore">Bangalore</option>
-				<option value="Bapatla">Bapatla</option>
-				<option value="Bhopal">Bhopal</option>
-				<option value="Bhuj">Bhuj</option>
-				<option value="Chandigarh">Chandigarh </option>
-				<option value="Chennai">Chennai</option>
-				<option value="Chilakaluripet">Chilakaluripet</option>
-				<option value="Chirala">Chirala</option>
-				<option value="Cochin">Cochin</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Devarpalli">Devarpalli</option>
-				<option value="Gandhidham">Gandhidham </option>
-				<option value="Goa">Goa</option>
-				<option value="Gokavaram">Gokavaram</option>
-				<option value="Guduru">Guduru</option>
-				<option value="Guntur">Guntur</option>
-				<option value="Hubli">Hubli</option>
-				<option value="Hyderabad">Hyderabad</option>
-				<option value="Indore">Indore </option>
-				<option value="Inkollu">Inkollu</option>
-				<option value="Jaggampet">Jaggampet</option>
-				<option value="Jaipur">Jaipur</option>
-				<option value="Jammu">Jammu</option>
-				<option value="Jamnagar">Jamnagar </option>
-				<option value="Jangareddy Gudem">Jangareddy Gudem</option>
-				<option value="Kadapa">Kadapa</option>
-				<option value="Kakinada">Kakinada</option>
-				<option value="Kaligiri">Kaligiri</option>
-				<option value="Karimnagar">Karimnagar</option>
-				<option value="Kathipudi">Kathipudi</option>
-				<option value="Katra">Katra </option>
-				<option value="Kavali">Kavali</option>
-				<option value="Kolhapur">Kolhapur </option>
-				<option value="Kovvuru">Kovvuru</option>
-				<option value="Kurnool">Kurnool</option>
-				<option value="Mahabaleshwar">Mahabaleshwar</option>
-				<option value="Mahabalipuram">Mahabalipuram </option>
-				<option value="Manali">Manali </option>
-				<option value="Mangalore">Mangalore </option>
-				<option value="MountAbu">MountAbu</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Naidupeta">Naidupeta</option>
-				<option value="Narasaraopet">Narasaraopet</option>
-				<option value="Nasik">Nasik</option>
-				<option value="Nellore">Nellore</option>
-				<option value="Ongole">Ongole</option>
-				<option value="Palitana">Palitana </option>
-				<option value="Pangidi">Pangidi</option>
-				<option value="Peddapuram">Peddapuram</option>
-				<option value="Ponnur">Ponnur</option>
-				<option value="Pune">Pune</option>
-				<option value="Railway Koduru">Railway Koduru</option>
-				<option value="Raja Nagaram">Raja Nagaram</option>
-				<option value="Rajampet">Rajampet</option>
-				<option value="Rajamundry">Rajamundry</option>
-				<option value="Rajkot">Rajkot</option>
-				<option value="Rangampeta">Rangampeta</option>
-				<option value="Razole">Razole</option>
-				<option value="S.Konda">S.Konda</option>
-				<option value="Samarla Kota">Samarla Kota</option>
-				<option value="Sathenpalli">Sathenpalli</option>
-				<option value="Shiridi">Shiridi</option>
-				<option value="Shreenathji">Shreenathji </option>
-				<option value="Srikakulam">Srikakulam</option>
-				<option value="Srinagar">Srinagar </option>
-				<option value="Sullurupeta">Sullurupeta</option>
-				<option value="Surat">Surat</option>
-				<option value="Tenali">Tenali</option>
-				<option value="Thrissur">Thrissur </option>
-				<option value="Tiruchirapally">Tiruchirapally </option>
-				<option value="Tirupathi">Tirupathi</option>
-				<option value="Tuni">Tuni</option>
-				<option value="Udaipur">Udaipur</option>
-				<option value="Ujjain">Ujjain</option>
-				<option value="Ulavapadu">Ulavapadu</option>
-				<option value="Vadodara">Vadodara</option>
-				<option value="Vetapalem">Vetapalem</option>
-				<option value="Vijayanagaram">Vijayanagaram</option>
-				<option value="Vijayawada">Vijayawada</option>
-				<option value="Vinjamoor">Vinjamoor</option>
-				<option value="Vizag">Vizag</option>
-				<option value="Warangal">Warangal</option>
+				<option value="null">None</option>
+				<%for (String s3 : places){%>
+					<option value="<%=s3%>"><%=s3%></option>
+				<%} %>
 			</select>
 			</td>
 		</tr>
@@ -401,19 +153,43 @@
 	</table>
 	<br><input id="btn" type="submit" value="ADD">
 </form>
-<%}else  if(((String)request.getParameter("tour")).equals("Delete Tour")){%>
+<%}else  if(((String)request.getParameter("tour")).equals("Delete Tour")){
+resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
+	
+	tid.clear();
+		while(resultSetTID.next()){
+			tid.add(resultSetTID.getInt(1));
+		}resultSetTID.close();%>
 <!-- Delete tour -->
 <form action="#" class="f1" method="post">
-	Tour Id : <input type="number" required="required"><br><br>
+	Tour Id : <SELECT NAME="TID_D" required="required">
+				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
+				<%for (int i2 : tid){%>
+					<option value="t<%=i2%>">t<%=i2%></option>
+				<%} %>
+			</select><br><br>
 	<input id="btn" type="submit" value="DELETE">
 </form>
-<%}else if(((String)request.getParameter("tour")).equals("Update Tour")){ %>
+<%}else if(((String)request.getParameter("tour")).equals("Update Tour")){
+	resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
+	
+	tid.clear();
+		while(resultSetTID.next()){
+			tid.add(resultSetTID.getInt(1));
+		}resultSetTID.close();%>
 <!-- Update tour -->
 <form class="f1" action="#" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
-			<td><input type="number" required="required"></td>
+			<td>
+			<SELECT NAME="TID_U" required="required">
+				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
+				<%for (int i3 : tid){%>
+					<option value="t<%=i3%>">t<%=i3%></option>
+				<%} %>
+			</select>
+			</td>
 		</tr>
 		<tr>
 			<td>Total days:</td>
@@ -433,11 +209,7 @@
 
 <!-- View tours -->
 <%}else if(((String)request.getParameter("tour")).equals("View Tours")){ 
-	String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
-	connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
-	statement=connection.createStatement();
-	
-	resultSet=statement.executeQuery("SELECT * FROM tourInfo");%>
+	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
 	<div class="f1" style="overflow: auto;height: 35%; width: 48%;">
 	<table>
@@ -451,22 +223,22 @@
 				<td>T_PRICE</td>
 			</tr>
 	
-	<%while(resultSet.next()){%>
+	<%while(resultSetFetch.next()){%>
 			<tr>
-				<td><%=resultSet.getInt(1) %></td>
-				<td><%=resultSet.getString(2) %></td>
-				<td><%=resultSet.getString(3)%></td>
-				<td><%=resultSet.getString(4)%></td>
-				<td><%=resultSet.getString(5)%></td>
-				<td><%=resultSet.getInt(6)%></td>
-				<td><%=resultSet.getInt(7)%></td>
+				<td><%=resultSetFetch.getInt(1) %></td>
+				<td><%=resultSetFetch.getString(2) %></td>
+				<td><%=resultSetFetch.getString(3)%></td>
+				<td><%=resultSetFetch.getString(4)%></td>
+				<td><%=resultSetFetch.getString(5)%></td>
+				<td><%=resultSetFetch.getInt(6)%></td>
+				<td><%=resultSetFetch.getInt(7)%></td>
 			</tr>
-		<%} resultSet.close(); %>
+		<%} resultSetFetch.close(); %>
 		</table>
 		</div>
 		
-	<%}
-	} %>
+	<%}%>
 	<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
-</body>
+	<%} %>
+	</body>
 </html>
