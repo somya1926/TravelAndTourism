@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Validating User</title>
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 </head>
 <body>
 <%!boolean validResult=false;
@@ -51,7 +52,7 @@
 					<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 						<FONT COLOR="Red" size=5 Face="verdana">Administrators are prohibited from accessing the User Portal !</FONT>
 						<BR>
-						<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Back</A></font>
+						<font Face="Comic Sans MS" size=3><A HREF="userLogin.jsp">&lt;&lt; Back</A></font>
 					</P>
 				<%
 				}
@@ -62,7 +63,7 @@
 				<IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 				<FONT COLOR="Red" size=5 Face="verdana">SORRY! Invalid Email/password please try again</FONT>
 				<BR>
-				<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Back</A></font>
+				<font Face="Comic Sans MS" size=3><A HREF="userLogin.jsp">&lt;&lt; Back</A></font>
 				</P>
 				<%
 			}

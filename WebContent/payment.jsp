@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Payment Portal</title>
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 </head>
 <body>
 

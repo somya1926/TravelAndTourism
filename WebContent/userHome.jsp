@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>User Home</title>
 <script type="text/javascript">
 		function sendAlert(){
@@ -32,9 +33,6 @@
     text-align: center;
 
 	}
-	h2 {
-		font-family: sans-serif;
-	}
 	#logout{
 		width: 200px;
 	    padding: 10px;
@@ -49,7 +47,6 @@
 	</style>
 </head>
 <body>
-	<h1 id="home"><a href="home.html">Home</a></h1>
 		<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){
 	//session.invalidate(); response.sendRedirect("adminLogin.html"); %>
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
@@ -58,7 +55,7 @@
 			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{%>
-		<h1 id="home"><a href="home.jsp">Home</a></h1>
+		<h1 id="home"><a href="home.html">Home</a></h1>
 		
 		<div class="f1">
 		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>

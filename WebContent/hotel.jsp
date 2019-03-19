@@ -11,6 +11,7 @@
 <head>
 
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>Hotel portal</title>
 <script type="text/javascript">
 		function sendAlert(){
@@ -117,7 +118,7 @@
 	Hotel Id : <SELECT NAME="HID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
-					<option value="h<%=i%>">h<%=i%></option>
+					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
 			</select><br><br>
 	<input id="btn" type="submit" value="DELETE">
@@ -137,7 +138,7 @@
 			<td><SELECT NAME="HID_U" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
-					<option value="h<%=i%>">h<%=i%></option>
+					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
 			</select></td>
 		</tr>

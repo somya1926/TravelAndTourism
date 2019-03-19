@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>Admin Home</title>
 	<script type="text/javascript">
 		function sendAlert(){
@@ -30,7 +31,6 @@
     transform: translate(-50%, -50%);
     background: silver;
     text-align: center;
-
 	}
 	h2 {
 		font-family: sans-serif;

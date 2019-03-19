@@ -10,14 +10,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background: silver;
     text-align: center;
-
-	},
-	h2 {
-		font-family: sans-serif;
+    transform: translate(-50%, -50%);
 	}
+	
 	#login{
 		width: 150px;
     	padding: 5px;
@@ -26,12 +22,13 @@
     	font-size: 15px;
 	}
 </style>
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 </head>
 <body>
 	<form method="post" class="f1">
 	<h2>Welcome to travel and Tour</h2>
-	<input id="login" type="button" value="User Login" onclick="location.href='userLogin.html';"><br>
-	<input id="login" type="button" value="admin Login" onclick="location.href='adminLogin.html';">
+	<input id="login" type="button" value="User Login" onclick="location.href='userLogin.jsp';"><br>
+	<input id="login" type="button" value="admin Login" onclick="location.href='adminLogin.jsp';">
 	</form>
 </body>
 </html>

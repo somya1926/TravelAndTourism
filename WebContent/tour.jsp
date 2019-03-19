@@ -13,6 +13,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>Tour Portal</title>
 <script type="text/javascript">
 		function sendAlert(){
@@ -165,7 +166,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 	Tour Id : <SELECT NAME="TID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : tid){%>
-					<option value="t<%=i2%>">t<%=i2%></option>
+					<option value="<%=i2%>">t<%=i2%></option>
 				<%} %>
 			</select><br><br>
 	<input id="btn" type="submit" value="DELETE">
@@ -186,7 +187,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 			<SELECT NAME="TID_U" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i3 : tid){%>
-					<option value="t<%=i3%>">t<%=i3%></option>
+					<option value="<%=i3%>">t<%=i3%></option>
 				<%} %>
 			</select>
 			</td>

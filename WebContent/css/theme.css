@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image: url("../Images/india.jpg");
+	background-repeat: no-repeat;
+	background-position:top;
+	background-size: cover;
+}
+form, .f1{
+	background: silver;
+    opacity: 0.90;
+    border-radius: 10px;
+    border-width: thick;
+    border-color: #ff8a80;
+}h2 {
+		font-family: sans-serif;
+}#logout{
+	border-radius: 20px;
+	background-color: #f57c00;
+}

@@ -12,6 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>Miscellaneous Tasks</title>
 <script type="text/javascript">
 		function sendAlert(){
@@ -166,7 +167,7 @@
 					<SELECT NAME="UID_U" required="required" title="Must be different from 2 and 3">
 					<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 					<%for (int i1 : uid){%>
-						<option value="u<%=i1%>">u<%=i1%></option>
+						<option value="<%=i1%>">u<%=i1%></option>
 					<%} %>
 					</select>
 				</td>
