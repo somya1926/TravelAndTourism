@@ -62,13 +62,11 @@
 		<h2>Welcome to the User portal !</h2>
 		<form action="booking.jsp" method="post">
 			<input type="submit" name="book" value="Book now">
-			<input type="submit" name="book" value="Search Booking">
+			<input type="submit" name="book" value="Booking History">
 			<input type="submit" name="book" value="Booking Report">
-		</form><br>
-		<form action="tour&Hotel.jsp" method="post">
-			<input type="submit" name="t&h" value="View tours">
-			<input type="submit" name="t&h" value="Tour Report">
-			<input type="submit" name="t&h" value="Hotel Report">
+			<br>
+			<input type="submit" name="book" value="View Tours">
+			<input type="submit" name="book" value="Cancel Booking">
 		</form>
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>
