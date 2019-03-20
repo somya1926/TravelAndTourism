@@ -2,7 +2,8 @@
 <%@page import="java.sql.*,model.*,java.io.File,java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="true"%>
-    <%! Statement statement=null; 
+    <%! Statement statement=null;
+    	Statement statement2=null;
     	ResultSet resultSetFetch=null;
     	ResultSet resultSetPlace=null;
     	ResultSet resultSetTID=null;
@@ -14,19 +15,18 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Tour Portal</title>
 <script type="text/javascript" src="scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
-	    padding: 40px;
+	    padding: 20px;
 	    position: absolute;
-	    top:20%;
-    	left: 50%;
+	    top:60px;
+    	left: 44%;
     	transform: translate(-20%, -60%);
+    	align-items: center;
+    	text-align: center;
 	}
 	.f1{
 	width: 300px;
@@ -38,17 +38,13 @@
     background: silver;
     text-align: center;
 	}
-	h2 {
-		align-content:center;
-		transform: translate(45%, 90%);
-	}
 	#logout{
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:20%;
-    	left: 50%;
-    	transform: translate(-50%, 900%);
+	    top:90%;
+    	left: 580px;
+    	
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
@@ -72,10 +68,13 @@
 	<%}else{
 		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
 		connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
-		statement=connection.createStatement();%>
-	<h1 id="home"><a href="adminHome.jsp">Home</a></h1>
-	<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
-
+		statement=connection.createStatement();
+		statement2=connection.createStatement();%>
+		<div id="home">
+			<h1><a href="adminHome.jsp">Home</a></h1>
+			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
+		</div>
+			
 <% if(((String)request.getParameter("tour")).equals("Add Tour")){ 
 	resultSetPlace=statement.executeQuery("SELECT T_PLACE FROM hotelInfo");
 	
@@ -84,20 +83,20 @@
 			places.add(resultSetPlace.getString(1));
 		}resultSetPlace.close();%>
 <!-- Add tour -->
-<form class="f1" action="#" method="post">
+<form class="f1" action="tourFunc.jsp" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
-			<td><input type="number" required="required"></td>
+			<td><input NAME="tID_a" type="number" placeholder="Auto genetated"></td>
 		</tr>
 		<tr>
 			<td>Tour Name:</td>
-			<td><input type="text" required="required"></td>
+			<td><input NAME="tName_a" type="text" required="required"></td>
 		</tr>
 		<tr>
 			<td>Tour Place 1:</td>
 			<td>
-			<SELECT NAME="tPlace" required="required" title="Must be different from 2 and 3">
+			<SELECT NAME="tPlace_a1" required="required" title="Must be different from 2 and 3">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s1 : places){%>
 					<option value="<%=s1%>"><%=s1%></option>
@@ -108,7 +107,7 @@
 		<tr>
 			<td>Tour Place 2:</td>
 			<td>
-			<SELECT NAME="tPlace" required="required" title="Must be different from 1 and 3">
+			<SELECT NAME="tPlace_a2" required="required" title="Must be different from 1 and 3">
 			<option value="null">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s2 : places){%>
@@ -120,7 +119,7 @@
 		<tr>
 			<td>Tour Place 3:</td>
 			<td>
-			<SELECT NAME="tPlace" required="required" title="Must be different from 1 and 2">
+			<SELECT NAME="tPlace_a3" required="required" title="Must be different from 1 and 2">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<option value="null">None</option>
 				<%for (String s3 : places){%>
@@ -131,18 +130,14 @@
 		</tr>
 		<tr>
 			<td>Total days:</td>
-			<td><input type="number" required="required"></td>
-		</tr>
-		<tr>
-			<td>Tour date:</td>
-			<td><input type="text" required="required" id="datepicker" placeholder="YYYY-MM-DD"></td>
+			<td><input NAME="tDays_a" type="number" required="required"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
-			<td><input type="number" required="required"></td>
+			<td><input NAME="tPrice_a" type="number" required="required"></td>
 		</tr>
 	</table>
-	<br><input id="btn" type="submit" value="ADD">
+	<br><input id="btn" type="submit" name="tourFun" value="ADD">
 </form>
 <%}else  if(((String)request.getParameter("tour")).equals("Delete Tour")){
 resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
@@ -152,50 +147,96 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 			tid.add(resultSetTID.getInt(1));
 		}resultSetTID.close();%>
 <!-- Delete tour -->
-<form action="#" class="f1" method="post">
+<form action="tourFunc.jsp" class="f1" method="post">
 	Tour Id : <SELECT NAME="TID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : tid){%>
 					<option value="<%=i2%>">t<%=i2%></option>
 				<%} %>
-			</select><br><br>
-	<input id="btn" type="submit" value="DELETE">
+			</select><br>
+			<input type="submit" value="Overview"><br><br>
+	<input id="btn" type="submit" name="tourFun" value="DELETE">
 </form>
 <%}else if(((String)request.getParameter("tour")).equals("Update Tour")){
-	resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
+	resultSetTID=statement2.executeQuery("SELECT T_ID FROM tourInfo");
+	resultSetPlace=statement.executeQuery("SELECT T_PLACE FROM hotelInfo");
 	
-	tid.clear();
+		places.clear();
+		while(resultSetPlace.next()){
+			places.add(resultSetPlace.getString(1));
+		}
+		resultSetPlace.close();
+	
+		tid.clear();
 		while(resultSetTID.next()){
 			tid.add(resultSetTID.getInt(1));
-		}resultSetTID.close();%>
+		}
+		resultSetTID.close();%>
 <!-- Update tour -->
-<form class="f1" action="#" method="post">
+<form class="f1" action="tourFunc.jsp" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
 			<td>
-			<SELECT NAME="TID_U" required="required">
+			<select NAME="TID_U" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
-				<%for (int i3 : tid){%>
-					<option value="<%=i3%>">t<%=i3%></option>
+				<%for (int i4 : tid){%>
+					<option value="<%=i4%>">t<%=i4%></option>
+				<%} %>
+			</select><br>
+			<input type="submit" value="Overview" >
+			</td>
+		</tr>
+		<tr>
+			<td>Tour Name:</td>
+			<td><input NAME="tName_u" type="text" required="required"></td>
+		</tr>
+		<tr>
+			<td>Tour Place 1:</td>
+			<td>
+			<SELECT NAME="tPlace_u1" required="required" title="Must be different from 2 and 3">
+				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
+				<%for (String s1 : places){%>
+					<option value="<%=s1%>"><%=s1%></option>
 				<%} %>
 			</select>
 			</td>
 		</tr>
 		<tr>
-			<td>Total days:</td>
-			<td><input type="number" required="required"></td>
+			<td>Tour Place 2:</td>
+			<td>
+			<SELECT NAME="tPlace_u2" required="required" title="Must be different from 1 and 3">
+			<option value="null">None</option>
+				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
+				<%for (String s2 : places){%>
+					<option value="<%=s2%>"><%=s2%></option>
+				<%} %>
+			</select>
+			</td>
 		</tr>
 		<tr>
-			<td>Tour date:</td>
-			<td><input type="text" id="datepicker" required="required" placeholder="YYYY-MM-DD"></td>
+			<td>Tour Place 3:</td>
+			<td>
+			<SELECT NAME="tPlace_u3" required="required" title="Must be different from 1 and 2">
+				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
+				<option value="null">None</option>
+				<%for (String s3 : places){%>
+					<option value="<%=s3%>"><%=s3%></option>
+				<%} %>
+			</select>
+			</td>
+		</tr>
+		<tr>
+		<tr>
+			<td>Total days:</td>
+			<td><input type="number" name="tDays_u" required="required"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
-			<td><input type="number" required="required"></td>
+			<td><input type="number" NAME="tPrice_u" required="required"></td>
 		</tr>
 	</table>
-	<br><input id="btn" type="submit" value="UPDATE">
+	<br><input id="btn" type="submit" name="tourFun" value="UPDATE">
 </form>
 
 <!-- View tours -->

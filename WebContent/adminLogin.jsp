@@ -48,20 +48,15 @@
 					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					required="required"
 					title="Enter a valid emailID !"><br></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
 				<td><input type="password" name="adminPass"
 				required="required" title="Required field !"><br></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><br><input id="login" type="submit" value="Login"></td>
-				<td></td>
+
 			</tr>
 		</table>
+		<input id="login" type="submit" value="Login">
 	</form>
 	<%} %>
 </body>

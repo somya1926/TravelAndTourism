@@ -49,26 +49,17 @@
 					required="required"
 					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					title="Required field !"><br></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
 				<td><input type="password" name="userPass"
 					required="required"
 					title="Required field !"><br></td>
-				<td></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td><br><input id="login" type="submit" value="Login"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><a href="userReg.html">Register Now</a></td>
-				<td></td>
-			</tr>
-		</table>
+			</table>
+			<input id="login" type="submit" value="Login"><br>
+			<a href="userReg.html">Register Now</a>
+		
 	</form>
 	<%} %>
 </body>
