@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Payment Portal</title>
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
-<script type="text/javascript">
-		function sendAlert(){
-			if (confirm("Are you sure you want to logout ?")) {
-				location.href='logout.jsp'
-			} 
-		}
-	</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+<title>Payment Portal</title>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -33,7 +32,6 @@
 	}
 	h2 {
 		align-content:center;
-		font-family: sans-serif;
 		transform: translate(45%, 90%);
 	}
 	#logout{
@@ -54,14 +52,10 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
-	table, th, td{
-        border: 1px solid #666;
-    }
-    table th, table td{
-        padding: 10px; /* Apply cell padding */
+    .ui-datepicker-calendar {
+    	display: none;
     }
 	</style>
-<link rel="stylesheet" type="text/css" href="css/theme.css">
 </head>
 <body>
 	<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){%>
@@ -86,7 +80,7 @@
 			</tr>
 			<tr>
 				<td>Expire Date:</td>
-				<td><input type="date"></td>
+				<td><input type="text" id="expiryDate" placeholder="MM/YY"></td>
 			</tr>
 			<tr>
 				<td>CVV No:</td>

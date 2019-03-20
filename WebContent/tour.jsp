@@ -1,7 +1,7 @@
 
 <%@page import="java.sql.*,model.*,java.io.File,java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="true"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" session="true"%>
     <%! Statement statement=null; 
     	ResultSet resultSetFetch=null;
     	ResultSet resultSetPlace=null;
@@ -12,16 +12,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Tour Portal</title>
-<script type="text/javascript">
-		function sendAlert(){
-			if (confirm("Are you sure you want to logout ?")) {
-				location.href='logout.jsp'
-			} 
-		}
-	</script>
+<script type="text/javascript" src="scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -43,7 +40,6 @@
 	}
 	h2 {
 		align-content:center;
-		font-family: sans-serif;
 		transform: translate(45%, 90%);
 	}
 	#logout{
@@ -64,12 +60,6 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
-	table, th, td{
-        border: 1px solid #666;
-    }
-    table th, table td{
-        padding: 10px; /* Apply cell padding */
-    }
 	</style>
 </head>
 <body>
@@ -145,7 +135,7 @@
 		</tr>
 		<tr>
 			<td>Tour date:</td>
-			<td><input type="date" required="required"></td>
+			<td><input type="text" required="required" id="datepicker" placeholder="YYYY-MM-DD"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
@@ -198,7 +188,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		</tr>
 		<tr>
 			<td>Tour date:</td>
-			<td><input type="date" required="required"></td>
+			<td><input type="text" id="datepicker" required="required" placeholder="YYYY-MM-DD"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>

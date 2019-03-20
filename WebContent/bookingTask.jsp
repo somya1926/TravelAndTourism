@@ -17,8 +17,7 @@
 
 	<h1 id="home"><a href="userHome.jsp">Home</a></h1>
 	<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
-	To be implemented.....
-	<jsp:forward page="payment.jsp"></jsp:forward>
-<%} %>
+	To be implemented.....<%
+	response.sendRedirect("payment.jsp");} %>
 </body>
 </html>

@@ -24,10 +24,6 @@
     transform: translate(-50%, -50%);
     background: silver;
     text-align: center;
-
-	}
-	h2 {
-		font-family: sans-serif;
 	}
 	#login{
 		width: 150px;

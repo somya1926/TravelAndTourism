@@ -26,9 +26,6 @@
     text-align: center;
 
 	}
-	h2 {
-		font-family: sans-serif;
-	}
 	#login{
 		width: 150px;
     	padding: 5px;

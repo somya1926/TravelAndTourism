@@ -6,13 +6,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>Admin Home</title>
-	<script type="text/javascript">
-		function sendAlert(){
-			if (confirm("Are you sure you want to logout ?")) {
-				location.href='logout.jsp'
-			} 
-		}
-	</script>
+<script type="text/javascript" src="scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -31,9 +25,6 @@
     transform: translate(-50%, -50%);
     background: silver;
     text-align: center;
-	}
-	h2 {
-		font-family: sans-serif;
 	}
 	#logout{
 		width: 200px;

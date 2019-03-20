@@ -13,13 +13,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>Hotel portal</title>
-<script type="text/javascript">
-		function sendAlert(){
-			if (confirm("Are you sure you want to logout ?")) {
-				location.href='logout.jsp'
-			} 
-		}
-	</script>
+<script type="text/javascript" src="scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 30%;
@@ -42,7 +36,6 @@
 	}
 	h2 {
 		align-content:center;
-		font-family: sans-serif;
 		transform: translate(45%, 90%);
 	}
 	#logout{
@@ -63,12 +56,6 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
-	table, th, td{
-        border: 1px solid #666;
-    }
-    table th, table td{
-        padding: 10px; /* Apply cell padding */
-    }
 	</style>
 </head>
 <body>

@@ -6,13 +6,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
 <title>User Home</title>
-<script type="text/javascript">
-		function sendAlert(){
-			if (confirm("Are you sure you want to logout ?")) {
-				location.href='logout.jsp'
-			} 
-		}
-	</script>
+<script type="text/javascript" src="scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -67,6 +61,7 @@
 			<br>
 			<input type="submit" name="book" value="View Tours">
 			<input type="submit" name="book" value="Cancel Booking">
+			<input type="submit" name="book" value="Payment Report">
 		</form>
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>

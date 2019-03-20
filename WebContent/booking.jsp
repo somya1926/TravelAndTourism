@@ -10,19 +10,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Booking Portal</title>
-<script type="text/javascript">
-		function sendAlert(){
-			if (confirm("Are you sure you want to logout ?")) {
-				location.href='logout.jsp';
-			} 
-		};
-		function sendPrompt() {
-			if (confirm("Book Now ?")) {
-				location.href='booking.jsp';
-			} 
-		}
-	</script>
+<script type="text/javascript" src="scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -44,7 +36,6 @@
 	}
 	h2 {
 		align-content:center;
-		font-family: sans-serif;
 		transform: translate(45%, 90%);
 	}
 	#logout{
@@ -65,12 +56,7 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
-	table, th, td{
-        border: 1px solid #666;
-    }
-    table th, table td{
-        padding: 10px; /* Apply cell padding */
-    }
+
 	</style>
 </head>
 <body>
@@ -112,7 +98,7 @@
 		</tr>
 		<tr>
 			<td>Tour Date:</td>
-			<td><input type="date"></td>
+			<td><input type="text" id="datepicker" placeholder="YYYY-MM-DD"></td>
 		</tr>
 		<tr>
 			<td>Total Persons:</td>
