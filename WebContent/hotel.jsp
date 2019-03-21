@@ -75,23 +75,23 @@
 
 <% if(((String)request.getParameter("hotel")).equals("Add Hotel")){ %>
 <!-- Add hotel -->
-<form class="f1" action="#" method="post">
+<form class="f1" action="hotelFunc.jsp" method="post">
 <table>
 		<tr>
 			<td>Hotel ID:</td>
-			<td><input type="number" placeholder=" May be blank."
+			<td><input type="number" name="hID_a" placeholder="Auto Generated"
 					title="Leave it blank for auto generation."></td>
 		</tr>
 		<tr>
 			<td>Hotel Name:</td>
-			<td><input type="text" required="required"></td>
+			<td><input name="hName_a" type="text" required="required"></td>
 		</tr>
 		<tr>
 			<td>Tour Place:</td>
-			<td><input type="text" required="required"></td>
+			<td><input name="hPlace_a" type="text" required="required"></td>
 		</tr>
 	</table>
-	<br><input id="btn" type="submit" value="ADD">
+	<br><input id="btn" type="submit" name="hotelFun" value="ADD">
 </form>
 <%}else if(((String)request.getParameter("hotel")).equals("Delete Hotel")){ 
 	resultSetHotel=statement.executeQuery("SELECT * FROM hotelInfo");
@@ -101,14 +101,15 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Delete hotel -->
-<form action="#" class="f1" method="post">
-	Hotel Id : <SELECT NAME="HID_D" required="required">
+<form action="hotelFunc.jsp" class="f1" method="post">
+	Hotel Id : <SELECT NAME="hID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
 					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
-			</select><br><br>
-	<input id="btn" type="submit" value="DELETE">
+			</select><br>
+			<input type="submit" value="overview"><br><br>
+	<input id="btn" type="submit" name="hotelFun" value="DELETE">
 </form>
 <%}else if(((String)request.getParameter("hotel")).equals("Update Hotel")){ 
 	resultSetHotel=statement.executeQuery("SELECT * FROM hotelInfo");
@@ -118,27 +119,30 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Update hotel -->
-<form class="f1" action="#" method="post">
+<form class="f1" action="hotelFunc.jsp" method="post">
 <table>
 		<tr>
 			<td>Hotel ID:</td>
-			<td><SELECT NAME="HID_U" required="required">
+			<td><SELECT NAME="hID_u" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
 					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
-			</select></td>
+			</select><br>
+			<input type="submit" value="overview">
+			</td>
+			
 		</tr>
 		<tr>
 			<td>Hotel Name:</td>
-			<td><input type="text" required="required"></td>
+			<td><input type="text" name="hName_u" required="required"></td>
 		</tr>
 		<tr>
 			<td>Tour Place:</td>
-			<td><input type="text" required="required"></td>
+			<td><input type="text" name="hPalce_u" required="required"></td>
 		</tr>
 	</table>
-	<br><input id="btn" type="submit" value="UPDATE">
+	<br><input id="btn" type="submit" name="hotelFun" value="UPDATE">
 </form>
 
 <!-- View hotels -->
@@ -146,11 +150,11 @@
 	resultSet=statement.executeQuery("SELECT * FROM hotelInfo");%>
 	
 	<div class="f1" style="overflow: auto;height: 45%; width: 22%;">
-	<table>
+	<table id="t1">
 			<tr>
-				<td>H_ID</td>
-				<td>H_NAME</td>
-				<td>T_PLACE</td>
+				<th>H_ID</th>
+				<th>H_NAME</th>
+				<th>T_PLACE</th>
 			</tr>
 	
 	<%while(resultSet.next()){%>

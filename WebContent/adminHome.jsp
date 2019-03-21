@@ -40,13 +40,15 @@
 	</style>
 </head>
 <body>
-	  <%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){%>
+	  <%if(session.getAttribute("name")==null){%>
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
 			<BR>
 			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{%>
+		
+		
 		<h1 id="home"><a href="home.html">Home</a></h1>
 		
 		<div class="f1">
@@ -68,12 +70,9 @@
 		<form action="misc.jsp" method="post">
 		    <!--input type="submit" name="misc" value="Allotment">
 		    <input type="submit" name="misc" value="View Allotments" -->
-		    <input type="submit" name="misc" value="Register User" 
-		    	title="Users/Admins both can be registered. ">
-		    <input type="submit" name="misc" value="Update User"
-		    	title="Users/Admins both can be updated.">
-		    <input type="submit" name="misc" value="Delete User"
-		    	title="Users/Admins both can be deleted.">
+		    <input type="submit" name="misc" value="Cancel Booking">
+		    <input type="submit" name="misc" value="Show Bookings">
+		    <input type="submit" name="misc" value="Show Payments">
 		    <input type="submit" name="misc" value="Show Users">
 		</form><br>
 		

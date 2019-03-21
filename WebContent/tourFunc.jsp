@@ -9,6 +9,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<script type="text/javascript" src="scripts/main.js"></script>
 <title>Tour Function</title>
 </head>
 <body>
@@ -29,8 +31,8 @@
 			
 			if(place_1.equals(place_2) || place_1.equals(place_3) || place_2.equals(place_3)){
 				%>
-				<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-					<FONT COLOR="Red" size=5 Face="verdana">All three places must be unique !</FONT>
+				<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+					<FONT COLOR="#fb8c00" size=5 Face="verdana">All three places must be unique !</FONT>
 					<BR>
 					<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
 				</P>
@@ -38,10 +40,10 @@
 			}else{
 				statement=connection.prepareStatement(
 						"INSERT INTO tourInfo (T_NAME, T_PLACE_1, T_PLACE_2, T_PLACE_3, T_DAYS, T_PRICE) VALUES(?,?,?,?,?,?)");
-				statement.setString(1, request.getParameter("tName_a"));
-				statement.setString(2, request.getParameter("tPlace_a1"));
-				statement.setString(3, request.getParameter("tPlace_a2"));
-				statement.setString(4, request.getParameter("tPlace_a3"));
+				statement.setString(1, (String)request.getParameter("tName_a"));
+				statement.setString(2, (String)request.getParameter("tPlace_a1"));
+				statement.setString(3, (String)request.getParameter("tPlace_a2"));
+				statement.setString(4, (String)request.getParameter("tPlace_a3"));
 				statement.setInt(5, Integer.parseInt((String)request.getParameter("tDays_a")));
 				statement.setInt(6, Integer.parseInt(request.getParameter("tPrice_a")));
 				
@@ -89,10 +91,10 @@
 			}else{
 			statement=connection.prepareStatement(
 					"UPDATE tourInfo SET T_NAME=?, T_PLACE_1=?, T_PLACE_2=?, T_PLACE_3=?, T_DAYS=?,T_PRICE=? WHERE T_ID=?");
-			statement.setString(1, request.getParameter("tName_u"));
-			statement.setString(2, request.getParameter("tPlace_u1"));
-			statement.setString(3, request.getParameter("tPlace_u2"));
-			statement.setString(4, request.getParameter("tPlace_u3"));
+			statement.setString(1, (String)request.getParameter("tName_u"));
+			statement.setString(2, (String)request.getParameter("tPlace_u1"));
+			statement.setString(3, (String)request.getParameter("tPlace_u2"));
+			statement.setString(4, (String)request.getParameter("tPlace_u3"));
 			statement.setInt(5, Integer.parseInt((String)request.getParameter("tDays_u")));
 			statement.setInt(6, Integer.parseInt(request.getParameter("tPrice_u")));
 			statement.setInt(7, Integer.parseInt(request.getParameter("TID_U")));

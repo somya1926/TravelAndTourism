@@ -18,11 +18,13 @@
 <style type="text/css">
 #home{
 		width: 300px;
-	    padding: 40px;
+	    padding: 20px;
 	    position: absolute;
-	    top:20%;
-    	left: 50%;
+	    top:60px;
+    	left: 44%;
     	transform: translate(-20%, -60%);
+    	align-items: center;
+    	text-align: center;
 	}
 	.f1{
 	width: 300px;
@@ -36,7 +38,6 @@
 	}
 	h2 {
 		align-content:center;
-		transform: translate(45%, 90%);
 	}
 	#logout{
 		width: 200px;
@@ -75,166 +76,34 @@
 		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
 		connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
 		statement=connection.createStatement();%>
-	<h1 id="home"><a href="adminHome.jsp">Home</a></h1>
-	<h2>Hi, <%=(String)session.getAttribute("name") %></h2><br>
+	<div id="home">
+			<h1><a href="adminHome.jsp">Home</a></h1>
+			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
+		</div>
 	
-		<% if(((String)request.getParameter("misc")).equals("Register User")){ %>
-		<!-- Register users -->
+		<% if(((String)request.getParameter("misc")).equals("Cancel Booking")){ %>
+		<!-- Delete Booking -->
 		
-	<form action="#" class="f1" method="post">
-		<table>
-			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="email"
-						title="Enter a valid Email Address!"
-						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-						required="required">
-				</td>
-
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type="password"
-					name="pass"
-					required="required"
-					title="Required field !">
-				</td>
-			</tr>
-			<tr>
-				<td> Confirm Password:</td>
-				<td><input type="password"
-						name="cPass"
-						required="required"
-						title="Required field !">
-				</td>
-			</tr>
-			<tr>
-				<td>Name:</td>
-				<td><input type="text" name="name"
-						required="required"
-						title="Required field !">
-				</td>
-			</tr>
-			<tr>
-				<td>Mobile No:</td>
-				<td><input type="text"
-						name="phone" 
-						pattern="[1-9]{1}[0-9]{9}"
-						required="required"
-						title="Enter a valid 10 digit Mobile Number !">
-				</td>
-			<tr>
-				<td>Account type:</td>
-				<td>
-				<SELECT NAME="AUTH" required="required">
-					<option value="perm" disabled="disabled" selected="selected">Permission</option>
-					<option value="0">User</option>
-					<option value="1">Admin</option>
-				</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<input type="submit" id="reg" value="Register">
-	</form>
-		
-		<%}else  if(((String)request.getParameter("misc")).equals("Update User")){
-		resultSetUID=statement.executeQuery("SELECT U_ID FROM userAccount");
-	
-		uid.clear();
-			while(resultSetUID.next()){
-				uid.add(resultSetUID.getInt(1));
-			}resultSetUID.close();%>
-		<!-- Update Users -->
-			<form action="#" class="f1" method="post">
-		<table>
-			<tr>
-				<td>User ID:</td>
-				<td>
-					<SELECT NAME="UID_U" required="required" title="Must be different from 2 and 3">
-					<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
-					<%for (int i1 : uid){%>
-						<option value="<%=i1%>">u<%=i1%></option>
-					<%} %>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="email"
-						title="Enter a valid Email Address!"
-						pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-						required="required">
-				</td>
-
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type="password"
-						name="pass"
-						required="required"
-						title="Required field !">
-				</td>
-			</tr>
-			<tr>
-				<td>Name:</td>
-				<td><input type="text" name="name"
-						required="required"
-						title="Required field !">
-				</td>
-			</tr>
-			<tr>
-				<td>Mobile No:</td>
-				<td><input type="text"
-						name="phone" 
-						pattern="[1-9]{1}[0-9]{9}"
-						required="required"
-						title="Enter a valid 10 digit Mobile Number !">
-				</td>
-			<tr>
-				<td>Account type:</td>
-				<td>
-				<SELECT NAME="AUTH" required="required">
-					<option value="perm" disabled="disabled" selected="selected">Permission</option>
-					<option value="0">User</option>
-					<option value="1">Admin</option>
-				</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<input type="submit" id="reg" value="Register">
-	</form>
-		<%}else if(((String)request.getParameter("misc")).equals("Delete User")){
-		resultSetUEmail=statement.executeQuery("SELECT U_EMAIL FROM userAccount");
-	
-		uEmail.clear();
-		while(resultSetUEmail.next()){
-			uEmail.add(resultSetUEmail.getString(1));
-		}resultSetUEmail.close();%>
-		<!-- Delete users -->
-			<form action="#" class="f1" method="post">
-				User Email : <SELECT NAME="UID_D" required="required">
-				<option value="select-mail" disabled="disabled" selected="selected">Select Email</option>
-				<%for (String s1 : uEmail){%>
-					<option value="<%=s1%>"><%=s1%></option>
-				<%} %>
-			</select><br><br>
-		<input id="btn" type="submit" value="DELETE">
-	</form>
+		<%}else  if(((String)request.getParameter("misc")).equals("Show Bookings")){%>
+		<!-- Show Bookings -->
+			
+		<%}else if(((String)request.getParameter("misc")).equals("Show Payments")){%>
+		<!-- Show Payments -->
+			
+			
 		<!-- Show Users. -->
 		<%}else if(((String)request.getParameter("misc")).equals("Show Users")){
 		
 		resultSetFetch=statement.executeQuery("SELECT U_ID, U_NAME, U_EMAIL, U_MOB, U_ADMIN FROM userAccount");%>
 		
 		<div class="f1" style="overflow: auto;height: 39%; width: 39%;">
-		<table>
+		<table id="t1">
 				<tr>
-					<td>U_ID</td>
-					<td>U_NAME</td>
-					<td>U_EMAIL</td>
-					<td>U_MOB</td>
-					<td>U_ADMIN</td>
+					<th>U_ID</th>
+					<th>U_NAME</th>
+					<th>U_EMAIL</th>
+					<th>U_MOB</th>
+					<th>U_ADMIN</th>
 				</tr>
 		
 		<%while(resultSetFetch.next()){%>
@@ -242,13 +111,14 @@
 					<td><%=resultSetFetch.getInt(1) %></td>
 					<td><%=resultSetFetch.getString(2) %></td>
 					<td><%=resultSetFetch.getString(3)%></td>
-					<td><%=resultSetFetch.getInt(4)%></td>
+					<td><%=resultSetFetch.getLong(4)%></td>
 					<td><%=resultSetFetch.getInt(5)%></td>
 				</tr>
 			<%} resultSetFetch.close(); %>
 			</table>
 			</div>
-			<p style="font-size: 12px;  width: 600px; padding: 10px; position: absolute; top:75%; left: 30%;font-family: cursive;">
+			<p style="font-size: 12px;  width: 600px;  position: absolute ;
+				top:75%; left: 28%;font-family: cursive; background-color:#eeff41;" >
 				<mark><b>*NOTE:</b></mark> Administrators are prohibited form acessing the passwords due to privacy concern.
 			</p>
 		<%} %>

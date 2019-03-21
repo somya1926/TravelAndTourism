@@ -36,9 +36,20 @@
 	</style>
 </head>
 <body>
-<%if(session.getAttribute("name")!=null && (int)session.getAttribute("auth")==0){
-	response.sendRedirect("userHome.jsp");
+<%if(session.getAttribute("name")!=null){
+	if((int)session.getAttribute("auth")==0)
+		response.sendRedirect("userHome.jsp");
+	else{
+		%>
+		<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+			<FONT COLOR="#fb8c00" size=5 Face="verdana">Admin already logged in !</FONT>
+			<BR>
+			<font Face="Comic Sans MS" size=3><A HREF="home.html">&lt;&lt; Back</A></font>
+		</P>
+		<%
+	}
 }else{%>
+
 <h1 id="home"><a href="home.html">Home</a></h1>
 	<form action="validateUser.jsp" class="f1" method="post">
 		<h2>User Login Portal</h2>

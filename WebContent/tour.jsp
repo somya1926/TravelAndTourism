@@ -87,7 +87,7 @@
 <table>
 		<tr>
 			<td>Tour ID:</td>
-			<td><input NAME="tID_a" type="number" placeholder="Auto genetated"></td>
+			<td><input NAME="tID_a" type="number" placeholder="Auto generated"></td>
 		</tr>
 		<tr>
 			<td>Tour Name:</td>
@@ -244,15 +244,15 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
 	<div class="f1" style="overflow: auto;height: 35%; width: 48%;">
-	<table>
+	<table id="t1">
 			<tr>
-				<td>T_ID</td>
-				<td>T_NAME</td>
-				<td>T_PLACE_1</td>
-				<td>T_PLACE_2</td>
-				<td>T_PLACE_3</td>
-				<td>T_DAYS</td>
-				<td>T_PRICE</td>
+				<th>T_ID</th>
+				<th>T_NAME</th>
+				<th>T_PLACE_1</th>
+				<th>T_PLACE_2</th>
+				<th>T_PLACE_3</th>
+				<th>T_DAYS</th>
+				<th>T_PRICE</th>
 			</tr>
 	
 	<%while(resultSetFetch.next()){%>
