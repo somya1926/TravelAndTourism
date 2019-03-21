@@ -26,7 +26,6 @@ $(function() {
 		minDate:'m',
 		showButtonPanel: true,
 		onClose: function(dateText, inst) {
-			// set the date accordingly
 			var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
 			var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
 			$(this).datepicker('setDate', new Date(year, month, 1));
@@ -34,3 +33,13 @@ $(function() {
 		
 	});
 });
+
+function openPopup(URL,V,K){
+	
+	window.open(URL+'?val='+V+"&key="+K,
+			'_blank','height=300,width=300,top=200,left=300,'+
+			'scrollbars=yes, resizable=yes,toolbar=no,location=no,status=no,menubar=no')
+}
+function closePopup(){
+	window.close();
+}

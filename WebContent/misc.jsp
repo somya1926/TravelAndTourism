@@ -119,7 +119,7 @@
 			</div>
 			<p style="font-size: 12px;  width: 600px;  position: absolute ;
 				top:75%; left: 28%;font-family: cursive; background-color:#eeff41;" >
-				<mark><b>*NOTE:</b></mark> Administrators are prohibited form acessing the passwords due to privacy concern.
+				<mark><b>*NOTE:</b></mark> Administrators are prohibited form accessing the passwords due to privacy concern.
 			</p>
 		<%} %>
 		<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">

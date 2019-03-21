@@ -102,13 +102,14 @@
 		}resultSetHotel.close();%>
 <!-- Delete hotel -->
 <form action="hotelFunc.jsp" class="f1" method="post">
-	Hotel Id : <SELECT NAME="hID_d" required="required">
+	Hotel Id : <SELECT id="hID_d" NAME="hID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
 					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
 			</select><br>
-			<input type="submit" value="overview"><br><br>
+			<a href="#" 
+				onclick="openPopup('overview.jsp',document.getElementById('hID_d').value,'HD');">overview</a><br><br>
 	<input id="btn" type="submit" name="hotelFun" value="DELETE">
 </form>
 <%}else if(((String)request.getParameter("hotel")).equals("Update Hotel")){ 
@@ -123,23 +124,24 @@
 <table>
 		<tr>
 			<td>Hotel ID:</td>
-			<td><SELECT NAME="hID_u" required="required">
+			<td><SELECT id="hID_u" NAME="hID_u" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
 					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
 			</select><br>
-			<input type="submit" value="overview">
+			<a href="#" 
+				onclick="openPopup('overview.jsp',document.getElementById('hID_u').value,'HU');">overview</a>
 			</td>
 			
 		</tr>
 		<tr>
 			<td>Hotel Name:</td>
-			<td><input type="text" name="hName_u" required="required"></td>
+			<td><input type="text" name="hName_u"></td>
 		</tr>
 		<tr>
 			<td>Tour Place:</td>
-			<td><input type="text" name="hPalce_u" required="required"></td>
+			<td><input type="text" name="hPalce_u"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="hotelFun" value="UPDATE">

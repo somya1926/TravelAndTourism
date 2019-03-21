@@ -66,6 +66,19 @@
 				e.printStackTrace();
 			}
 	}else if(((String)request.getParameter("hotelFun")).equals("UPDATE")){
+		
+		String hname=(String)request.getParameter("hName_u");
+		String hplace=(String)request.getParameter("hPalce_u");
+		
+		if(hname.equals("") || hplace.equals("")){
+			%>
+				<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+					<FONT COLOR="#fb8c00" size=5 Face="verdana">All fields must be filled !</FONT>
+					<BR>
+					<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+				</P>
+			<%
+		}else{
 			
 			statement=connection.prepareStatement(
 					"UPDATE hotelInfo SET H_NAME=? ,T_PLACE=? WHERE H_ID=?");
@@ -107,6 +120,7 @@
 			}catch(SQLException e){
 				e.printStackTrace();
 			}
+	}
 		}else if(((String)request.getParameter("hotelFun")).equals("DELETE")){
 			
 			statement=connection.prepareStatement(

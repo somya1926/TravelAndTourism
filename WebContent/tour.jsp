@@ -148,13 +148,15 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		}resultSetTID.close();%>
 <!-- Delete tour -->
 <form action="tourFunc.jsp" class="f1" method="post">
-	Tour Id : <SELECT NAME="TID_D" required="required">
+	Tour Id : <SELECT id="TID_d" NAME="TID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : tid){%>
 					<option value="<%=i2%>">t<%=i2%></option>
 				<%} %>
 			</select><br>
-			<input type="submit" value="Overview"><br><br>
+			<a href="#" 
+				onclick="openPopup('overview.jsp',document.getElementById('TID_d').value,'TD');">overview</a>
+				<br><br>
 	<input id="btn" type="submit" name="tourFun" value="DELETE">
 </form>
 <%}else if(((String)request.getParameter("tour")).equals("Update Tour")){
@@ -178,23 +180,24 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 			<td>Tour ID:</td>
 			<td>
-			<select NAME="TID_U" required="required">
+			<select id="TID_u" NAME="TID_U" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i4 : tid){%>
 					<option value="<%=i4%>">t<%=i4%></option>
 				<%} %>
 			</select><br>
-			<input type="submit" value="Overview" >
+			<a href="#" 
+				onclick="openPopup('overview.jsp',document.getElementById('TID_u').value,'TU');">overview</a>
 			</td>
 		</tr>
 		<tr>
 			<td>Tour Name:</td>
-			<td><input NAME="tName_u" type="text" required="required"></td>
+			<td><input NAME="tName_u" type="text"></td>
 		</tr>
 		<tr>
 			<td>Tour Place 1:</td>
 			<td>
-			<SELECT NAME="tPlace_u1" required="required" title="Must be different from 2 and 3">
+			<SELECT NAME="tPlace_u1" title="Must be different from 2 and 3">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s1 : places){%>
 					<option value="<%=s1%>"><%=s1%></option>
@@ -205,7 +208,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 			<td>Tour Place 2:</td>
 			<td>
-			<SELECT NAME="tPlace_u2" required="required" title="Must be different from 1 and 3">
+			<SELECT NAME="tPlace_u2" title="Must be different from 1 and 3">
 			<option value="null">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s2 : places){%>
@@ -217,7 +220,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 			<td>Tour Place 3:</td>
 			<td>
-			<SELECT NAME="tPlace_u3" required="required" title="Must be different from 1 and 2">
+			<SELECT NAME="tPlace_u3" title="Must be different from 1 and 2">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<option value="null">None</option>
 				<%for (String s3 : places){%>
@@ -229,11 +232,11 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 		<tr>
 			<td>Total days:</td>
-			<td><input type="number" name="tDays_u" required="required"></td>
+			<td><input type="number" name="tDays_u"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
-			<td><input type="number" NAME="tPrice_u" required="required"></td>
+			<td><input type="number" NAME="tPrice_u"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="tourFun" value="UPDATE">
