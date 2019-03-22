@@ -137,11 +137,11 @@
 		</tr>
 		<tr>
 			<td>Hotel Name:</td>
-			<td><input type="text" name="hName_u"></td>
+			<td><input type="text" name="hName_u" required="required"></td>
 		</tr>
 		<tr>
 			<td>Tour Place:</td>
-			<td><input type="text" name="hPalce_u"></td>
+			<td><input type="text" name="hPalce_u" required="required"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="hotelFun" value="UPDATE">

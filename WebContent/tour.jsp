@@ -192,13 +192,13 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		</tr>
 		<tr>
 			<td>Tour Name:</td>
-			<td><input NAME="tName_u" type="text"></td>
+			<td><input NAME="tName_u" type="text" required="required"></td>
 		</tr>
 		<tr>
 			<td>Tour Place 1:</td>
 			<td>
-			<SELECT NAME="tPlace_u1" title="Must be different from 2 and 3">
-				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
+			<SELECT NAME="tPlace_u1" title="Must be different from 2 and 3" required="required">
+				<option value="Select Place" disabled="disabled" selected="selected" >Select Place</option>
 				<%for (String s1 : places){%>
 					<option value="<%=s1%>"><%=s1%></option>
 				<%} %>
@@ -208,7 +208,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 			<td>Tour Place 2:</td>
 			<td>
-			<SELECT NAME="tPlace_u2" title="Must be different from 1 and 3">
+			<SELECT NAME="tPlace_u2" title="Must be different from 1 and 3" required="required">
 			<option value="null">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s2 : places){%>
@@ -220,7 +220,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 			<td>Tour Place 3:</td>
 			<td>
-			<SELECT NAME="tPlace_u3" title="Must be different from 1 and 2">
+			<SELECT NAME="tPlace_u3" title="Must be different from 1 and 2" required="required">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<option value="null">None</option>
 				<%for (String s3 : places){%>
@@ -232,11 +232,11 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 		<tr>
 			<td>Total days:</td>
-			<td><input type="number" name="tDays_u"></td>
+			<td><input type="number" name="tDays_u" required="required"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
-			<td><input type="number" NAME="tPrice_u"></td>
+			<td><input type="number" NAME="tPrice_u" required="required"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="tourFun" value="UPDATE">

@@ -77,25 +77,11 @@
 			
 		}else if(((String)request.getParameter("tourFun")).equals("UPDATE")){
 			
-			String name =(String) request.getParameter("tName_u");
-			String days=(String) request.getParameter("tDays_u");
-			String price =(String) request.getParameter("tPrice_u");
-			
 			String place_1= (String) request.getParameter("tPlace_u1");
 			String place_2= (String) request.getParameter("tPlace_u2");
 			String place_3= (String) request.getParameter("tPlace_u3");
-			if(name.equals("") || days.equals("") || price.equals("") || 
-					place_1.equals("") || place_2.equals("") || place_3.equals("")){
-				%>
-				<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-					<FONT COLOR="#fb8c00" size=5 Face="verdana">All fields must be filled !</FONT>
-					<BR>
-					<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
-				</P>
-				<%
-			}
-			
-			else if(place_1.equals(place_2) || place_1.equals(place_3) || place_2.equals(place_3)){
+
+			if(place_1.equals(place_2) || place_1.equals(place_3) || place_2.equals(place_3)){
 				%>
 				<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 					<FONT COLOR="#fb8c00" size=5 Face="verdana">All three places must be unique !</FONT>

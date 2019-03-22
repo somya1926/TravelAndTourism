@@ -81,18 +81,19 @@
 			fethTour.add(resultSetFetch.getString(1));
 		}%>
 <!-- Book Now -->
-<form class="f1" action="bookingTask.jsp" method="post">
+<form class="f1" action="bookingFunc.jsp" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
 			<td>
-				<select NAME="tID">
-					<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
+				<select id="bID_a" NAME="bID_a">
+					<option value="Select-tour" disabled="disabled" selected="selected">Select Tour</option>
 					<%for (String s1 : fethTour){%>
 						<option value="<%=s1%>">t<%=s1%></option>
 					<%} %>
 				</select>
-				<input type="button" value="Overview" onclick="location.href('');">
+				<a href="#" 
+					onclick="openPopup('overview.jsp',document.getElementById('bID_a').value,'AB');">overview</a>
 			</td>
 			
 		</tr>
@@ -115,6 +116,13 @@
 					<option value="SU">Superior</option>
 					<option value="DE">Deluxe</option>
 				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Pay now:</td>
+			<td>
+	<input type="radio" name="payment" value="1" required="required"> YES | 
+	<input type="radio" name="payment" value="0" required="required"> NO
 			</td>
 		</tr>
 	</table>

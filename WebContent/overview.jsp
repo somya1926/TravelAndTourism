@@ -28,11 +28,9 @@
 </style>
 </head>
 <body>
-<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){%>
+<%if(session.getAttribute("name")==null){%>
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{
 		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
@@ -43,53 +41,85 @@
 			val=Integer.parseInt((String)request.getParameter("val"));
 		
 		
-		if(key.equals("TU") || key.equals("TD")){
+		if(	(key.equals("TU") && (int)session.getAttribute("auth")==1) || 
+				(key.equals("TD") && (int)session.getAttribute("auth")==1) ||
+				(key.equals("AB") && (int)session.getAttribute("auth")==0)){
 		statement=connection.prepareStatement("SELECT * FROM tourInfo WHERE T_ID=?");
 		statement.setInt(1, val);
 		resultSetFetch=statement.executeQuery();
 		%>
-	<table id="t1" style="font-size: 14px; font-family: sans-serif;">
+	<table id="t1" style="font-size: 14px; font-family: sans-serif; padding: 10%">
 			<tr>
-				<th>T_ID</th>
+				<th>T_ID - >></th>
 				<td><%=resultSetFetch.getInt(1) %></td>
 			</tr>
 			<tr>
-				<th>T_NAME</th>
+				<th>T_NAME - >></th>
 				<td><%=resultSetFetch.getString(2) %></td>
 			</tr>
 			<tr>
-				<th>T_PLACE_1</th>
+				<th>T_PLACE_1 - >></th>
 				<td><%=resultSetFetch.getString(3)%></td>
 			</tr>
 			<tr>
-				<th>T_PLACE_2</th>
+				<th>T_PLACE_2 - >></th>
 				<td><%=resultSetFetch.getString(4)%></td>
 			</tr>
 			<tr>
-				<th>T_PLACE_3</th>
+				<th>T_PLACE_3 - >></th>
 				<td><%=resultSetFetch.getString(5)%></td>
 			</tr>
 			<tr>
-				<th>T_DAYS</th>
+				<th>T_DAYS - >></th>
 				<td><%=resultSetFetch.getInt(6)%></td>
 			</tr>
 			<tr>
-				<th>T_PRICE</th>
+				<th>T_PRICE - >></th>
 				<td><%=resultSetFetch.getInt(7)%></td>
 			</tr>
 		</table>
-		<%}
+		<button id="logout" type="button" onclick="closePopup();">close</button>
+		
+		<%}else if( (key.equals("HU") && (int)session.getAttribute("auth")==1) || 
+				(key.equals("HD") && (int)session.getAttribute("auth")==1)){
+			statement=connection.prepareStatement("SELECT * FROM hotelInfo WHERE H_ID=?");
+			statement.setInt(1, val);
+			resultSetFetch=statement.executeQuery();
+			%>
+		<table id="t1" style="font-size: 14px; font-family: sans-serif; padding: 10%">
+				<tr>
+					<th>H_ID - >></th>
+					<td><%=resultSetFetch.getInt(1) %></td>
+				</tr>
+				<tr>
+					<th>H_NAME - >></th>
+					<td><%=resultSetFetch.getString(2) %></td>
+				</tr>
+				<tr>
+					<th>T_PLACE	- >></th>
+					<td><%=resultSetFetch.getString(3)%></td>
+				</tr>
+			</table>
+			<button id="logout" style="top: -10%;" type="button" onclick="closePopup();">close</button>
+			<%}else{
+				%>
+					<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+						<FONT COLOR="#eeff41" size=5 Face="verdana">Not Allowed !</FONT>
+					</P>
+				<%
+			}
+		
 		}catch(NumberFormatException e){
 			%>
 			<P align=center style="background-color:#eeff41;">
 			<IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT size=5 Face="verdana">Select the tour correctly !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
 		</P>
 			<%
+		}finally{
+			statement.close();
 		}
 	}%>
-<button id="logout" type="button" onclick="closePopup();">close</button>
+
 </body>
 </html>

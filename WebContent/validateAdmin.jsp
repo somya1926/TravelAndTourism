@@ -33,7 +33,6 @@
 					session.setAttribute("name", resultSet.getString(2));
 					validResult=true;
 				}
-				System.out.println("\nauth:"+resultSet.getInt(1)+"\nName: "+resultSet.getString(2)+"\nEmail: "+resultSet.getString(3));
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -43,6 +42,7 @@
 			if(validResult){
 				validResult=false;
 				if(resultSet.getInt(1)==1){
+					System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
 					%>
 					<P align=center><FONT COLOR="Green" Face="Georgia"><I><B>Welcome <%=resultSet.getString(2)%></B></I></FONT>
 						<BR><BR>

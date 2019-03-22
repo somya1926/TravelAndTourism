@@ -81,15 +81,14 @@
 			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
 		</div>
 	
-		<% if(((String)request.getParameter("misc")).equals("Cancel Booking")){ %>
-		<!-- Delete Booking -->
-		
-		<%}else  if(((String)request.getParameter("misc")).equals("Show Bookings")){%>
+		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ %>
 		<!-- Show Bookings -->
+		
+		<%}else  if(((String)request.getParameter("misc")).equals("Revoke Booking")){%>
+		<!-- Revoke Bookings -->
 			
 		<%}else if(((String)request.getParameter("misc")).equals("Show Payments")){%>
 		<!-- Show Payments -->
-			
 			
 		<!-- Show Users. -->
 		<%}else if(((String)request.getParameter("misc")).equals("Show Users")){
