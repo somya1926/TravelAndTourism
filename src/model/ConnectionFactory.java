@@ -1,5 +1,7 @@
 package model;
 import java.sql.*;
+import java.util.Properties;
+import org.sqlite.*;
 
 
 /**
@@ -9,12 +11,11 @@ public class ConnectionFactory {
 	
 	private static ConnectionFactory object=null;
 	
-	Connection cn=null;
-	Driver driver= null;
+	Connection connection=null;
+	private final Driver driver= new org.sqlite.JDBC();
+	private Properties connectoProperties= new Properties();
+	SQLiteConfig config = new SQLiteConfig();
 	
-	//private String URL="jdbc:mysql://sql7.freesqldatabase.com:3306/sql7281796";
-	//private String USERNAME="sql7281796";
-	//private String PASSWORD="j76igHvYd3";
 	private ConnectionFactory() {}
 	
 	/**
@@ -33,23 +34,18 @@ public class ConnectionFactory {
 	 * @return {@link Connection}
 	 */
 	public Connection getConnection(String URL) {
-		if(cn==null && driver==null) {
+		if(connection==null) {
 			try {
-				driver= new org.sqlite.JDBC();
 				DriverManager.registerDriver(driver);
 				//Database entry point.
-				cn=DriverManager.getConnection("jdbc:sqlite:"+URL+"/database/ttmsDS.db");
+				config.enforceForeignKeys(true);
+				connectoProperties=config.toProperties();
+				connection=DriverManager.getConnection("jdbc:sqlite:"+URL+"/database/ttmsDS.db",connectoProperties);
 			}catch (SQLException e) {
 				e.printStackTrace();
-			}finally {
-				try {
-					DriverManager.deregisterDriver(driver);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 		}
-		return cn;
+		return connection;
 	}
 	
 }
