@@ -68,7 +68,6 @@
 	<h1 id="home"><a href="userHome.jsp">Home</a></h1>
 	<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
 	<div class="f1">
-		<h4>Net Amount: ₹ 0.000</h4>
 		<table>
 			<tr>
 				<td>Full Name :</td>

@@ -41,7 +41,9 @@ public class ConnectionFactory {
 				config.enforceForeignKeys(true);
 				connectoProperties=config.toProperties();
 				connection=DriverManager.getConnection("jdbc:sqlite:"+URL+"/database/ttmsDS.db",connectoProperties);
-			}catch (SQLException e) {
+			}catch (SQLException s) {
+				s.printStackTrace();
+			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

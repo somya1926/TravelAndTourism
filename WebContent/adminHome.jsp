@@ -68,11 +68,8 @@
 		    <input type="submit" name="hotel" value="View Hotels" >
 		</form><br>
 		<form action="misc.jsp" method="post">
-		    <!--input type="submit" name="misc" value="Allotment">
-		    <input type="submit" name="misc" value="View Allotments" -->
+			<input type="submit" name="misc" value="Show Bookings">
 		    <input type="submit" name="misc" value="Revoke Booking">
-		    <input type="submit" name="misc" value="Show Bookings">
-		    <input type="submit" name="misc" value="Show Payments">
 		    <input type="submit" name="misc" value="Show Users">
 		</form><br>
 		

@@ -25,7 +25,8 @@
     	transform: translate(-20%, -60%);
 	}
 	.f1{
-	width: 300px;
+	width: 600px;
+	height:250px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -52,11 +53,11 @@
 	#btn{
 		width: 100px;
 	    padding: 5px;
+	    margin:40px;
 		font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
 	}
-
 	</style>
 </head>
 <body>
@@ -82,7 +83,7 @@
 		}%>
 <!-- Book Now -->
 <form class="f1" action="bookingFunc.jsp" method="post">
-<table>
+<table style="display: inline-block; float: left; width: 300px; height: 200px; padding: 10px">
 		<tr>
 			<td>Tour ID:</td>
 			<td>
@@ -118,16 +119,28 @@
 				</select>
 			</td>
 		</tr>
-		<tr>
-			<td>Pay now:</td>
-			<td>
-	<input type="radio" name="payment" value="1" required="required"> YES | 
-	<input type="radio" name="payment" value="0" required="required"> NO
-			</td>
-		</tr>
 	</table>
+	
+	<table style="display: inline-block; width:300px; height: 200px; float: right;  padding: 1px;">
+			<tr>
+				<td>Full Name :</td>
+				<td><input type="text" placeholder="Card Holder`s Name"></td>
+			</tr>
+			<tr>
+				<td>Card No:</td>
+				<td><input type="number"></td>
+			</tr>
+			<tr>
+				<td>Expire Date:</td>
+				<td><input type="text"  id="expiryDate" placeholder="MM/YY"></td>
+			</tr>
+			<tr>
+				<td>CVV No:</td>
+				<td><input type="number"></td>
+			</tr>
+		</table>
 	<br>
-	<input id="btn" type="submit" value="Book Now">
+	<input id="btn" class="cal" type="submit" value="Book Now">
 	</form>
 	<!-- Booking History -->
 	<%}else  if(((String)request.getParameter("book")).equals("Booking History")){
@@ -144,7 +157,7 @@
 	<!-- View tours -->
 	<%}else if(((String)request.getParameter("book")).equals("View Tours")){ %>
 	
-	<div class="f1" style="overflow: auto;height: 35%; width: 48%;">
+	<div class="f1" style="overflow: auto;height: 35%; width: 48%; ">
 	<table id="t1">
 			<tr>
 				<th>T_ID</th>

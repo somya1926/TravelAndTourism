@@ -1,13 +1,11 @@
 <%@page import="java.sql.*,model.*,java.io.File,java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" session="true"%>
-    <%! Statement statement=null; 
+    <%! Statement statement=null;
+    	PreparedStatement statement2=null;
     	ResultSet resultSetFetch=null;
-    	ResultSet resultSetUID=null;
-    	ResultSet resultSetUEmail=null;
     	Connection connection=null;
-    	List<Integer> uid= new ArrayList<>();
-    	List<String> uEmail= new ArrayList<>();%>
+    	List<Integer> bid= new ArrayList<>();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,16 +78,75 @@
 			<h1><a href="adminHome.jsp">Home</a></h1>
 			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
 		</div>
-	
-		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ %>
-		<!-- Show Bookings -->
 		
-		<%}else  if(((String)request.getParameter("misc")).equals("Revoke Booking")){%>
+		<!-- Show Bookings -->
+		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ 
+			resultSetFetch=statement.executeQuery("SELECT * FROM bookingInfo");%>
+		
+		<div class="f1" style="overflow: auto;height: 49%; width: 65%;">
+		<table id="t1">
+				<tr>
+					<th>B_ID</th>
+					<th>B_DATE</th>
+					<th>T_ID</th>
+					<th>T_DATE</th>
+					<th>U_EMAIL</th>
+					<th>PERSONS</th>
+					<th>R_TYPE</th>
+					<th>T_AMOUNT</th>
+					<th>STATUS</th>
+				</tr>
+		
+		<%while(resultSetFetch.next()){%>
+				<tr>
+					<td><%=resultSetFetch.getInt(1) %></td>
+					<td><%=resultSetFetch.getString(2) %></td>
+					<td><a href="#" 
+						onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'MSB');">
+						<%=resultSetFetch.getInt(3)%></a></td>
+					<td><%=resultSetFetch.getString(4)%></td>
+					<td><%=resultSetFetch.getString(5)%></td>
+					<td><%=resultSetFetch.getInt(6) %></td>
+					
+					<%if(resultSetFetch.getString(7).equals("DE")) {%>
+						<td>DELUXE</td>
+					<%}else if(resultSetFetch.getString(7).equals("SU")){ %>
+						<td>SUPERIOR</td>
+					<%} else if(resultSetFetch.getString(7).equals("ST")){ %>
+						<td>STANDARD</td>
+					<%} %>
+					<td><%=resultSetFetch.getInt(8)%></td>
+					
+					<%if(resultSetFetch.getInt(9)==1) {%>
+						<td>AVAILABLE</td>
+					<%}else if(resultSetFetch.getInt(9)==0){ %>
+						<td>CANCELLED</td>
+					<%} %>
+				</tr>
+			<%} resultSetFetch.close(); %>
+			</table>
+			</div>
+		
+		<%}else  if(((String)request.getParameter("misc")).equals("Revoke Booking")){
+			resultSetFetch=statement.executeQuery("SELECT B_ID FROM bookingInfo WHERE STATUS=1");
+			bid.clear();
+				while(resultSetFetch.next()){
+					bid.add(resultSetFetch.getInt(1));
+				}%>
 		<!-- Revoke Bookings -->
-			
-		<%}else if(((String)request.getParameter("misc")).equals("Show Payments")){%>
-		<!-- Show Payments -->
-			
+			<form action="miscFunc.jsp" class="f1" method="post">
+				Booking Id : <SELECT id="MB_r" NAME="MB_r" required="required">
+				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
+					<%for (int i2 : bid){%>
+						<option value="<%=i2%>">b<%=i2%></option>
+					<%} %>
+					</select><br>
+				<a href="#" 
+					onclick="openPopup('overview.jsp',document.getElementById('MB_r').value,'MR');">overview</a>
+				<br><br>
+				<input id="btn" type="submit" name="miscFun" value="REVOKE">
+			</form>
+
 		<!-- Show Users. -->
 		<%}else if(((String)request.getParameter("misc")).equals("Show Users")){
 		
@@ -111,7 +168,11 @@
 					<td><%=resultSetFetch.getString(2) %></td>
 					<td><%=resultSetFetch.getString(3)%></td>
 					<td><%=resultSetFetch.getLong(4)%></td>
-					<td><%=resultSetFetch.getInt(5)%></td>
+					<%if(resultSetFetch.getInt(5)==1) {%>
+						<td>ADMIN</td>
+					<%}else if(resultSetFetch.getInt(5)==0){ %>
+						<td>USER</td>
+					<%} %>
 				</tr>
 			<%} resultSetFetch.close(); %>
 			</table>

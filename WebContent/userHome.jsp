@@ -61,7 +61,7 @@
 			<br>
 			<input type="submit" name="book" value="View Tours">
 			<input type="submit" name="book" value="Cancel Booking">
-			<input type="submit" name="book" value="Payment Report">
+			<input type="submit" name="book" value="Delete Account" title="Delete your user account.">
 		</form>
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>
