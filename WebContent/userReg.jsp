@@ -22,15 +22,8 @@
 					part[0]+this.getServletContext().getContextPath());
 			statement= connection.prepareStatement(QUERY);
 			
-			System.out.println("\n REGISTRATION INFO:");
-			System.out.println((String)request.getParameter("name"));
-			System.out.println((String)request.getParameter("pass"));
-			System.out.println((String)request.getParameter("cPass"));
-			System.out.println((String)request.getParameter("email"));
-			System.out.println(Long.parseLong((String)request.getParameter("phone")));
-			
 			if(!(request.getParameter("pass").equals(request.getParameter("cPass")))){%>
-				<P align=center><IMG SRC="Images/error.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
+				<P align=center><IMG SRC="Images/error48.png" WIDTH="17" HEIGHT="17" BORDER="0" ALT="">
 					<FONT COLOR="Red" Face="Georgia">Password Mismatch !</FONT>
 					<BR>
 					<A HREF="userReg.html">&lt;&lt;Retry Again</A>
@@ -44,12 +37,12 @@
 			updatecode=statement.executeUpdate();
 			
 			if(updatecode>0){
-				System.out.println("Registration Successful !\n");%>
+				System.out.println("Registration Successful ! ["+(String)request.getParameter("name")+"]");%>
 			
 			<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 					<FONT COLOR="Green" size=5 Face="verdana">User Registration Successful !</FONT>
 					<BR>
-					<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Login Now</A></font>
+					<font Face="Comic Sans MS" size=3><A HREF="userLogin.jsp">&lt;&lt; Login Now</A></font>
 			</P>
 			
 			<%}else{%>

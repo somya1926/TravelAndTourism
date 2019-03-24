@@ -109,6 +109,7 @@
 			<td>
 			<SELECT NAME="tPlace_a2" required="required" title="Must be different from 1 and 3">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
+				<option value="NULL">None</option>
 				<%for (String s2 : places){%>
 					<option value="<%=s2%>"><%=s2%></option>
 				<%} %>
@@ -119,6 +120,7 @@
 			<td>Tour Place 3:</td>
 			<td>
 			<SELECT NAME="tPlace_a3" required="required" title="Must be different from 1 and 2">
+				<option value="NULL">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s3 : places){%>
 					<option value="<%=s3%>"><%=s3%></option>

@@ -54,6 +54,7 @@
 		<div class="f1">
 		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
 		<h2>Welcome to the User portal !</h2>
+		
 		<form action="booking.jsp" method="post">
 			<input type="submit" name="book" value="Book now">
 			<input type="submit" name="book" value="Booking History">
@@ -61,7 +62,7 @@
 			<br>
 			<input type="submit" name="book" value="View Tours">
 			<input type="submit" name="book" value="Cancel Booking">
-			<input type="submit" name="book" value="Delete Account" title="Delete your user account.">
+			<input type="submit" name="book" value="De-register" title="Delete your user account.">
 		</form>
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>

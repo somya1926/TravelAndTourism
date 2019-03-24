@@ -31,6 +31,7 @@
 				if(resultSet.getString(3).equals(request.getParameter("adminEmail"))){
 					session.setAttribute("auth", resultSet.getInt(1));
 					session.setAttribute("name", resultSet.getString(2));
+					session.setAttribute("email", resultSet.getString(3));
 					validResult=true;
 				}
 			}

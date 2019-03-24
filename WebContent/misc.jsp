@@ -43,7 +43,7 @@
 	    position: absolute;
 	    top:20%;
     	left: 50%;
-    	transform: translate(-50%, 1000%);
+    	transform: translate(-50%, 100%);
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;

@@ -63,7 +63,7 @@
 						<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 							<FONT COLOR="Red" size=5 Face="verdana">Tour Insertion Unsuccessful !</FONT>
 							<BR>
-							<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+							<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Try again</A></font>
 						</P>
 						<%
 					}

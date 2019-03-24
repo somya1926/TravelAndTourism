@@ -44,7 +44,8 @@
 		if(	(key.equals("TU") && (int)session.getAttribute("auth")==1) || 
 				(key.equals("TD") && (int)session.getAttribute("auth")==1) ||
 				(key.equals("MSB") && (int)session.getAttribute("auth")==1) ||
-				(key.equals("AB") && (int)session.getAttribute("auth")==0)){
+				(key.equals("AB") && (int)session.getAttribute("auth")==0)	||
+				(key.equals("UCB") && (int)session.getAttribute("auth")==0)){
 		statement=connection.prepareStatement("SELECT * FROM tourInfo WHERE T_ID=?");
 		statement.setInt(1, val);
 		resultSetFetch=statement.executeQuery();
@@ -102,8 +103,10 @@
 				</tr>
 			</table>
 			<button id="logout" style="top: -10%;" type="button" onclick="closePopup();">close</button>
+			
 			<%}else if( (key.equals("HU") && (int)session.getAttribute("auth")==1) || 
-				(key.equals("MR") && (int)session.getAttribute("auth")==1)){
+				(key.equals("MR") && (int)session.getAttribute("auth")==1) ||
+				(key.equals("CB") && (int)session.getAttribute("auth")==0)){
 				
 				statement=connection.prepareStatement("SELECT B_ID, B_DATE, T_ID, T_DATE, U_EMAIL,"+
 						" PERSONS, R_TYPE,T_AMOUNT FROM bookingInfo WHERE B_ID=?");
@@ -121,9 +124,16 @@
 						</tr>
 						<tr>
 							<th>T_ID</th>
+							<%if((int)session.getAttribute("auth")==1) {%>
 							<td><a href="#" 
 								onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'MSB');">
-								<%=resultSetFetch.getInt(3)%></a></td>
+									<%=resultSetFetch.getInt(3)%></a></td>
+									
+								<%}else if((int)session.getAttribute("auth")==0){ %>
+								<td><a href="#" 
+								onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'UCB');">
+									<%=resultSetFetch.getInt(3)%></a></td>
+								<%} %>
 						</tr>
 						<tr>
 							<th>T_DATE</th>
@@ -154,6 +164,7 @@
 					</table>
 					<button id="logout" style="top: 30%;" type="button" onclick="closePopup();">close</button>
 				
+			
 			<%}else{
 				%>
 					<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
@@ -168,10 +179,7 @@
 			<IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT size=5 Face="verdana">Select the tour correctly !</FONT>
 		</P>
-			<%
-		}finally{
-			statement.close();
-		}
+		<%}
 	}%>
 
 </body>

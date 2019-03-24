@@ -4,11 +4,14 @@ function sendAlert(){
 		location.href='logout.jsp';
 	} 
 };
-function sendPrompt() {
-	if (confirm("Book Now ?")) {
-		location.href='booking.jsp';
-	} 
-};
+function unregister() {
+	  var person = prompt("To confirm De-registration please enter 'yes' :");
+	  if (person =='yes') {
+		  location.href='userDeReg.jsp';
+	  }else{
+		  location.href='userHome.jsp'; 
+	  }
+	};
 $(function() {
 	$("#datepicker").datepicker({
 		dateFormat: 'yy-mm-dd',
