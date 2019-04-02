@@ -3,7 +3,6 @@
   <display-name>TravelAndTourism</display-name>
   <welcome-file-list>
     <welcome-file>home.html</welcome-file>
-  </welcome-file-list> 	
-
+  </welcome-file-list>
   
 </web-app>

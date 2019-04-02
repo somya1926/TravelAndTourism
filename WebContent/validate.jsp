@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/theme.css">
-<title>Validating Admin</title>
+<title>Validating Login Request</title>
 </head>
 <body>
 <%!boolean validResult=false;
@@ -42,29 +42,22 @@
 		<%
 			if(validResult){
 				validResult=false;
-				if(resultSet.getInt(1)==1){
-					System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
-					%>
-					<P align=center><FONT COLOR="Green" Face="Georgia"><I><B>Welcome <%=resultSet.getString(2)%></B></I></FONT>
-						<BR><BR>
-						<jsp:forward page="adminHome.jsp"/>
-					</P>
-					
-				<%}else{ %>
-					<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-						<FONT COLOR="Red" size=5 Face="verdana">The User is not permitted to access the Admin Portal !</FONT>
-						<BR>
-						<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
-					</P>
-				<%
-				}
-			}else{
+				
+					if(resultSet.getInt(1)==1){
+						System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
+						response.sendRedirect("adminHome.jsp");
+							
+					}else if(resultSet.getInt(1)==0){ 
+							System.out.println("\nUser Logged in : "+resultSet.getString(2)+"\n");
+							response.sendRedirect("userHome.jsp");
+					}
+				}else{
 				
 				%>
 				<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 				<FONT COLOR="Red" size=5 Face="verdana">SORRY! Invalid Email/password please try again</FONT>
 				<BR>
-				<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
+				<font Face="Comic Sans MS" size=3><A HREF="home.html">&lt;&lt; Home</A></font>
 				</P>
 				<%
 			}

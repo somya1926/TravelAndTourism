@@ -49,19 +49,19 @@
 	}
 }else{%>
 	<h1 id="home"><a href="home.html">Home</a></h1>
-	<form action="validateAdmin.jsp" class="f1" method="post">
+	<form action="validate" class="f1" method="post">
 		<h2>Admin Login Portal</h2>
 		<table>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="adminEmail"
+				<td><input type="text" name="lEmail"
 					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					required="required"
 					title="Enter a valid emailID !"><br></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="adminPass"
+				<td><input type="password" name="lPass"
 				required="required" title="Required field !"><br></td>
 
 			</tr>
