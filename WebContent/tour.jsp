@@ -1,5 +1,5 @@
 
-<%@page import="java.sql.*,model.*,java.io.File,java.util.*"%>
+<%@page import="java.sql.*,model.*,java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="true"%>
     <%! Statement statement=null;
@@ -66,8 +66,7 @@
 			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{
-		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
-		connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
+		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();
 		statement2=connection.createStatement();%>
 		<div id="home">

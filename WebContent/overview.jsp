@@ -1,4 +1,4 @@
-<%@page import="java.sql.*,model.*,java.io.File,java.util.*"%>
+<%@page import="java.sql.*,model.*,java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%! PreparedStatement statement=null;
@@ -33,8 +33,7 @@
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
 		</P>
 	<%}else{
-		String[] part= this.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata");
-		connection=ConnectionFactory.getInstance().getConnection(part[0]+this.getServletContext().getContextPath());
+		connection=ConnectionFactory.getInstance().getConnection();
 		key=(String)request.getParameter("key");
 		
 		try{

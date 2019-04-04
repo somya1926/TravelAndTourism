@@ -7,7 +7,7 @@ function sendAlert(){
 function unregister() {
 	  var person = prompt("To confirm De-registration please enter 'yes' :");
 	  if (person =='yes') {
-		  location.href='userDeReg.jsp';
+		  document.getElementById("dereg").submit();
 	  }else{
 		  location.href='userHome.jsp'; 
 	  }
@@ -40,7 +40,7 @@ $(function() {
 
 function openPopup(URL,V,K){
 	
-	window.open(URL+'?val='+V+"&key="+K,
+	window.open(`${URL}?val=${V}&key=${K}`,
 			'_blank','scrollbars=yes, resizable=yes, height=300,width=280,top=200,left=300');
 }
 function closePopup(){

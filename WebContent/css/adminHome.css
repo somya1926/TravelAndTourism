@@ -1,0 +1,29 @@
+#home{
+		width: 300px;
+	    padding: 40px;
+	    position: absolute;
+	    top:20%;
+    	left: 50%;
+    	transform: translate(-20%, -105%);
+	}
+	.f1{
+	width: 400px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: silver;
+    text-align: center;
+	}
+	#logout{
+		width: 200px;
+	    padding: 10px;
+	    position: absolute;
+	    top:20%;
+    	left: 50%;
+    	transform: translate(-50%, 700%);
+    	font-weight: bold;
+    	font-family: sans-serif;
+    	font-size: 15px;
+	}

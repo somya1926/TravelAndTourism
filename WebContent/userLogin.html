@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,19 +34,6 @@
 	</style>
 </head>
 <body>
-<%if(session.getAttribute("name")!=null){
-	if((int)session.getAttribute("auth")==0)
-		response.sendRedirect("userHome.jsp");
-	else{
-		%>
-		<P align=center><IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT COLOR="#fb8c00" size=5 Face="verdana">Admin already logged in !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="home.html">&lt;&lt; Back</A></font>
-		</P>
-		<%
-	}
-}else{%>
 
 <h1 id="home"><a href="home.html">Home</a></h1>
 	<form action="validate" class="f1" method="post">
@@ -68,10 +53,9 @@
 					title="Required field !"><br></td>
 			</tr>
 			</table>
-			<input id="login" type="submit" value="Login"><br>
+			<input id="login" type="submit" name="loginSubmit" value="User Login"><br>
 			<a href="userReg.html">Register Now</a>
 		
 	</form>
-	<%} %>
 </body>
 </html>

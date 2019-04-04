@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.*;
 
-import java.io.File;
-
 /**
  * Servlet Filter implementation class LoginFilter
  */
@@ -48,24 +46,20 @@ public class LoginFilter implements Filter {
 		ServletException {
 		session=(HttpSession) ((HttpServletRequest)request).getSession(true);
 		
-		String[] part= (session.getServletContext().getRealPath(File.separator).replace("\\", "/").split("/.metadata"));
+		String[] part= (session.getServletContext().getRealPath("/").split("\\.metadata"));
+		ConnectionFactory.setDBpath(part[0]+session.getServletContext().getContextPath()+"\\database");
 		
 		try{
-			connection=ConnectionFactory.getInstance().getConnection(
-					part[0]+session.getServletContext().getContextPath());
-			
+			connection=ConnectionFactory.getInstance().getConnection();
+
 			statement= connection.prepareStatement(QUERY);
 			statement.setString(1, (String)((HttpServletRequest)request).getParameter("lEmail"));
 			statement.setString(2, (String)((HttpServletRequest)request).getParameter("lPass"));
 			resultSet=statement.executeQuery();
 			
-			if(resultSet.next()){
-				if(resultSet.getString(3).equals(((HttpServletRequest)request).getParameter("lEmail"))){
-					session.setAttribute("auth", resultSet.getInt(1));
-					session.setAttribute("name", resultSet.getString(2));
-					session.setAttribute("email", resultSet.getString(3));
+			if(resultSet.next() &&
+					resultSet.getString(3).equals(((HttpServletRequest)request).getParameter("lEmail"))){
 					validResult=true;
-				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -75,18 +69,66 @@ public class LoginFilter implements Filter {
 			validResult=false;
 			
 				try {
-					if(resultSet.getInt(1)==1){
-						System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
-						((HttpServletResponse) response).sendRedirect("adminHome.jsp");
-						//chain.doFilter(request, response);
+					if(((String)((HttpServletRequest)request).getParameter("loginSubmit")).equals("Admin Login")){
+						if(resultSet.getInt(1)==1) {
+							
+							session.setAttribute("auth", resultSet.getInt(1));
+							session.setAttribute("name", resultSet.getString(2));
+							session.setAttribute("email", resultSet.getString(3));
+							
+							System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
+							
+							((HttpServletResponse)response).sendRedirect("adminHome.jsp");
+							//((HttpServletRequest)request).getRequestDispatcher("/AdminFilter").forward(request, response);
+						}else {
+							((HttpServletResponse)response).getWriter().
+							print("<html><head>\r\n" + 
+									"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+									"<title>Not Permitted</title>\r\n" + 
+									"</head>\r\n" + 
+									"<body>"+
+									"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+									"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">The User is not permitted to access the Admin Portal !</FONT>\r\n" + 
+									"<BR>\r\n" + 
+									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+									"</P></body></html>");
+						}
 						
-					}else if(resultSet.getInt(1)==0){ 
+					}else if(((String)((HttpServletRequest)request).getParameter("loginSubmit")).equals("User Login")){ 
+						if (resultSet.getInt(1)==0) {
+							
+							session.setAttribute("auth", resultSet.getInt(1));
+							session.setAttribute("name", resultSet.getString(2));
+							session.setAttribute("email", resultSet.getString(3));
 							System.out.println("\nUser Logged in : "+resultSet.getString(2)+"\n");
-							((HttpServletResponse) response).sendRedirect("userHome.jsp");
-							//chain.doFilter(request, response);
+								
+							((HttpServletResponse)response).sendRedirect("userHome.jsp");
+							//((HttpServletRequest)request).getRequestDispatcher("/UserFilter").forward(request, response);
+						}else {
+							((HttpServletResponse)response).getWriter().
+							print("<html><head>\r\n" + 
+									"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+									"<title>Not Permitted</title>\r\n" + 
+									"</head>\r\n" + 
+									"<body>"+
+									"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+									"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Administrators are prohibited from accessing the User Portal !</FONT>\r\n" + 
+									"<BR>\r\n" + 
+									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+									"</P></body></html>");
+						}
+							
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
+				}finally {
+					try {
+						resultSet.close();
+						statement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					
 				}
 			}else {
 				((HttpServletResponse)response).getWriter().

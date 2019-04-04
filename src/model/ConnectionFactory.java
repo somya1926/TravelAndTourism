@@ -4,6 +4,7 @@ import org.sqlite.SQLiteConfig;
 import org.sqlite.SQLiteException;
 
 
+
 /**
  * Consists of the factory methods connection objects.
  */
@@ -14,6 +15,7 @@ public class ConnectionFactory {
 	Connection connection=null;
 	private final Driver driver= new org.sqlite.JDBC();
 	SQLiteConfig config = new SQLiteConfig();
+	private static String URL;
 	
 	private ConnectionFactory() {}
 	
@@ -32,12 +34,12 @@ public class ConnectionFactory {
 	 * Used to fetch the single time connection instance of the database.
 	 * @return {@link Connection}
 	 */
-	public Connection getConnection(String URL) {
+	public Connection getConnection() {
 		if(connection==null) {
 			try {
 				DriverManager.registerDriver(driver);
 				config.enforceForeignKeys(true);
-				connection=DriverManager.getConnection("jdbc:sqlite:"+URL+"/database/ttmsDS.db",
+				connection=DriverManager.getConnection("jdbc:sqlite:"+URL+"\\ttmsDS.db",
 						config.toProperties());
 			}catch (SQLiteException e) {
 				e.printStackTrace();
@@ -46,6 +48,11 @@ public class ConnectionFactory {
 			}
 		}
 		return connection;
+	}
+	
+	public static void setDBpath(String url) {
+		if(URL==null)
+			URL=url;
 	}
 	
 }
