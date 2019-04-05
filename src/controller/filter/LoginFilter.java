@@ -46,6 +46,37 @@ public class LoginFilter implements Filter {
 		ServletException {
 		session=(HttpSession) ((HttpServletRequest)request).getSession(true);
 		
+		if(session.getAttribute("name")!=null) {
+			if((int)session.getAttribute("auth")==1) {
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+					"<title>Not Permitted</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\"Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">You were not logged in!<br>Admin already logged in !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}else {
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+					"<title>Not Permitted</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\"Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">You were not logged in!<br>User already logged in !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}
+		}else {
+		
+		
 		String[] part= (session.getServletContext().getRealPath("/").split("\\.metadata"));
 		ConnectionFactory.setDBpath(part[0]+session.getServletContext().getContextPath()+"\\database");
 		
@@ -144,6 +175,7 @@ public class LoginFilter implements Filter {
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Home</A></font>\r\n" + 
 						"</P></body></html>");
 			}
+		}
 	}
 
 	/**

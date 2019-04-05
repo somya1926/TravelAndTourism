@@ -1,7 +1,7 @@
 
 function sendAlert(){
 	if (confirm("Are you sure you want to logout ?")) {
-		location.href='logout.jsp';
+		location.href='logout';
 	} 
 };
 function unregister() {
@@ -9,7 +9,7 @@ function unregister() {
 	  if (person =='yes') {
 		  document.getElementById("dereg").submit();
 	  }else{
-		  location.href='userHome.jsp'; 
+		  location.href='user/userHome.jsp'; 
 	  }
 	};
 $(function() {
@@ -33,16 +33,21 @@ $(function() {
 			var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
 			$(this).datepicker('setDate', new Date(year, month, 1));
 		}
-		
 	});
 });
 
-
 function openPopup(URL,V,K){
-	
 	window.open(`${URL}?val=${V}&key=${K}`,
 			'_blank','scrollbars=yes, resizable=yes, height=300,width=280,top=200,left=300');
-}
+};
+
 function closePopup(){
 	window.close();
-}
+};
+
+function post(path) {
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", path);
+    form.submit();
+};

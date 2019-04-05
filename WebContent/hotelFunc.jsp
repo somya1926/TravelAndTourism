@@ -19,7 +19,7 @@
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
 			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
+			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{
 		connection=ConnectionFactory.getInstance().getConnection();
@@ -39,7 +39,7 @@
 				<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 					<FONT COLOR="Green" size=5 Face="verdana">Hotel Insertion Successful !</FONT>
 					<BR>
-					<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+					<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 				</P>
 					<%
 				}else{
@@ -47,7 +47,7 @@
 					<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 						<FONT COLOR="Red" size=5 Face="verdana">Hotel Insertion Unsuccessful !</FONT>
 						<BR>
-						<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+						<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 					</P>
 					<%
 				}
@@ -58,7 +58,7 @@
 			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 				<FONT COLOR="Red" size=5 Face="verdana">Tour Place already exists !</FONT>
 				<BR>
-				<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
+				<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 			</P>
 				<%
 			}catch(SQLException e){
@@ -84,7 +84,7 @@
 				<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 					<FONT COLOR="Green" size=5 Face="verdana">Hotel Updation Successful !</FONT>
 					<BR>
-					<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+					<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 				</P>
 					<%
 				}else{
@@ -92,7 +92,7 @@
 					<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 						<FONT COLOR="Red" size=5 Face="verdana">Hotel Updation Unsuccessful !</FONT>
 						<BR>
-						<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+						<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 					</P>
 					<%
 				}
@@ -103,7 +103,7 @@
 			<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 				<FONT COLOR="Red" size=5 Face="verdana">Tour Place already exists !</FONT>
 				<BR>
-				<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
+				<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 			</P>
 				<%
 			}catch(SQLException e){
@@ -124,7 +124,7 @@
 				<P align=center><IMG SRC="Images/correct48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 					<FONT COLOR="Green" size=5 Face="verdana">Hotel Deletion Successful !</FONT>
 					<BR>
-					<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+					<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 				</P>
 					<%
 				}else{
@@ -132,7 +132,7 @@
 					<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 						<FONT COLOR="Red" size=5 Face="verdana">Hotel Deletion Unsuccessful !</FONT>
 						<BR>
-						<font Face="Comic Sans MS" size=3><A HREF="adminHome.jsp">&lt;&lt; Back</A></font>
+						<font Face="Comic Sans MS" size=3><A HREF="admin/adminHome.jsp">&lt;&lt; Back</A></font>
 					</P>
 					<%
 				}

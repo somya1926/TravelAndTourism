@@ -63,7 +63,7 @@
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
 			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
+			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{
 		connection=ConnectionFactory.getInstance().getConnection();
@@ -82,7 +82,7 @@
 			places.add(resultSetPlace.getString(1));
 		}resultSetPlace.close();%>
 <!-- Add tour -->
-<form class="f1" action="tourFunc.jsp" method="post">
+<form class="f1" action="admin/TourFunc" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
@@ -146,7 +146,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 			tid.add(resultSetTID.getInt(1));
 		}resultSetTID.close();%>
 <!-- Delete tour -->
-<form action="tourFunc.jsp" class="f1" method="post">
+<form action="admin/TourFunc" class="f1" method="post">
 	Tour Id : <SELECT id="TID_d" NAME="TID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : tid){%>
@@ -174,7 +174,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		}
 		resultSetTID.close();%>
 <!-- Update tour -->
-<form class="f1" action="tourFunc.jsp" method="post">
+<form class="f1" action="admin/TourFunc" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>

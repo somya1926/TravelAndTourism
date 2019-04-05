@@ -55,19 +55,19 @@
 		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
 		<h2>Welcome to the admin portal !</h2>
 		
-		<form action="tour.jsp" method="post">
+		<form action="admin/tour.jsp" method="post">
 		    <input type="submit" name="tour" value="Add Tour">
 		    <input type="submit" name="tour" value="Update Tour" >
 		    <input type="submit" name="tour" value="Delete Tour" >
 		    <input type="submit" name="tour" value="View Tours" >
 		</form><br>
-		<form action="hotel.jsp" method="post">
+		<form action="admin/hotel.jsp" method="post">
 		    <input type="submit" name="hotel" value="Add Hotel" >
 		    <input type="submit" name="hotel" value="Update Hotel" >
 		    <input type="submit" name="hotel" value="Delete Hotel" >
 		    <input type="submit" name="hotel" value="View Hotels" >
 		</form><br>
-		<form action="misc.jsp" method="post">
+		<form action="admin/misc.jsp" method="post">
 			<input type="submit" name="misc" value="Show Bookings">
 		    <input type="submit" name="misc" value="Revoke Booking">
 		    <input type="submit" name="misc" value="Show Users">

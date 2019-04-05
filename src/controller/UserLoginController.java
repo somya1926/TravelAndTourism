@@ -28,7 +28,7 @@ public class UserLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session= request.getSession(false);
+		session= request.getSession(true);
 		
 		if(session.getAttribute("name")!=null){
 			if((int)session.getAttribute("auth")==0)

@@ -64,17 +64,17 @@
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
 			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
+			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
-		<h1 id="home"><a href="adminHome.jsp">Home</a></h1>
+		<h1 id="home"><a href="admin/adminHome.jsp">Home</a></h1>
 		<h2>Hi, <%=(String)session.getAttribute("name")%></h2><br>
 
 <% if(((String)request.getParameter("hotel")).equals("Add Hotel")){ %>
 <!-- Add hotel -->
-<form class="f1" action="hotelFunc.jsp" method="post">
+<form class="f1" action="admin/HotelFunc" method="post">
 <table>
 		<tr>
 			<td>Hotel ID:</td>
@@ -100,7 +100,7 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Delete hotel -->
-<form action="hotelFunc.jsp" class="f1" method="post">
+<form action="admin/HotelFunc" class="f1" method="post">
 	Hotel Id : <SELECT id="hID_d" NAME="hID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
@@ -119,7 +119,7 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Update hotel -->
-<form class="f1" action="hotelFunc.jsp" method="post">
+<form class="f1" action="admin/HotelFunc" method="post">
 <table>
 		<tr>
 			<td>Hotel ID:</td>
