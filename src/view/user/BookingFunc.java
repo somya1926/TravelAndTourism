@@ -18,7 +18,7 @@ import org.sqlite.SQLiteException;
 /**
  * Servlet implementation class BookingFunc
  */
-@WebServlet("/BookingFunc")
+@WebServlet("/user/BookingFunc")
 public class BookingFunc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -61,25 +61,29 @@ public class BookingFunc extends HttpServlet {
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" +
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
+						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Booking Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"user/userHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}else {
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" +
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
+						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Booking Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"user/userHome\">&lt;&lt; Try again</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}
@@ -107,24 +111,28 @@ public class BookingFunc extends HttpServlet {
 					response.getWriter().
 					print("<html><head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
+						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Cancellation Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"user/userHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}else{
 					response.getWriter().
 					print("<html><head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
+						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Cancellation Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"user/userHome\">&lt;&lt; Try again</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}
@@ -147,12 +155,16 @@ public class BookingFunc extends HttpServlet {
 			resultSetFetch=statement.executeQuery();
 			
 			out.
-			print("<html><head>\r\n" + 
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+			print("<html><head>\r\n" +
+				"<meta charset=\"UTF-8\">"+
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/css/theme.css\">\r\n" +
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/css/bookingFunc.css\">\r\n" + 
+				"<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/scripts/main.js\"></script>"+
+				
 				"</head>\r\n" + 
 				"<body>"+
 					"<div id=\"home\">\r\n" + 
-					"		<h1><a href=\"user/userHome\">Home</a></h1>\r\n" + 
+					"		<h1><a href=\"userHome\">Home</a></h1>\r\n" + 
 					"		<h2>Hi, "+(String)session.getAttribute("name")+"</h2>\r\n" + 
 					"</div>\r\n");
 			out.print("<div class=\"f1\" style=\"overflow: auto;height: 35%; width: 48%;\">\r\n" + 
@@ -218,7 +230,7 @@ public class BookingFunc extends HttpServlet {
 					"			</tr>\r\n" + 
 					"			<tr>\r\n" + 
 					"				<th>Total Price:</th>\r\n" + 
-					"				<td>₹<%=resultSetFetch.getFloat(11)%></td>\r\n" + 
+					"				<td>₹"+resultSetFetch.getFloat(11)+"</td>\r\n" + 
 					"			</tr>\r\n" + 
 					"		</table>\r\n" + 
 					"		</div></body></html>");

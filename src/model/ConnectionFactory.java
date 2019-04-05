@@ -15,7 +15,7 @@ public class ConnectionFactory {
 	Connection connection=null;
 	private final Driver driver= new org.sqlite.JDBC();
 	SQLiteConfig config = new SQLiteConfig();
-	private static String URL;
+	private static String URL=null;
 	
 	private ConnectionFactory() {}
 	

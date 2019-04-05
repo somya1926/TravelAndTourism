@@ -64,18 +64,15 @@
 	</style>
 </head>
 <body>
-	<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){%>
-		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the User Portal !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Back</A></font>
-		</P>
-	<%}else{
+		<%if(!(((String)request.getRequestURI()).contains("/user/booking"))){
+			throw new ServletException();
+		}
+	
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
 		<div id="home">
 			<h1><a href="userHome">Home</a></h1>
-			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
+			<h2>Hi, ${sessionScope.name}</h2>
 		</div>
 
 <% if(((String)request.getParameter("book")).equals("Book now")){
@@ -86,7 +83,7 @@
 			bid.add(resultSetFetch.getInt(1));
 		}%>
 <!-- Book Now -->
-<form class="f1" action="user/BookingFunc" method="post">
+<form class="f1" action="BookingFunc" method="post">
 <table style="display: inline-block; float: left; width: 300px; height: 200px; padding: 10px">
 		<tr>
 			<td>Tour ID:</td>
@@ -206,7 +203,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="user/BookingFunc" class="f1" method="post">
+		<form action="BookingFunc" class="f1" method="post">
 		Booking Id : <SELECT id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
@@ -230,7 +227,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="user/BookingFunc" class="f1" style="width: 300px; height: auto;" method="post">
+		<form action="BookingFunc" class="f1" style="width: 300px; height: auto;" method="post">
 		Booking Id : <SELECT id="BID_r" NAME="BID_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
@@ -277,6 +274,5 @@
 			<script type="text/javascript">unregister();</script>
 		<%}%>
 	<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
-	<%} %>
 </body>
 </html>

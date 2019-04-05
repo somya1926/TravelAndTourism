@@ -1,0 +1,23 @@
+#home{
+		width: 300px;
+	    padding: 20px;
+	    position: absolute;
+	    top:60px;
+    	left: 44%;
+    	transform: translate(-20%, -60%);
+    	align-items: center;
+    	text-align: center;
+	}
+	.f1{
+	width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: silver;
+    text-align: center;
+	}
+	h2 {
+		align-content:center;
+	},

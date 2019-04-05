@@ -51,7 +51,7 @@ public class AdminFilter implements Filter {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			((HttpServletResponse) response).sendRedirect("home.html");
+			((HttpServletResponse) response).sendRedirect("../error.html");
 		}
 		
 	}

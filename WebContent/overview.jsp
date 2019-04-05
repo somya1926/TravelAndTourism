@@ -11,8 +11,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Overview Window</title>
-<link rel="stylesheet" type="text/css" href="css/theme.css">
-<script type="text/javascript" src="scripts/main.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 	#logout{
 		width: 100px;

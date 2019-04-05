@@ -14,9 +14,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Tour Portal</title>
-<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -59,19 +59,16 @@
 	</style>
 </head>
 <body>
-	  <%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){%>
-		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.html">&lt;&lt; Back</A></font>
-		</P>
-	<%}else{
+		<%if(!(((String)request.getRequestURI()).contains("/admin/tour"))){
+			throw new ServletException();
+		}
+		
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();
 		statement2=connection.createStatement();%>
 		<div id="home">
-			<h1><a href="adminHome.jsp">Home</a></h1>
-			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
+			<h1><a href="adminHome">Home</a></h1>
+			<h2>Hi, ${sessionScope.name}</h2>
 		</div>
 			
 <% if(((String)request.getParameter("tour")).equals("Add Tour")){ 
@@ -82,7 +79,7 @@
 			places.add(resultSetPlace.getString(1));
 		}resultSetPlace.close();%>
 <!-- Add tour -->
-<form class="f1" action="admin/TourFunc" method="post">
+<form class="f1" action="TourFunc" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
@@ -146,7 +143,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 			tid.add(resultSetTID.getInt(1));
 		}resultSetTID.close();%>
 <!-- Delete tour -->
-<form action="admin/TourFunc" class="f1" method="post">
+<form action="TourFunc" class="f1" method="post">
 	Tour Id : <SELECT id="TID_d" NAME="TID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : tid){%>
@@ -174,7 +171,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		}
 		resultSetTID.close();%>
 <!-- Update tour -->
-<form class="f1" action="admin/TourFunc" method="post">
+<form class="f1" action="TourFunc" method="post">
 <table>
 		<tr>
 			<td>Tour ID:</td>
@@ -273,6 +270,5 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		
 	<%}%>
 	<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
-	<%} %>
 	</body>
 </html>

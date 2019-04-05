@@ -10,9 +10,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Miscellaneous Tasks</title>
-<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -64,18 +64,16 @@
 	</style>
 </head>
 <body>
-	  <%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){%>
-		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
-		</P>
-	<%}else{
+		<%if(!(((String)request.getRequestURI()).contains("/admin/misc"))){
+			throw new ServletException();
+		}
+		
+		
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
 	<div id="home">
-			<h1><a href="adminHome.jsp">Home</a></h1>
-			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
+			<h1><a href="adminHome">Home</a></h1>
+			<h2>Hi, ${sessionScope.name}</h2>
 		</div>
 		
 		<!-- Show Bookings -->
@@ -133,7 +131,7 @@
 					bid.add(resultSetFetch.getInt(1));
 				}%>
 		<!-- Revoke Bookings -->
-			<form action="miscFunc.jsp" class="f1" method="post">
+			<form action="MiscFunc" class="f1" method="post">
 				Booking Id : <SELECT id="MB_r" NAME="MB_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 					<%for (int i2 : bid){%>
@@ -182,7 +180,6 @@
 			</p>
 		<%} %>
 		<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
-	<%} %>
 	
 </body>
 </html>

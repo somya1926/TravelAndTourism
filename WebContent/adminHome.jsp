@@ -40,10 +40,13 @@
 	</style>
 </head>
 <body>
+		<%if(!(((String)request.getRequestURI()).contains("/admin/adminHome"))){
+			throw new ServletException();
+		}%>
 		<h1 id="home"><a href="${pageContext.request.contextPath}/home.html">Home</a></h1>
 		
 		<div class="f1">
-		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
+		<h2>Hi, ${sessionScope.name}</h2>
 		<h2>Welcome to the admin portal !</h2>
 		
 		<form action="tour" method="post">

@@ -32,22 +32,26 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		session=request.getSession(false);
-		
-		if(session.getAttribute("name")!=null){
-			auth= (int)session.getAttribute("auth");
-			name= (String)session.getAttribute("name");
-			session.invalidate();
+		try {
+			session=request.getSession(false);
+			
+			if(session.getAttribute("name")!=null){
+				auth= (int)session.getAttribute("auth");
+				name= (String)session.getAttribute("name");
+				session.invalidate();
 
-			if(auth==0)
-				System.out.println("\nLogged out Successfully! [USER: "+name+"]\n");
-			else if(auth==1)
-				System.out.println("\nLogged out Successfully! [ADMIN: "+name+"]\n");
-			else
-				System.out.println("\nNothing to log out!\n");
-			response.sendRedirect("home.html");
+				if(auth==0)
+					System.out.println("\nLogged out Successfully! [USER: "+name+"]\n");
+				else if(auth==1)
+					System.out.println("\nLogged out Successfully! [ADMIN: "+name+"]\n");
+				else
+					System.out.println("\nNothing to log out!\n");
+				response.sendRedirect("home.html");
+			}
+		}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
+		
 	}
 
 }

@@ -41,11 +41,14 @@
 	</style>
 </head>
 <body>
+		<%if(!(((String)request.getRequestURI()).contains("/user/userHome"))){
+			throw new ServletException();
+		}%>
 		
 		<h1 id="home"><a href="${pageContext.request.contextPath}/home.html">Home</a></h1>
 		
 		<div class="f1">
-		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
+		<h2>Hi, ${sessionScope.name}</h2>
 		<h2>Welcome to the User portal !</h2>
 		
 		<form action="booking" method="post">
