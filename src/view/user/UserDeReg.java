@@ -48,7 +48,7 @@ public class UserDeReg extends HttpServlet {
 				"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 				"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the User Portal !</FONT>\r\n" + 
 				"<BR>\r\n" + 
-				"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+				"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
 				"</P></body></html>");
 		}else{
 			if(((String)session.getAttribute("de-reg")).equals("true")){
@@ -94,7 +94,7 @@ public class UserDeReg extends HttpServlet {
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">user De-registration unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome.jsp\">&lt;&lt; home</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"user/userHome\">&lt;&lt; home</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}catch(SQLException s){
@@ -110,7 +110,7 @@ public class UserDeReg extends HttpServlet {
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">user De-registration unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome.jsp\">&lt;&lt; home</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"user/userHome\">&lt;&lt; home</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}

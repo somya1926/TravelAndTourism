@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Admin Home</title>
-<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -40,34 +40,25 @@
 	</style>
 </head>
 <body>
-	  <%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){%>
-		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="adminLogin.jsp">&lt;&lt; Back</A></font>
-		</P>
-	<%}else{%>
-		
-		
-		<h1 id="home"><a href="home.html">Home</a></h1>
+		<h1 id="home"><a href="${pageContext.request.contextPath}/home.html">Home</a></h1>
 		
 		<div class="f1">
 		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
 		<h2>Welcome to the admin portal !</h2>
 		
-		<form action="admin/tour.jsp" method="post">
+		<form action="tour" method="post">
 		    <input type="submit" name="tour" value="Add Tour">
 		    <input type="submit" name="tour" value="Update Tour" >
 		    <input type="submit" name="tour" value="Delete Tour" >
 		    <input type="submit" name="tour" value="View Tours" >
 		</form><br>
-		<form action="admin/hotel.jsp" method="post">
+		<form action="hotel" method="post">
 		    <input type="submit" name="hotel" value="Add Hotel" >
 		    <input type="submit" name="hotel" value="Update Hotel" >
 		    <input type="submit" name="hotel" value="Delete Hotel" >
 		    <input type="submit" name="hotel" value="View Hotels" >
 		</form><br>
-		<form action="admin/misc.jsp" method="post">
+		<form action="misc" method="post">
 			<input type="submit" name="misc" value="Show Bookings">
 		    <input type="submit" name="misc" value="Revoke Booking">
 		    <input type="submit" name="misc" value="Show Users">
@@ -75,6 +66,5 @@
 		
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>
-	<%} %>
 </body>
 </html>

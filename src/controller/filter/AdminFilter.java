@@ -33,21 +33,27 @@ public class AdminFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		session=(HttpSession)((HttpServletRequest)request).getSession(false);
 	
-		if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){
-			((HttpServletResponse)response).getWriter().
-			print("<html><head>\r\n" + 
-					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
-					"<title>Not Permitted</title>\r\n" + 
-					"</head>\r\n" + 
-					"<body>"+
-					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
-					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the Admin Portal !</FONT>\r\n" + 
-					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.jsp\">&lt;&lt; Back</A></font>\r\n" + 
-					"</P></body></html>");
-		}else {
-			chain.doFilter(request, response);
+		try {
+			if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){
+				((HttpServletResponse)response).getWriter().
+				print("<html><head>\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<title>Not Permitted</title>\r\n" + 
+						"</head>\r\n" + 
+						"<body>"+
+						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the Admin Portal !</FONT>\r\n" + 
+						"<BR>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
+						"</P></body></html>");
+			}else {
+				chain.doFilter(request, response);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			((HttpServletResponse) response).sendRedirect("home.html");
 		}
+		
 	}
 
 	/**

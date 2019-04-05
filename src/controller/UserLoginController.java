@@ -32,7 +32,7 @@ public class UserLoginController extends HttpServlet {
 		
 		if(session.getAttribute("name")!=null){
 			if((int)session.getAttribute("auth")==0)
-				response.sendRedirect("userHome.jsp");
+				response.sendRedirect("user/userHome");
 			else{
 				response.getWriter().
 				print("<html><head>\r\n" + 

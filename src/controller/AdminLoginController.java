@@ -32,7 +32,7 @@ public class AdminLoginController extends HttpServlet {
 		
 		if(session.getAttribute("name")!=null){
 			if((int)session.getAttribute("auth")==1)
-				response.sendRedirect("adminHome.jsp");
+				response.sendRedirect("admin/adminHome");
 			else{
 				response.getWriter().
 				print("<html><head>\r\n" + 

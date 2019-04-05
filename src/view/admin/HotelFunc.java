@@ -51,7 +51,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Insertion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -64,7 +64,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Insertion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}
@@ -80,7 +80,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Place already exists !</FONT>\r\n" + 
 					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 					"</P>"+
 					"</body></html>");
 			}catch(SQLException e){
@@ -106,7 +106,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Updation Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}else {
@@ -119,7 +119,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Updation Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}
@@ -135,7 +135,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Place already exists !</FONT>\r\n" + 
 					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 					"</P>"+
 					"</body></html>");
 			}catch(SQLException e){
@@ -159,7 +159,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Deletion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -172,7 +172,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Deletion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}

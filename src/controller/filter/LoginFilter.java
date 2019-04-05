@@ -76,10 +76,6 @@ public class LoginFilter implements Filter {
 			}
 		}else {
 		
-		
-		String[] part= (session.getServletContext().getRealPath("/").split("\\.metadata"));
-		ConnectionFactory.setDBpath(part[0]+session.getServletContext().getContextPath()+"\\database");
-		
 		try{
 			connection=ConnectionFactory.getInstance().getConnection();
 
@@ -109,7 +105,7 @@ public class LoginFilter implements Filter {
 							
 							System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
 							
-							((HttpServletResponse)response).sendRedirect("adminHome.jsp");
+							((HttpServletResponse)response).sendRedirect("admin/adminHome");
 							//((HttpServletRequest)request).getRequestDispatcher("/AdminFilter").forward(request, response);
 						}else {
 							((HttpServletResponse)response).getWriter().
@@ -121,7 +117,7 @@ public class LoginFilter implements Filter {
 									"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 									"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">The User is not permitted to access the Admin Portal !</FONT>\r\n" + 
 									"<BR>\r\n" + 
-									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
 									"</P></body></html>");
 						}
 						
@@ -133,7 +129,7 @@ public class LoginFilter implements Filter {
 							session.setAttribute("email", resultSet.getString(3));
 							System.out.println("\nUser Logged in : "+resultSet.getString(2)+"\n");
 								
-							((HttpServletResponse)response).sendRedirect("userHome.jsp");
+							((HttpServletResponse)response).sendRedirect("user/userHome");
 							//((HttpServletRequest)request).getRequestDispatcher("/UserFilter").forward(request, response);
 						}else {
 							((HttpServletResponse)response).getWriter().
@@ -145,7 +141,7 @@ public class LoginFilter implements Filter {
 									"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 									"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Administrators are prohibited from accessing the User Portal !</FONT>\r\n" + 
 									"<BR>\r\n" + 
-									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
 									"</P></body></html>");
 						}
 							
@@ -182,7 +178,8 @@ public class LoginFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.print("Login Filter Called !");
+		String[] part= (fConfig.getServletContext().getRealPath("/").split("\\.metadata"));
+		ConnectionFactory.setDBpath(part[0]+fConfig.getServletContext().getContextPath()+"\\database");
 	}
 
 }

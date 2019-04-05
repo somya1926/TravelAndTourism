@@ -11,12 +11,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Booking Portal</title>
-<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -68,13 +68,13 @@
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the User Portal !</FONT>
 			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="userLogin.jsp">&lt;&lt; Back</A></font>
+			<font Face="Comic Sans MS" size=3><A HREF="userLogin.html">&lt;&lt; Back</A></font>
 		</P>
 	<%}else{
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
 		<div id="home">
-			<h1><a href="userHome.jsp">Home</a></h1>
+			<h1><a href="userHome">Home</a></h1>
 			<h2>Hi, <%=(String)session.getAttribute("name")%></h2>
 		</div>
 
@@ -86,7 +86,7 @@
 			bid.add(resultSetFetch.getInt(1));
 		}%>
 <!-- Book Now -->
-<form class="f1" action="bookingFunc.jsp" method="post">
+<form class="f1" action="user/BookingFunc" method="post">
 <table style="display: inline-block; float: left; width: 300px; height: 200px; padding: 10px">
 		<tr>
 			<td>Tour ID:</td>
@@ -206,7 +206,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="bookingFunc.jsp" class="f1" method="post">
+		<form action="user/BookingFunc" class="f1" method="post">
 		Booking Id : <SELECT id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
@@ -230,7 +230,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="bookingFunc.jsp" class="f1" style="width: 300px; height: auto;" method="post">
+		<form action="user/BookingFunc" class="f1" style="width: 300px; height: auto;" method="post">
 		Booking Id : <SELECT id="BID_r" NAME="BID_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
@@ -274,7 +274,6 @@
 		<!-- User De-register -->	
 		<%}else if(((String)request.getParameter("book")).equals("De-register")){
 			session.setAttribute("de-reg", "true");%>
-			<form id="dereg" action="UserDeReg" method="post"></form>
 			<script type="text/javascript">unregister();</script>
 		<%}%>
 	<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">

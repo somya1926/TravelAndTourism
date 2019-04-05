@@ -1,15 +1,24 @@
 
 function sendAlert(){
 	if (confirm("Are you sure you want to logout ?")) {
-		location.href='logout';
+		
+		var form = document.createElement("form");
+	    form.setAttribute("method", "post");
+	    form.setAttribute("action", '../logout');
+        document.body.appendChild(form);
+	    form.submit();
 	} 
 };
 function unregister() {
 	  var person = prompt("To confirm De-registration please enter 'yes' :");
 	  if (person =='yes') {
-		  document.getElementById("dereg").submit();
+		  var form = document.createElement("form");
+		    form.setAttribute("method", "post");
+		    form.setAttribute("action", '../UserDeReg');
+	        document.body.appendChild(form);
+		    form.submit();
 	  }else{
-		  location.href='user/userHome.jsp'; 
+		  location.href='userHome'; 
 	  }
 	};
 $(function() {
@@ -43,11 +52,4 @@ function openPopup(URL,V,K){
 
 function closePopup(){
 	window.close();
-};
-
-function post(path) {
-    var form = document.createElement("form");
-    form.setAttribute("method", "post");
-    form.setAttribute("action", path);
-    form.submit();
 };

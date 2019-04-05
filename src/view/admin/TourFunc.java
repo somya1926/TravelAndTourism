@@ -48,7 +48,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 					"<P align=center><IMG SRC=\"Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">All three places must be unique !</FONT>\r\n" + 
 					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 					"</P>"+
 					"</body></html>");
 			}else{
@@ -75,7 +75,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 							"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 							"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Tour Insertion Successful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
-							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 							"</P>"+
 							"</body></html>");
 					}else{
@@ -88,7 +88,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 							"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 							"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Insertion Unsuccessful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
-							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Try again</A></font>\r\n" + 
+							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Try again</A></font>\r\n" + 
 							"</P>"+
 							"</body></html>");
 					}
@@ -119,7 +119,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 					"<P align=center><IMG SRC=\"Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">All three places must be unique !</FONT>\r\n" + 
 					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 					"</P>"+
 					"</body></html>");
 			}else{
@@ -146,7 +146,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 							"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 							"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Tour Updation Successful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
-							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 							"</P>"+
 							"</body></html>");
 					}else{
@@ -159,7 +159,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 							"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 							"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Updation Unsuccessful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
-							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 							"</P>"+
 							"</body></html>");
 					}
@@ -191,7 +191,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Tour Deletion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -204,7 +204,7 @@ connection=ConnectionFactory.getInstance().getConnection();
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Deletion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome.jsp\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"admin/adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}

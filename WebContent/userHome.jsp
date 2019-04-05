@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>User Home</title>
-<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -41,21 +41,14 @@
 	</style>
 </head>
 <body>
-		<%if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){%>
-		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the User Portal !</FONT>
-			<BR>
-			<font Face="Comic Sans MS" size=3><A HREF="userLogin.jsp">&lt;&lt; Back</A></font>
-		</P>
-	<%}else{%>
 		
-		<h1 id="home"><a href="home.html">Home</a></h1>
+		<h1 id="home"><a href="${pageContext.request.contextPath}/home.html">Home</a></h1>
 		
 		<div class="f1">
 		<h2>Hi, <%=(String)session.getAttribute("name") %></h2>
 		<h2>Welcome to the User portal !</h2>
 		
-		<form action="booking.jsp" method="post">
+		<form action="booking" method="post">
 			<input type="submit" name="book" value="Book now">
 			<input type="submit" name="book" value="Booking History">
 			<input type="submit" name="book" value="Booking Report">
@@ -66,6 +59,5 @@
 		</form>
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>
-	<%}%>
 </body>
 </html>
