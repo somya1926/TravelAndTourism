@@ -126,11 +126,11 @@
 		</tr>
 		<tr>
 			<td>Total days:</td>
-			<td><input NAME="tDays_a" type="number" required="required"></td>
+			<td><input NAME="tDays_a" type="number" required="required" placeholder="not more than 10 days"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
-			<td><input NAME="tPrice_a" type="number" required="required"></td>
+			<td><input NAME="tPrice_a" type="number" required="required" placeholder="minimun ₹10000"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="tourFun" value="ADD">
@@ -228,11 +228,11 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		<tr>
 		<tr>
 			<td>Total days:</td>
-			<td><input type="number" name="tDays_u" required="required"></td>
+			<td><input type="number" name="tDays_u" required="required" placeholder="not more than 10 days"></td>
 		</tr>
 		<tr>
 			<td>Total price:</td>
-			<td><input type="number" NAME="tPrice_u" required="required"></td>
+			<td><input type="number" NAME="tPrice_u" required="required" placeholder="minimun ₹10000"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="tourFun" value="UPDATE">

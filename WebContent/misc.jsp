@@ -41,7 +41,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:20%;
+	    top:80%;
     	left: 50%;
     	transform: translate(-50%, 100%);
     	font-weight: bold;

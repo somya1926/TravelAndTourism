@@ -1,7 +1,7 @@
 <%@page import="org.sqlite.SQLiteException"%>
 <%@page import="java.sql.*,model.*,java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="true"%>
+<%@ page language="java" contentType="text/html;"
+    pageEncoding="utf-8" session="true"%>
     <%! Statement statement=null;
     PreparedStatement statement2=null;
     	ResultSet resultSetFetch=null;
@@ -32,6 +32,8 @@
 	width: 600px;
 	height:250px;
     padding: 40px;
+    padding-right:80px;
+    padding-left:30px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -84,11 +86,15 @@
 		}%>
 <!-- Book Now -->
 <form class="f1" action="BookingFunc" method="post">
-<table style="display: inline-block; float: left; width: 300px; height: 200px; padding: 10px">
+<table style=" width: 650px; height: 200px;">
+	<tr>
+		<td>
+	
+	<table>
 		<tr>
 			<td>Tour ID:</td>
 			<td>
-				<select id="bID_a" NAME="bID_a">
+				<select id="bID_a" NAME="bID_a" required="required">
 					<option value="Select-tour" disabled="disabled" selected="selected">Select Tour</option>
 					<%for (int t1 : bid){%>
 						<option value="<%=t1%>">t<%=t1%></option>
@@ -101,18 +107,25 @@
 		</tr>
 		<tr>
 			<td>Tour Date:</td>
-			<td><input type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate"></td>
+			<td><input type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate" required="required"></td>
 		</tr>
 		<tr>
-			<td>Total Persons:</td>
-			<td><input type="number" title="Must be between 1 to 10."
-					name="pNo" placeholder="From 3 years of age.">
+			<td>Total Persons:
+			<img alt="" src="${pageContext.request.contextPath}/Images/info-16.png" title=" ₹ 12000/person">
+					
+			</td>
+			<td ><input type="number" pattern="[1-8]" title="Must be between 1 to 10."
+					name="pNo" placeholder="From 3 years of age." required="required">
+					
 			</td>
 		</tr>
 		<tr>
-			<td>Room type:</td>
+			<td>Room type:
+				<img alt="" src="${pageContext.request.contextPath}/Images/info-16.png" 
+					title="STANDARD: ₹ 4000 | SUPERIOR: ₹ 7000 | DELUXE: ₹ 10000">
+			</td>
 			<td>
-				<select NAME="rType">
+				<select NAME="rType" required="required">
 					<option value="Select-type" disabled="disabled" selected="selected">Select Type</option>
 					<option value="ST">Standard</option>
 					<option value="SU">Superior</option>
@@ -121,8 +134,9 @@
 			</td>
 		</tr>
 	</table>
-	
-	<table style="display: inline-block; width:300px; height: 200px; float: right;  padding: 1px;">
+	</td>
+	<td>
+	<table>
 			<tr>
 				<td>Full Name :</td>
 				<td><input type="text" name="cName" placeholder="Card Holder`s Name"></td>
@@ -137,11 +151,14 @@
 			</tr>
 			<tr>
 				<td>CVV No:</td>
-				<td><input type="number" name="cvv"></td>
+				<td><input type="number" pattern="{3}" name="cvv"></td>
 			</tr>
 		</table>
+		</td>
+		</tr>
+		</table>
 	<br>
-	<input id="btn" class="cal" type="submit" name="uBooking" value="Book Now">
+	<input id="btn" style="margin-top: 0px" type="submit" name="uBooking" value="Book Now">
 	</form>
 	<!-- Booking History -->
 	<%}else  if(((String)request.getParameter("book")).equals("Booking History")){
@@ -149,7 +166,7 @@
 		statement2.setString(1, (String)session.getAttribute("email"));
 		resultSetFetch=statement2.executeQuery();%>
 		
-		<div class="f1" style="overflow: auto;height: 49%; width: 65%;">
+		<div class="f1" style="overflow: auto; height: 49%; width: 65%;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -167,9 +184,8 @@
 				<tr>
 					<td><%=resultSetFetch.getInt(1) %></td>
 					<td><%=resultSetFetch.getString(2) %></td>
-					<td><a href="#" 
-						onclick="openPopup('overview',<%=resultSetFetch.getInt(3)%>,'UCB');">
-						<%=resultSetFetch.getInt(3)%></a></td>
+					<td><a href="#" onclick="openPopup('overview',<%=resultSetFetch.getInt(3)%>,'UCB');">
+							<%=resultSetFetch.getInt(3)%></a></td>
 					<td><%=resultSetFetch.getString(4)%></td>
 					<td><%=resultSetFetch.getString(5)%></td>
 					<td><%=resultSetFetch.getInt(6) %></td>

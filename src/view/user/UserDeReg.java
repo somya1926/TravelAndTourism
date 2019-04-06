@@ -80,7 +80,7 @@ public class UserDeReg extends HttpServlet {
 						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">user De-registered !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; home</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"../home.html\">&lt;&lt; home</A></font>\r\n" + 
 						"</P>"+
 						"</body></html>");
 				}catch(SQLiteException s){

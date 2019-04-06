@@ -46,12 +46,28 @@ public class BookingFunc extends HttpServlet {
 		connection=ConnectionFactory.getInstance().getConnection();
 		
 		if(((String)request.getParameter("uBooking")).equals("Book Now")){
+			int price=0;
 			
+			if(Integer.parseInt((String)request.getParameter("pNo"))>7) {
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/bookingFunc.css\">\r\n" + 
+					"<script type=\"text/javascript\" src=\""+resource+"/scripts/main.js\"></script>"+
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">More than 7 persons not allowed !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}else {
+				
 			
 			try{
 				statement=connection.prepareStatement("INSERT INTO bookingInfo (B_DATE, T_ID, T_DATE, U_EMAIL, PERSONS, R_TYPE, T_AMOUNT)"+
-						" VALUES((SELECT date('now')),?,?,?,?,?,(SELECT T_PRICE FROM tourInfo WHERE T_ID=?)"+
-								"+(SELECT T_PRICE FROM tourInfo WHERE T_ID=?)*0.18)");
+						" VALUES((SELECT date('now')),?,?,?,?,?,(SELECT T_PRICE FROM tourInfo WHERE T_ID=?)+?)");
 				
 				statement.setInt(1, Integer.parseInt((String)request.getParameter("bID_a")));
 				statement.setString(2, (String)request.getParameter("tDate"));
@@ -59,7 +75,17 @@ public class BookingFunc extends HttpServlet {
 				statement.setInt(4, Integer.parseInt((String)request.getParameter("pNo")));
 				statement.setString(5, (String)request.getParameter("rType"));
 				statement.setInt(6, Integer.parseInt((String)request.getParameter("bID_a")));
-				statement.setInt(7, Integer.parseInt((String)request.getParameter("bID_a")));
+				
+				price=Integer.parseInt(request.getParameter("pNo"))*12000;
+				if(((String)request.getParameter("rType")).equals("DE"))
+					price += 10000;
+				else if(((String)request.getParameter("rType")).equals("SU"))
+					price +=7000;
+				else
+					price +=4000;
+					
+				statement.setInt(7, price);
+					
 				update= statement.executeUpdate();
 				
 				if(update>0){
@@ -103,7 +129,7 @@ public class BookingFunc extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			
+		}
 		}else if(((String)request.getParameter("uBooking")).equals("CANCEL")){
 			
 			try{
@@ -180,13 +206,17 @@ public class BookingFunc extends HttpServlet {
 					"			<tr>\r\n" + 
 					"				<th>Email:</th>\r\n" + 
 					"				<td>"+resultSetFetch.getString(3)+"</td>\r\n" + 
-					"			</tr>\r\n" + 
+					"			</tr>\r\n" +
 					"			<tr>\r\n" + 
+					"				<th>Mobile No:</th>\r\n" + 
+					"				<td>"+session.getAttribute("mob")+"</td>\r\n" +
+					"			</tr>\r\n" +
+					"			<tr>\r\n" +
 					"				<td><hr></td>\r\n" + 
 					"				<td><hr></td>\r\n" + 
 					"			</tr>\r\n" + 
 					"			<tr>\r\n" + 
-					"				<th>Package Name:</th>\r\n" + 
+					"				<th>Package Name:</th>\r\n" +
 					"				<td>"+resultSetFetch.getString(4)+"</td>\r\n" + 
 					"			</tr>\r\n" + 
 					"			<tr>\r\n" + 
@@ -238,6 +268,7 @@ public class BookingFunc extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-	}
 
+	}
+		
 }
