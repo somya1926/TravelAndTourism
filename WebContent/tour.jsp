@@ -151,7 +151,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 				<%} %>
 			</select><br>
 			<a href="#" 
-				onclick="openPopup('overview.jsp',document.getElementById('TID_d').value,'TD');">overview</a>
+				onclick="openPopup('overview',document.getElementById('TID_d').value,'TD');">overview</a>
 				<br><br>
 	<input id="btn" type="submit" name="tourFun" value="DELETE">
 </form>
@@ -183,7 +183,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 				<%} %>
 			</select><br>
 			<a href="#" 
-				onclick="openPopup('overview.jsp',document.getElementById('TID_u').value,'TU');">overview</a>
+				onclick="openPopup('overview',document.getElementById('TID_u').value,'TU');">overview</a>
 			</td>
 		</tr>
 		<tr>

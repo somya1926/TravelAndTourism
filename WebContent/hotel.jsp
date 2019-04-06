@@ -104,7 +104,7 @@
 				<%} %>
 			</select><br>
 			<a href="#" 
-				onclick="openPopup('overview.jsp',document.getElementById('hID_d').value,'HD');">overview</a><br><br>
+				onclick="openPopup('overview',document.getElementById('hID_d').value,'HD');">overview</a><br><br>
 	<input id="btn" type="submit" name="hotelFun" value="DELETE">
 </form>
 <%}else if(((String)request.getParameter("hotel")).equals("Update Hotel")){ 
@@ -126,7 +126,7 @@
 				<%} %>
 			</select><br>
 			<a href="#" 
-				onclick="openPopup('overview.jsp',document.getElementById('hID_u').value,'HU');">overview</a>
+				onclick="openPopup('overview',document.getElementById('hID_u').value,'HU');">overview</a>
 			</td>
 			
 		</tr>

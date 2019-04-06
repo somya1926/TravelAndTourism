@@ -22,6 +22,7 @@ public class UserReg extends HttpServlet {
 	boolean validUser=false;
 	Connection connection=null;
 	int updatecode=-1;
+	String resource=null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,17 +38,18 @@ public class UserReg extends HttpServlet {
 		try{
 			connection=ConnectionFactory.getInstance().getConnection();
 			statement= connection.prepareStatement(QUERY);
+			resource=request.getSession(false).getServletContext().getContextPath();
 			
 			if(!(request.getParameter("pass").equals(request.getParameter("cPass")))){
 				response.getWriter()
 					.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserReg</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"17\" HEIGHT=\"17\" BORDER=\"0\" ALT=\"\">\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"17\" HEIGHT=\"17\" BORDER=\"0\" ALT=\"\">\r\n" + 
 						"<FONT COLOR=\"Red\" Face=\"Georgia\">Password Mismatch !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<A HREF=\"userReg.html\">&lt;&lt;Retry Again</A>\r\n" + 
@@ -67,11 +69,11 @@ public class UserReg extends HttpServlet {
 				.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserReg</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">User Registration Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Login Now</A></font>\r\n" + 
@@ -82,11 +84,11 @@ public class UserReg extends HttpServlet {
 				.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserReg</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">User Registration Unsuccessful ! <br> Retry again.</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" + 
@@ -98,11 +100,11 @@ public class UserReg extends HttpServlet {
 			.print(
 					"<html>\r\n" + 
 					"<head>\r\n" + 
-					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 					"<title>UserReg</title>\r\n" + 
 					"</head>\r\n" + 
 					"<body>"+
-					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Either Email or Mobile number has already been registered !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" + 
@@ -113,11 +115,11 @@ public class UserReg extends HttpServlet {
 			.print(
 					"<html>\r\n" + 
 					"<head>\r\n" + 
-					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 					"<title>UserReg</title>\r\n" + 
 					"</head>\r\n" + 
 					"<body>"+
-					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Either Email or Mobile number has already been registered !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" + 

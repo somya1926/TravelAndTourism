@@ -45,6 +45,10 @@ $(function() {
 	});
 });
 
+function openPopupSelf(URL,V,K){
+	window.open(`${URL}?val=${V}&key=${K}`,
+			'_blank','scrollbars=yes, resizable=yes, height=300,width=280,top=200,left=300');
+};
 function openPopup(URL,V,K){
 	window.open(`../${URL}?val=${V}&key=${K}`,
 			'_blank','scrollbars=yes, resizable=yes, height=300,width=280,top=200,left=300');

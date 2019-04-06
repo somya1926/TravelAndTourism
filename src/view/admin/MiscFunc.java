@@ -20,6 +20,7 @@ public class MiscFunc extends HttpServlet {
 	ResultSet resultSetFetch=null;
 	Connection connection=null;
 	int update=-1;
+	String resource=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,6 +33,7 @@ public class MiscFunc extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		connection=ConnectionFactory.getInstance().getConnection();
+		resource=request.getSession(false).getServletContext().getContextPath();
 		try{
 			if(((String)request.getParameter("miscFun")).equals("REVOKE")){
 				statement=connection.prepareStatement("UPDATE bookingInfo SET STATUS=0 WHERE B_ID=?;");
@@ -41,10 +43,10 @@ public class MiscFunc extends HttpServlet {
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-							"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+							"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 							"</head>\r\n" + 
 							"<body>"+
-							"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+							"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 							"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Booking Revocation Successful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -53,10 +55,10 @@ public class MiscFunc extends HttpServlet {
 				}else{
 					response.getWriter().
 					print("<html><head>\r\n" + 
-							"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+							"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 							"</head>\r\n" + 
 							"<body>"+
-							"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+							"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 							"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Booking Revocation Unsuccessful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Try again</A></font>\r\n" + 

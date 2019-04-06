@@ -28,7 +28,14 @@
 </style>
 </head>
 <body>
-<%if(session.getAttribute("name")==null){%>
+	
+<%
+System.out.print("OV-path: "+session.getServletContext().getContextPath());
+	if(!(((String)request.getRequestURI()).contains("/overview"))){
+		throw new ServletException();
+	}
+
+	if(session.getAttribute("name")==null){%>
 		<P align=center><IMG SRC="Images/error48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 			<FONT COLOR="Red" size=5 Face="verdana">You are not permitted to Access the Admin Portal !</FONT>
 		</P>
@@ -125,13 +132,11 @@
 							<th>T_ID</th>
 							<%if((int)session.getAttribute("auth")==1) {%>
 							<td><a href="#" 
-								onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'MSB');">
-									<%=resultSetFetch.getInt(3)%></a></td>
+								onclick="openPopupSelf('overview',<%=resultSetFetch.getInt(3)%>,'MSB');"><%=resultSetFetch.getInt(3)%></a></td>
 									
 								<%}else if((int)session.getAttribute("auth")==0){ %>
 								<td><a href="#" 
-								onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'UCB');">
-									<%=resultSetFetch.getInt(3)%></a></td>
+								onclick="openPopupSelf('overview',<%=resultSetFetch.getInt(3)%>,'UCB');"><%=resultSetFetch.getInt(3)%></a></td>
 								<%} %>
 						</tr>
 						<tr>
