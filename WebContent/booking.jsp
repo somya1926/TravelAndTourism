@@ -95,7 +95,7 @@
 					<%} %>
 				</select>
 				<a href="#" 
-					onclick="openPopup('overview.jsp',document.getElementById('bID_a').value,'AB');">overview</a>
+					onclick="openPopup('overview',document.getElementById('bID_a').value,'AB');">overview</a>
 			</td>
 			
 		</tr>
@@ -168,7 +168,7 @@
 					<td><%=resultSetFetch.getInt(1) %></td>
 					<td><%=resultSetFetch.getString(2) %></td>
 					<td><a href="#" 
-						onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'UCB');">
+						onclick="openPopup('overview',<%=resultSetFetch.getInt(3)%>,'UCB');">
 						<%=resultSetFetch.getInt(3)%></a></td>
 					<td><%=resultSetFetch.getString(4)%></td>
 					<td><%=resultSetFetch.getString(5)%></td>
@@ -203,7 +203,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" method="post">
+		<form action="BookingFunc" class="f1" method="post" style="width: 250px; height: auto;">
 		Booking Id : <SELECT id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
@@ -211,7 +211,7 @@
 				<%} %>
 			</select><br>
 			<a href="#" 
-				onclick="openPopup('overview.jsp',document.getElementById('BID_d').value,'CB');">overview</a>
+				onclick="openPopup('overview',document.getElementById('BID_d').value,'CB');">overview</a>
 				<br><br>
 			<input id="btn" type="submit" name="uBooking" value="CANCEL">
 		</form>

@@ -22,6 +22,7 @@ public class UserDeReg extends HttpServlet {
  	Connection connection=null;
  	int update=-1;
  	HttpSession session=null;
+ 	String resource=null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,17 +36,18 @@ public class UserDeReg extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session=request.getSession(false);
+		resource=session.getServletContext().getContextPath();
 		
 		if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1 || session.getAttribute("de-reg")==null){
 			response.getWriter()
 			.print(
 				"<html>\r\n" + 
 				"<head>\r\n" + 
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 				"<title>UserDeReg</title>\r\n" + 
 				"</head>\r\n" + 
 				"<body>"+
-				"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+				"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 				"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the User Portal !</FONT>\r\n" + 
 				"<BR>\r\n" + 
 				"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
@@ -71,11 +73,11 @@ public class UserDeReg extends HttpServlet {
 					.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserDeReg</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">user De-registered !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; home</A></font>\r\n" + 
@@ -87,11 +89,11 @@ public class UserDeReg extends HttpServlet {
 					.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserDeReg</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">user De-registration unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; home</A></font>\r\n" + 
@@ -103,11 +105,11 @@ public class UserDeReg extends HttpServlet {
 					.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserDeReg</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">user De-registration unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; home</A></font>\r\n" + 

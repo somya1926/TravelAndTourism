@@ -20,6 +20,7 @@ public class HotelFunc extends HttpServlet {
 	ResultSet resultSetFetch=null;
 	Connection connection=null;
 	int update=-1;
+	String resource=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,7 +32,8 @@ public class HotelFunc extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-connection=ConnectionFactory.getInstance().getConnection();
+		connection=ConnectionFactory.getInstance().getConnection();
+		resource=request.getSession(false).getServletContext().getContextPath();
 		
 		if(((String)request.getParameter("hotelFun")).equals("ADD")){
 
@@ -44,11 +46,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>Not Permitted</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Insertion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -57,11 +59,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				}else{
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>Not Permitted</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Insertion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -73,11 +75,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				
 				response.getWriter().
 				print("<html><head>\r\n" + 
-					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 					"<title>Not Permitted</title>\r\n" + 
 					"</head>\r\n" + 
 					"<body>"+
-					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Place already exists !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -99,11 +101,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>Not Permitted</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Updation Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -112,11 +114,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				}else {
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>Not Permitted</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Updation Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -128,11 +130,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				
 				response.getWriter().
 				print("<html><head>\r\n" + 
-					"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 					"<title>Not Permitted</title>\r\n" + 
 					"</head>\r\n" + 
 					"<body>"+
-					"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Place already exists !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -152,11 +154,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>Not Permitted</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Deletion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -165,11 +167,11 @@ connection=ConnectionFactory.getInstance().getConnection();
 				}else{
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>Not Permitted</title>\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Deletion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 

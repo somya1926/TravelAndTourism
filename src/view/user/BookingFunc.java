@@ -27,6 +27,7 @@ public class BookingFunc extends HttpServlet {
 	Connection connection=null;
 	int update=-1;
 	HttpSession session=null;
+	String resource=null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,7 +41,10 @@ public class BookingFunc extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session=request.getSession(false);
+		response.setContentType("text/html;charset=UTF-8");
+		resource=session.getServletContext().getContextPath();
 		connection=ConnectionFactory.getInstance().getConnection();
+		
 		if(((String)request.getParameter("uBooking")).equals("Book Now")){
 			
 			
@@ -61,12 +65,12 @@ public class BookingFunc extends HttpServlet {
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" +
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
-						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/bookingFunc.css\">\r\n" + 
+						"<script type=\"text/javascript\" src=\""+resource+"/scripts/main.js\"></script>"+
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Booking Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -75,12 +79,12 @@ public class BookingFunc extends HttpServlet {
 				}else {
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" +
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
-						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/bookingFunc.css\">\r\n" + 
+						"<script type=\"text/javascript\" src=\""+resource+"/scripts/main.js\"></script>"+
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Booking Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
@@ -110,12 +114,10 @@ public class BookingFunc extends HttpServlet {
 				if(update>0){
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
-						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Cancellation Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Back</A></font>\r\n" + 
@@ -124,12 +126,10 @@ public class BookingFunc extends HttpServlet {
 				}else{
 					response.getWriter().
 					print("<html><head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bookingFunc.css\">\r\n" + 
-						"<script type=\"text/javascript\" src=\"scripts/main.js\"></script>"+
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +  
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Cancellation Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
@@ -157,9 +157,9 @@ public class BookingFunc extends HttpServlet {
 			out.
 			print("<html><head>\r\n" +
 				"<meta charset=\"UTF-8\">"+
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/css/theme.css\">\r\n" +
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/css/bookingFunc.css\">\r\n" + 
-				"<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/scripts/main.js\"></script>"+
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/bookingFunc.css\">\r\n" + 
+				"<script type=\"text/javascript\" src=\""+resource+"/scripts/main.js\"></script>"+
 				
 				"</head>\r\n" + 
 				"<body>"+

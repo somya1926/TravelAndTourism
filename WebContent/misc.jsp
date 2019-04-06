@@ -99,7 +99,7 @@
 					<td><%=resultSetFetch.getInt(1) %></td>
 					<td><%=resultSetFetch.getString(2) %></td>
 					<td><a href="#" 
-						onclick="openPopup('overview.jsp',<%=resultSetFetch.getInt(3)%>,'MSB');">
+						onclick="openPopup('overview',<%=resultSetFetch.getInt(3)%>,'MSB');">
 						<%=resultSetFetch.getInt(3)%></a></td>
 					<td><%=resultSetFetch.getString(4)%></td>
 					<td><%=resultSetFetch.getString(5)%></td>
@@ -139,7 +139,7 @@
 					<%} %>
 					</select><br>
 				<a href="#" 
-					onclick="openPopup('overview.jsp',document.getElementById('MB_r').value,'MR');">overview</a>
+					onclick="openPopup('overview',document.getElementById('MB_r').value,'MR');">overview</a>
 				<br><br>
 				<input id="btn" type="submit" name="miscFun" value="REVOKE">
 			</form>
