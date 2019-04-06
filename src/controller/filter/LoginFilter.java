@@ -26,7 +26,7 @@ public class LoginFilter implements Filter {
 	
 	boolean validResult=false;
 	Connection connection=null;
-	String QUERY= "SELECT U_ADMIN, U_NAME,U_EMAIL  FROM userAccount WHERE U_EMAIL=? AND U_PASS=?";
+	String QUERY= "SELECT U_ADMIN, U_NAME,U_EMAIL,U_MOB  FROM userAccount WHERE U_EMAIL=? AND U_PASS=?";
 	PreparedStatement statement=null;
 	ResultSet resultSet=null;
 	HttpSession session=null;
@@ -103,7 +103,7 @@ public class LoginFilter implements Filter {
 							session.setAttribute("auth", resultSet.getInt(1));
 							session.setAttribute("name", resultSet.getString(2));
 							session.setAttribute("email", resultSet.getString(3));
-							
+							session.setAttribute("mob", resultSet.getLong(4));
 							System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
 							
 							((HttpServletResponse)response).sendRedirect("admin/adminHome");
@@ -128,6 +128,7 @@ public class LoginFilter implements Filter {
 							session.setAttribute("auth", resultSet.getInt(1));
 							session.setAttribute("name", resultSet.getString(2));
 							session.setAttribute("email", resultSet.getString(3));
+							session.setAttribute("mob", resultSet.getLong(4));
 							System.out.println("\nUser Logged in : "+resultSet.getString(2)+"\n");
 								
 							((HttpServletResponse)response).sendRedirect("user/userHome");

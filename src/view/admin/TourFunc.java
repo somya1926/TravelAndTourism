@@ -53,7 +53,33 @@ public class TourFunc extends HttpServlet {
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 					"</P>"+
 					"</body></html>");
-			}else{
+			}else if(Integer.parseInt(request.getParameter("tDays_a"))>10){
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
+					"<title>Not Permitted</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\""+resource+"/Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">More than 10 days not allowed !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}else if(Integer.parseInt(request.getParameter("tPrice_a"))<10000) {
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
+					"<title>Not Permitted</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\""+resource+"/Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">Minimum price of ₹10000 be charged !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}else {
 				
 				
 				try{
@@ -124,7 +150,33 @@ public class TourFunc extends HttpServlet {
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
 					"</P>"+
 					"</body></html>");
-			}else{
+			}else if(Integer.parseInt(request.getParameter("tDays_u"))>10){
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
+					"<title>Not Permitted</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\""+resource+"/Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">More than 10 days not allowed !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}else if(Integer.parseInt(request.getParameter("tPrice_u"))<10000) {
+				response.getWriter().
+				print("<html><head>\r\n" + 
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
+					"<title>Not Permitted</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body>"+
+					"<P align=center><IMG SRC=\""+resource+"/Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">Minimum price of ₹10000 be charged !</FONT>\r\n" + 
+					"<BR>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"</P>"+
+					"</body></html>");
+			}else {
 				
 				try{
 					statement=connection.prepareStatement(
