@@ -45,6 +45,7 @@ public class UserDeReg extends HttpServlet {
 				"<head>\r\n" + 
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 				"<title>UserDeReg</title>\r\n" + 
+				"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 				"</head>\r\n" + 
 				"<body>"+
 				"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
@@ -75,6 +76,7 @@ public class UserDeReg extends HttpServlet {
 						"<head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserDeReg</title>\r\n" + 
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
@@ -91,6 +93,7 @@ public class UserDeReg extends HttpServlet {
 						"<head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserDeReg</title>\r\n" + 
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
@@ -107,6 +110,7 @@ public class UserDeReg extends HttpServlet {
 						"<head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserDeReg</title>\r\n" + 
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 

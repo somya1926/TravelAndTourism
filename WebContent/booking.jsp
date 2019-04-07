@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Booking Portal</title>
+<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -59,6 +60,7 @@
 		width: 100px;
 	    padding: 5px;
 	    margin:40px;
+	    margin-left:100px;
 		font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
@@ -90,7 +92,7 @@
 	<tr>
 		<td>
 	
-	<table>
+	<table style="text-align: left;">
 		<tr>
 			<td>Tour ID:</td>
 			<td>
@@ -99,7 +101,7 @@
 					<%for (int t1 : bid){%>
 						<option value="<%=t1%>">t<%=t1%></option>
 					<%} %>
-				</select>
+				</select><br>
 				<a href="#" 
 					onclick="openPopup('overview',document.getElementById('bID_a').value,'AB');">overview</a>
 			</td>
@@ -107,36 +109,42 @@
 		</tr>
 		<tr>
 			<td>Tour Date:</td>
-			<td><input type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate" required="required"></td>
+			<td><input style="width: 50%" type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate" required="required"></td>
 		</tr>
 		<tr>
 			<td>Total Persons:
-			<img alt="" src="${pageContext.request.contextPath}/Images/info-16.png" title=" ₹ 12000/person">
-					
+				<div class="tooltip" >
+					<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png">
+					<span>₹ 12000/person<br>(Above 3 years)</span>
+				</div>	
 			</td>
-			<td ><input type="number" pattern="[1-8]" title="Must be between 1 to 10."
-					name="pNo" placeholder="From 3 years of age." required="required">
+			<td ><input style="width: 30%" type="number" pattern="[1-8]" title="Must be between 1 to 10."
+					name="pNo" required="required">
 					
 			</td>
 		</tr>
 		<tr>
 			<td>Room type:
-				<img alt="" src="${pageContext.request.contextPath}/Images/info-16.png" 
-					title="STANDARD: ₹ 4000 | SUPERIOR: ₹ 7000 | DELUXE: ₹ 10000">
+				<div class="tooltip" >
+					<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png" >
+						<span>STANDARD: &nbsp; ₹4000<br>SUPERIOR: &nbsp; ₹7000<br>DELUXE: &nbsp; ₹10000</span>
+				</div>
 			</td>
 			<td>
 				<select NAME="rType" required="required">
 					<option value="Select-type" disabled="disabled" selected="selected">Select Type</option>
-					<option value="ST">Standard</option>
-					<option value="SU">Superior</option>
-					<option value="DE">Deluxe</option>
+					<option value="ST">STANDARD</option>
+					<option value="SU">SUPERIOR</option>
+					<option value="DE">DELUXE</option>
 				</select>
 			</td>
 		</tr>
 	</table>
 	</td>
 	<td>
-	<table>
+	<table style="text-align: left;">
 			<tr>
 				<td>Full Name :</td>
 				<td><input type="text" name="cName" placeholder="Card Holder`s Name"></td>
@@ -147,11 +155,11 @@
 			</tr>
 			<tr>
 				<td>Expire Date:</td>
-				<td><input type="text"  id="expiryDate" name="cExp" placeholder="MM/YY"></td>
+				<td><input style="width: 30%" type="text"  id="expiryDate" name="cExp" placeholder="MM/YY"></td>
 			</tr>
 			<tr>
 				<td>CVV No:</td>
-				<td><input type="number" pattern="{3}" name="cvv"></td>
+				<td><input style="width: 30%" type="number" pattern="{3}" name="cvv"></td>
 			</tr>
 		</table>
 		</td>
