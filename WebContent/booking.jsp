@@ -12,6 +12,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -166,7 +167,8 @@
 		</tr>
 		</table>
 	<br>
-	<input id="btn" style="margin-top: 0px" type="submit" name="uBooking" value="Book Now">
+	<input id="btn" class="press press-cyan press-teal press-raised press-round"
+		style="margin-top: 0px" type="submit" name="uBooking" value="Book Now">
 	</form>
 	<!-- Booking History -->
 	<%}else  if(((String)request.getParameter("book")).equals("Booking History")){
@@ -174,7 +176,7 @@
 		statement2.setString(1, (String)session.getAttribute("email"));
 		resultSetFetch=statement2.executeQuery();%>
 		
-		<div class="f1" style="overflow: auto; height: 49%; width: 65%;">
+		<div class="f1" style="overflow: auto; height: 39%; width: 65%; padding-right: 25px;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -227,7 +229,8 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" method="post" style="width: 250px; height: auto;">
+		<form action="BookingFunc" class="f1" method="post" style="width: 200px; height: 100px; 
+			padding-left: 40px; padding-right: 60px;">
 		Booking Id : <SELECT id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
@@ -237,7 +240,8 @@
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('BID_d').value,'CB');">overview</a>
 				<br><br>
-			<input id="btn" type="submit" name="uBooking" value="CANCEL">
+			<input id="btn" class="press press-cyan press-teal press-raised press-round"
+				type="submit" style="margin-top: 20px; margin-left: 65px;" name="uBooking" value="CANCEL">
 		</form>
 	
 	<!-- Booking Report -->
@@ -259,14 +263,15 @@
 				<%} %>
 			</select>
 				<br>
-			<input id="btn" style="width: 150px;" type="submit" name="uBooking" value="VIEW REPORT">
+			<input id="btn" class="press press-cyan press-teal press-raised press-round"
+				style="width: 150px;" type="submit" name="uBooking" value="VIEW REPORT">
 		</form>
 	
 	<!-- View tours -->
 	<%}else if(((String)request.getParameter("book")).equals("View Tours")){ 
 	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
-	<div class="f1" style="overflow: auto;height: 35%; width: 48%; ">
+	<div class="f1" style="overflow: auto;height: 35%; width: 48%; padding-right: 25px">
 	<table id="t1">
 			<tr>
 				<th>T_ID</th>
@@ -297,6 +302,7 @@
 			session.setAttribute("de-reg", "true");%>
 			<script type="text/javascript">unregister();</script>
 		<%}%>
-	<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
+	<br><input class="press press-black press-pill press-ghost"
+		id="logout" type="button" value="Logout" onclick="sendAlert();">
 </body>
 </html>
