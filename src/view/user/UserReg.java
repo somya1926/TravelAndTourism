@@ -45,14 +45,15 @@ public class UserReg extends HttpServlet {
 					.print(
 						"<html>\r\n" + 
 						"<head>\r\n" + 
-						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
+						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +
 						"<title>UserReg</title>\r\n" + 
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
-						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"17\" HEIGHT=\"17\" BORDER=\"0\" ALT=\"\">\r\n" + 
-						"<FONT COLOR=\"Red\" Face=\"Georgia\">Password Mismatch !</FONT>\r\n" + 
+						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
+						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Password Mismatch !</FONT>\r\n" +  
 						"<BR>\r\n" + 
-						"<A HREF=\"userReg.html\">&lt;&lt;Retry Again</A>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Retry Again</A></font>\r\n" +
 						"</P></body></html>");
 			}else{
 				statement.setString(1, (String)request.getParameter("pass"));
@@ -71,6 +72,7 @@ public class UserReg extends HttpServlet {
 						"<head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserReg</title>\r\n" + 
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\""+resource+"/Images/correct48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
@@ -86,6 +88,7 @@ public class UserReg extends HttpServlet {
 						"<head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 						"<title>UserReg</title>\r\n" + 
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
@@ -101,7 +104,8 @@ public class UserReg extends HttpServlet {
 					"<html>\r\n" + 
 					"<head>\r\n" + 
 					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
-					"<title>UserReg</title>\r\n" + 
+					"<title>UserReg</title>\r\n" +
+					"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 					"</head>\r\n" + 
 					"<body>"+
 					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
@@ -117,6 +121,7 @@ public class UserReg extends HttpServlet {
 					"<head>\r\n" + 
 					"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" + 
 					"<title>UserReg</title>\r\n" + 
+					"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 					"</head>\r\n" + 
 					"<body>"+
 					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 

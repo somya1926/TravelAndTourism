@@ -16,6 +16,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Tour Portal</title>
+<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -125,12 +126,23 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Total days:</td>
-			<td><input NAME="tDays_a" type="number" required="required" placeholder="not more than 10 days"></td>
+			<td>Total days:
+			<div class="tooltip" >
+				<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png" >
+						<span style="width: 150px">Not more than 10 days</span>
+			</div></td>
+			<td><input NAME="tDays_a" type="number" required="required" style="width: 30%"></td>
 		</tr>
 		<tr>
-			<td>Total price:</td>
-			<td><input NAME="tPrice_a" type="number" required="required" placeholder="minimun ₹10000"></td>
+			<td>Total price:
+				<div class="tooltip" >
+				<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png" >
+						<span>minimun ₹10000</span>
+			</div>
+			</td>
+			<td><input NAME="tPrice_a" type="number" required="required" style="width: 50%"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="tourFun" value="ADD">
@@ -227,12 +239,24 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		</tr>
 		<tr>
 		<tr>
-			<td>Total days:</td>
-			<td><input type="number" name="tDays_u" required="required" placeholder="not more than 10 days"></td>
+			<td>Total days:
+			<div class="tooltip" >
+				<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png" >
+						<span style="width: 150px">Not more than 10 days</span>
+			</div>
+			</td>
+			<td><input type="number" name="tDays_u" required="required" style="width: 30%"></td>
 		</tr>
 		<tr>
-			<td>Total price:</td>
-			<td><input type="number" NAME="tPrice_u" required="required" placeholder="minimun ₹10000"></td>
+			<td>Total price:
+			<div class="tooltip" >
+				<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png" >
+						<span>minimun ₹10000</span>
+			</div>
+			</td>
+			<td><input type="number" NAME="tPrice_u" required="required" style="width: 50%"></td>
 		</tr>
 	</table>
 	<br><input id="btn" type="submit" name="tourFun" value="UPDATE">

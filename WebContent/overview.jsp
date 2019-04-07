@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Overview Window</title>
+<title>Overview</title>
+<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">

@@ -39,7 +39,9 @@ public class UserFilter implements Filter {
 				((HttpServletResponse)response).getWriter().
 				print("<html><head>\r\n" + 
 						"<link rel=\"stylesheet\" type=\"text/css\" href=\"css/theme.css\">\r\n" + 
-						"<title>Not Permitted</title>\r\n" + 
+						"<title>Not Permitted</title>\r\n" +
+						"<title>Tour Func</title>\r\n" +
+						"<link rel=\"shortcut icon\" type=\"image/png\" href=\"Images/fabicon.png\">"+
 						"</head>\r\n" + 
 						"<body>"+
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 

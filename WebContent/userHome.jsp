@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>User Home</title>
+<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -38,6 +39,11 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
+	
+	th,td{
+		padding: 4px;
+		border: 2px solid;
+	}
 	</style>
 </head>
 <body>
@@ -52,13 +58,19 @@
 		<h2>Welcome to the User portal !</h2>
 		
 		<form action="booking" method="post">
-			<input type="submit" name="book" value="Book now">
-			<input type="submit" name="book" value="Booking History">
-			<input type="submit" name="book" value="Booking Report">
-			<br>
-			<input type="submit" name="book" value="View Tours">
-			<input type="submit" name="book" value="Cancel Booking">
-			<input type="submit" name="book" value="De-register" title="Delete your user account.">
+		<table style="text-align: center; color: maroon;" >
+			<tr>
+				<td><input type="submit" name="book" value="Book now"></td>
+				<td><input type="submit" name="book" value="Booking History"></td>
+				<td><input type="submit" name="book" value="Booking Report"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="book" value="View Tours"></td>
+				<td><input type="submit" name="book" value="Cancel Booking"></td>
+				<td><input type="submit" name="book" value="De-register" title="Delete your user account."></td>
+			</tr>
+		</table>
+			
 		</form>
 		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
 		</div>
