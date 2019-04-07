@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Hotel portal</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -43,7 +44,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:20%;
+	    top:25%;
     	left: 50%;
     	transform: translate(-50%, 900%);
     	font-weight: bold;
@@ -87,7 +88,8 @@
 			<td><input name="hPlace_a" type="text" required="required"></td>
 		</tr>
 	</table>
-	<br><input id="btn" type="submit" name="hotelFun" value="ADD">
+	<br><input id="btn" class="press press-cyan press-teal press-raised press-round"
+		type="submit" name="hotelFun" value="ADD">
 </form>
 <%}else if(((String)request.getParameter("hotel")).equals("Delete Hotel")){ 
 	resultSetHotel=statement.executeQuery("SELECT * FROM hotelInfo");
@@ -106,7 +108,8 @@
 			</select><br>
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('hID_d').value,'HD');">overview</a><br><br>
-	<input id="btn" type="submit" name="hotelFun" value="DELETE">
+	<input id="btn" class="press press-cyan press-teal press-raised press-round"
+		type="submit" name="hotelFun" value="DELETE">
 </form>
 <%}else if(((String)request.getParameter("hotel")).equals("Update Hotel")){ 
 	resultSetHotel=statement.executeQuery("SELECT * FROM hotelInfo");
@@ -140,7 +143,8 @@
 			<td><input type="text" name="hPalce_u" required="required"></td>
 		</tr>
 	</table>
-	<br><input id="btn" type="submit" name="hotelFun" value="UPDATE">
+	<br><input id="btn" class="press press-cyan press-teal press-raised press-round"
+		type="submit" name="hotelFun" value="UPDATE">
 </form>
 
 <!-- View hotels -->
@@ -165,7 +169,8 @@
 		</table>
 		</div>
 <%}%>
-<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
+<br><input id="logout" class="press press-black press-pill press-ghost"
+	type="button" value="Logout" onclick="sendAlert();">
 
 </body>
 </html>

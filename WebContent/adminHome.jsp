@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Admin Home</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -20,7 +21,7 @@
 	.f1{
 	width: 400px;
     padding: 40px;
-    padding-right:50px;
+    padding-right:150px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -32,22 +33,30 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:20%;
+	    top:30%;
     	left: 50%;
     	transform: translate(-50%, 700%);
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
+    	align-content: center;
 	}
 	th,td{
 		padding: 5px;
-		border: 2px solid;
 	}
 	.item{
 		width: 200px;
 		padding: 10px;
 		font-weight: bold;
 		font-family: fantasy;
+	}
+	input[type=submit] {
+   		height: 2.5em;
+   		font-weight: bold;
+    	font-family: sans-serif;
+	}
+	h2{
+		transform: translate(60px, 10px);
 	}
 	</style>
 </head>
@@ -61,16 +70,20 @@
 		<h2>Hi, ${sessionScope.name}</h2>
 		<h2>Welcome to the admin portal !</h2>
 		
-		<table border="1" style="color: maroon;">
+		<table>
 		<tr>
 			<td>
 				<form action="tour" method="post">
-				<table border="1" style="color: #006064;">
+				<table >
 					<tr>
-						<td><input type="submit" name="tour" value="Add Tour"></td>
-						<td><input type="submit" name="tour" value="Update Tour" ></td>
-						<td><input type="submit" name="tour" value="Delete Tour" ></td>
-						<td><input type="submit" name="tour" value="View Tours" ></td>
+						<td><input class="press press-blue press-round press-raised"
+							type="submit" name="tour" value="Add Tour"></td>
+						<td><input class="press press-pink press-round press-raised" 
+							type="submit" name="tour" value="Update Tour" ></td>
+						<td><input class="press press-teal press-round press-raised" 
+							type="submit" name="tour" value="Delete Tour" ></td>
+						<td><input class="press press-lightgreen press-round press-raised" 
+							type="submit" name="tour" value="View Tours" ></td>
 					</tr>
 				</table> 
 				</form>
@@ -79,12 +92,16 @@
 		<tr>
 			<td>
 				<form action="hotel" method="post">
-				<table border="1" style="color: #4a148c;">
+				<table >
 					<tr>
-						<td><input type="submit" name="hotel" value="Add Hotel" ></td>
-						<td><input type="submit" name="hotel" value="Update Hotel" ></td>
-						<td><input type="submit" name="hotel" value="Delete Hotel" ></td>
-						<td><input type="submit" name="hotel" value="View Hotels" ></td>
+						<td><input class="press press-orange press-round press-raised" 
+							type="submit" name="hotel" value="Add Hotel" ></td>
+						<td><input class="press press-blue press-round press-raised" 
+							type="submit" name="hotel" value="Update Hotel" ></td>
+						<td><input class="press press-pink press-round press-raised" 
+							type="submit" name="hotel" value="Delete Hotel" ></td>
+						<td><input class="press press-teal press-round press-raised" 
+							type="submit" name="hotel" value="View Hotels" ></td>
 					</tr>
 				</table>
 				</form>
@@ -93,11 +110,14 @@
 		<tr>
 			<td>
 				<form action="misc" method="post">
-				<table border="1" style="color: #bf360c;">
+				<table >
 					<tr>
-						<td><input type="submit" name="misc" value="Show Bookings"></td>
-						<td><input type="submit" name="misc" value="Revoke Booking"></td>
-						<td><input type="submit" name="misc" value="Show Users"></td>
+						<td><input class="press press-orange press-round press-raised" 
+							type="submit" name="misc" value="Show Bookings"></td>
+						<td><input class="press press-blue press-round press-raised" 
+							type="submit" name="misc" value="Revoke Booking"></td>
+						<td><input class="press press-pink press-round press-raised" 
+							type="submit" name="misc" value="Show Users"></td>
 					</tr>
 				</table>
 				</form>
@@ -105,7 +125,8 @@
 		</tr>
 		</table>
 		
-		<input type="button" id="logout" value="Logout" onclick="sendAlert();">
+		<input type="button" class="press press-indigo press-pill press-ghost" 
+			id="logout" value="Logout" onclick="sendAlert();">
 		</div>
 </body>
 </html>

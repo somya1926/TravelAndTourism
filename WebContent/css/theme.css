@@ -9,16 +9,14 @@ body {
 }
 form, .f1{
 	background: silver;
-    opacity: 0.90;
+    opacity: 1;
     border-radius: 10px;
     border-width: thick;
-    border-color: #ff8a80;
+    box-shadow: 2px 3px 20px 3px rgba(51, 51, 51, 0.4);
 }h2 {
 		font-family: sans-serif;
 }#logout{
-	border-radius: 20px;
-	background-color: #311b92;
-	color: #ffecb3;
+	border-color: #455a64;
 	text-transform: uppercase;
 }
 div.ui-datepicker {

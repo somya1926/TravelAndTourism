@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Miscellaneous Tasks</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -142,7 +143,8 @@
 				<a href="#" 
 					onclick="openPopup('overview',document.getElementById('MB_r').value,'MR');">overview</a>
 				<br><br>
-				<input id="btn" type="submit" name="miscFun" value="REVOKE">
+				<input id="btn" class="press press-cyan press-teal press-raised press-round"
+					type="submit" name="miscFun" value="REVOKE">
 			</form>
 
 		<!-- Show Users. -->
@@ -180,7 +182,8 @@
 				<mark><b>*NOTE:</b></mark> Administrators are prohibited form accessing the passwords due to privacy concern.
 			</p>
 		<%} %>
-		<br><input id="logout" type="button" value="Logout" onclick="sendAlert();">
+		<br><input id="logout" class="press press-black press-pill press-ghost"
+			type="button" value="Logout" onclick="sendAlert();">
 	
 </body>
 </html>
