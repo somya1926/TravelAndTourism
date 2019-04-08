@@ -6,6 +6,8 @@
 <title>Admin Login portal</title>
 <link rel="shortcut icon" type="image/png" href="Images/fabicon.png">
 <link rel="stylesheet" type="text/css" href="css/press.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+<link rel="stylesheet" type="text/css" href="css/gate.css">
 <style type="text/css">
 #home{
 		width: 300px;
@@ -16,7 +18,7 @@
     	transform: translate(-20%, -70%);
 	}
 	.f1{
-	width: 300px;
+	width: 400px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -40,16 +42,19 @@
 		<h2>Admin Login Portal</h2>
 		<table>
 			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="lEmail"
+				<td><span><input class="gate" type="text" name="lEmail"
 					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					required="required"
-					title="Enter a valid emailID !"><br></td>
+					placeholder="Email">
+					<label>Email:</label>
+					</span>
+				</td>
 			</tr>
 			<tr>
-				<td>Password:</td>
-				<td><input type="password" name="lPass"
-				required="required" title="Required field !"><br></td>
+				<td><span><input class="gate" type="password" name="lPass"
+				required="required" placeholder="Password">
+				<label>Password:</label>
+				</span></td>
 
 			</tr>
 		</table>

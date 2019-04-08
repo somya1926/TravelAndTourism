@@ -18,26 +18,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Booking Portal</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/gate.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:100px;
+	    top:20%;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
     	text-align: center;
 	}
 	.f1{
-	width: 600px;
-	height:250px;
+	width: 800px;
+	height:380px;
     padding: 30px;
-    padding-right:80px;
-    padding-left:30px;
+    padding-right:20px;
+    padding-left:60px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -49,7 +51,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:20%;
+	    top:30%;
     	left: 50%;
     	transform: translate(-50%, 900%);
     	font-weight: bold;
@@ -57,13 +59,14 @@
     	font-size: 15px;
 	}
 	#btn{
-		width: 100px;
+		width: 120px;
+		height : 40px;
 	    padding: 5px;
-	    margin:40px;
-	    margin-left:100px;
+	    margin:60px;
+	    margin-left:20px;
 		font-weight: bold;
     	font-family: sans-serif;
-    	font-size: 15px;
+    	font-size: 16px;
 	}
 	</style>
 </head>
@@ -88,57 +91,65 @@
 		}%>
 <!-- Book Now -->
 <form class="f1" action="BookingFunc" method="post">
-<table style=" width: 680px; height: 200px;">
+<table style=" width: 700px; height: 200px;">
 	<tr>
 		<td>
 	
 	<table style="text-align: left;">
 		<tr>
-			<td>Tour ID:</td>
 			<td>
-				<select id="bID_a" NAME="bID_a" required="required">
+			<span>
+				<select class="gate" style="height: 40px;" id="bID_a" NAME="bID_a" required="required">
 					<option value="Select-tour" disabled="disabled" selected="selected">Select Tour</option>
 					<%for (int t1 : bid){%>
 						<option value="<%=t1%>">t<%=t1%></option>
 					<%} %>
-				</select><br>
+				</select>
+				<label style="height: 40px;">Tour ID:</label>
+			</span>
+				<br>
 				<a href="#" 
 					onclick="openPopup('overview',document.getElementById('bID_a').value,'AB');">overview</a>
 			</td>
 			
 		</tr>
 		<tr>
-			<td>Tour Date:</td>
-			<td><input style="width: 50%" type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate" required="required"></td>
+			<td><span>
+					<input class="gate" style="width: 100%" type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate"
+					required="required">
+					<label>Tour Date:</label>
+				</span>
+			</td>
 		</tr>
 		<tr>
-			<td>Total Persons:
+			<td ><span>
+			<input class="gate" style="width: 100%" type="number" pattern="[1-8]" title="Must be between 1 to 10."
+					name="pNo" required="required" placeholder="Total Persons">
+					<label>Total Persons:</label>
+				</span>
 				<div class="tooltip" >
 					<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png">
 					<span>₹ 12000/person<br>(Above 3 years)</span>
-				</div>	
-			</td>
-			<td ><input style="width: 30%" type="number" pattern="[1-8]" title="Must be between 1 to 10."
-					name="pNo" required="required">
-					
+				</div>
 			</td>
 		</tr>
 		<tr>
-			<td>Room type:
-				<div class="tooltip" >
-					<img alt="" style="margin-bottom: -4px" 
-					src="${pageContext.request.contextPath}/Images/info.png" >
-						<span>STANDARD: &nbsp; ₹4000<br>SUPERIOR: &nbsp; ₹7000<br>DELUXE: &nbsp; ₹10000</span>
-				</div>
-			</td>
 			<td>
-				<select NAME="rType" required="required">
+			<span>
+				<select class="gate" style="height: 40px;" NAME="rType" required="required">
 					<option value="Select-type" disabled="disabled" selected="selected">Select Type</option>
 					<option value="ST">STANDARD</option>
 					<option value="SU">SUPERIOR</option>
 					<option value="DE">DELUXE</option>
 				</select>
+				<label style="height: 40px;">Room type:</label>
+			</span>
+			<div class="tooltip" >
+					<img alt="" style="margin-bottom: -4px" 
+					src="${pageContext.request.contextPath}/Images/info.png" >
+						<span>STANDARD: &nbsp; ₹4000<br>SUPERIOR: &nbsp; ₹7000<br>DELUXE: &nbsp; ₹10000</span>
+				</div>
 			</td>
 		</tr>
 	</table>
@@ -146,20 +157,32 @@
 	<td>
 	<table style="text-align: left;">
 			<tr>
-				<td>Full Name :</td>
-				<td><input type="text" name="cName" placeholder="Card Holder`s Name"></td>
+				<td><span>
+						<input class="gate" type="text" name="cName" placeholder="Card Holder`s Name">
+						<label>Full Name :</label>
+					</span>
+				</td>
 			</tr>
 			<tr>
-				<td>Card No:</td>
-				<td><input type="number" name="cNo"></td>
+				<td><span>
+						<input class="gate" type="number" name="cNo" placeholder="0000 0000 0000 0000">
+						<label>Card No:</label>
+					</span>
+				</td>
 			</tr>
 			<tr>
-				<td>Expire Date:</td>
-				<td><input style="width: 30%" type="text"  id="expiryDate" name="cExp" placeholder="MM/YY"></td>
+				<td><span>
+						<input class="gate" style="width: 100%" type="text"  id="expiryDate" name="cExp" placeholder="MM/YY">
+						<label>Expire Date:</label>
+					</span>
+				</td>
 			</tr>
 			<tr>
-				<td>CVV No:</td>
-				<td><input style="width: 30%" type="number" pattern="{3}" name="cvv"></td>
+				<td><span>
+						<input class="gate" style="width: 80%" type="number" pattern="{3}" name="cvv">
+						<label>CVV:</label>
+					</span>
+				</td>
 			</tr>
 		</table>
 		</td>
@@ -228,14 +251,17 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" method="post" style="width: 200px; height: 100px; 
-			padding-left: 40px; padding-right: 60px;">
-		Booking Id : <SELECT id="BID_d" NAME="BID_d" required="required">
+		<form action="BookingFunc" class="f1" method="post" style="width: 30%; height: 30%; padding-right: 20px;">
+			<span>
+		 <SELECT class="gate" style="height: 40px;" id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
 					<option value="<%=i2%>">t<%=i2%></option>
 				<%} %>
-			</select><br>
+			</select>
+			<label style="height: 40px;">Booking Id :</label>
+			</span>
+			<br>
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('BID_d').value,'CB');">overview</a>
 				<br><br>
@@ -254,23 +280,26 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" style="width: 300px; height: auto;" method="post">
-		Booking Id : <SELECT id="BID_r" NAME="BID_r" required="required">
+		<form action="BookingFunc" class="f1" style="width: 30%; height: 30%; padding-right: 20px;" method="post">
+		<span>
+		 <SELECT class="gate" style="height: 40px;" id="BID_r" NAME="BID_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : bid){%>
 					<option value="<%=i2%>">t<%=i2%></option>
 				<%} %>
 			</select>
+			<label style="height: 40px;">Booking Id :</label>
+		</span>
 				<br>
 			<input id="btn" class="press press-cyan press-teal press-raised press-round"
-				style="width: 150px;" type="submit" name="uBooking" value="VIEW REPORT">
+				style="width: 150px; margin-left: 12%;" type="submit" name="uBooking" value="VIEW REPORT">
 		</form>
 	
 	<!-- View tours -->
 	<%}else if(((String)request.getParameter("book")).equals("View Tours")){ 
 	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
-	<div class="f1" style="overflow: auto;height: 35%; width: 54%; padding-right: 25px">
+	<div class="f1" style="overflow: auto;height: 55%; width: 64%; padding-left: 30px;">
 	<table id="t1">
 			<tr>
 				<th>T_ID</th>

@@ -17,6 +17,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <title>Tour Portal</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/gate.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
@@ -24,14 +26,14 @@
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:60px;
+	    top:15%;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
     	text-align: center;
 	}
 	.f1{
-	width: 320px;
+	width: 920px;
     padding: 40px;
 
     position: absolute;
@@ -83,69 +85,101 @@
 		}resultSetPlace.close();%>
 <!-- Add tour -->
 <form class="f1" action="TourFunc" method="post">
-<table>
+<table >
+	<tr>
+		<td>
+<table style="text-align: left;">
 		<tr>
-			<td>Tour ID:</td>
-			<td><input NAME="tID_a" type="number" placeholder="Auto generated"></td>
+			<td><span>
+				<input class="gate" NAME="tID_a" type="number" placeholder="Auto generated (ID)">
+				<label>Tour ID:</label>
+			</span>
+			</td>
+			</tr>
+			<tr>
+			<td><span>
+					<input class="gate" NAME="tName_a" type="text" required="required" placeholder="Tour Name">
+					<label>Tour Name:</label>
+				</span>
+			</td>
 		</tr>
+</table>
+</td>
+<td>
+<table style="text-align: left;">
 		<tr>
-			<td>Tour Name:</td>
-			<td><input NAME="tName_a" type="text" required="required"></td>
-		</tr>
-		<tr>
-			<td>Tour Place 1:</td>
-			<td>
-			<SELECT NAME="tPlace_a1" required="required" title="Must be different from 2 and 3">
+			<td><span>
+			<SELECT class="gate" style="height:40px;" NAME="tPlace_a1" required="required" title="Must be different from 2 and 3">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s1 : places){%>
 					<option value="<%=s1%>"><%=s1%></option>
 				<%} %>
 			</select>
+			<label style="height:40px;">Tour Place 1:</label>
+			</span>
 			</td>
 		</tr>
 		<tr>
-			<td>Tour Place 2:</td>
 			<td>
-			<SELECT NAME="tPlace_a2" required="required" title="Must be different from 1 and 3">
+			<span>
+			<SELECT class="gate" style="height:40px;" NAME="tPlace_a2" required="required" title="Must be different from 1 and 3">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<option value="NULL">None</option>
 				<%for (String s2 : places){%>
 					<option value="<%=s2%>"><%=s2%></option>
 				<%} %>
 			</select>
+			<label style="height:40px;">Tour Place 2:</label>
+			</span>
 			</td>
 		</tr>
 		<tr>
-			<td>Tour Place 3:</td>
 			<td>
-			<SELECT NAME="tPlace_a3" required="required" title="Must be different from 1 and 2">
+			<span>
+			<SELECT class="gate" style="height:40px;" NAME="tPlace_a3" required="required" title="Must be different from 1 and 2">
 				<option value="NULL">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s3 : places){%>
 					<option value="<%=s3%>"><%=s3%></option>
 				<%} %>
 			</select>
+			<label style="height:40px;">Tour Place 3:</label>
+			</span>
 			</td>
 		</tr>
+		</table>
+		</td>
+		<td>
+		<table style="text-align: left;">
 		<tr>
-			<td>Total days:
-			<div class="tooltip" >
+			<td><span>
+				<input class="gate" NAME="tDays_a" type="number" required="required" style="width: 100%"
+					placeholder="Total days">
+				<label>Total days:</label>
+			</span>
+			<div  style="padding: 0px" class="tooltip" >
 				<img alt="" style="margin-bottom: -4px;" 
 					src="${pageContext.request.contextPath}/Images/info.png" >
 						<span style="width: 160px">Not more than 10 days</span>
-			</div></td>
-			<td><input NAME="tDays_a" type="number" required="required" style="width: 30%"></td>
+			</div>
+			</td>
 		</tr>
 		<tr>
-			<td>Total price:
+			<td><span>
+				<input class="gate" NAME="tPrice_a" type="number" required="required" 
+					 style="width: 100%" placeholder="Total price">
+					 <label>Total price:</label>
+				</span>
 				<div class="tooltip" >
 				<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png" >
-						<span>minimun ₹10000</span>
+						<span>minimum ₹10000</span>
 			</div>
-			</td>
-			<td><input NAME="tPrice_a" type="number" required="required" style="width: 50%"></td>
+				</td>
 		</tr>
+	</table>
+	</td>
+	</tr>
 	</table>
 	<br><input id="btn" class="press press-cyan press-teal press-raised press-round"
 		type="submit" name="tourFun" value="ADD">
@@ -158,13 +192,17 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 			tid.add(resultSetTID.getInt(1));
 		}resultSetTID.close();%>
 <!-- Delete tour -->
-<form action="TourFunc" class="f1" method="post">
-	Tour Id : <SELECT id="TID_d" NAME="TID_D" required="required">
+<form action="TourFunc" class="f1" method="post" style="width: 400px">
+		<span>
+	 	<SELECT class="gate" style="height: 40px;" id="TID_d" NAME="TID_D" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i2 : tid){%>
 					<option value="<%=i2%>">t<%=i2%></option>
 				<%} %>
-			</select><br>
+			</select>
+			<label style="height: 40px;">Tour Id :</label>
+			</span>
+			<br>
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('TID_d').value,'TD');">overview</a>
 				<br><br>
@@ -189,80 +227,111 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 <!-- Update tour -->
 <form class="f1" action="TourFunc" method="post">
 <table>
+	<tr>
+		<td>
+<table style="text-align: left;">
 		<tr>
-			<td>Tour ID:</td>
 			<td>
-			<select id="TID_u" NAME="TID_U" required="required">
+			<span>
+			<select class="gate" style="height: 40px;" id="TID_u" NAME="TID_U" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for (int i4 : tid){%>
 					<option value="<%=i4%>">t<%=i4%></option>
 				<%} %>
-			</select><br>
+			</select>
+			<label style="height: 40px;">Tour ID:</label>
+			</span>
+			<br>
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('TID_u').value,'TU');">overview</a>
 			</td>
 		</tr>
 		<tr>
-			<td>Tour Name:</td>
-			<td><input NAME="tName_u" type="text" required="required"></td>
+			<td><span>
+				<input class="gate" NAME="tName_u" type="text" required="required"
+					placeholder="Tour Name">
+					<label>Tour Name:</label>
+			</span>
+			</td>
 		</tr>
+</table>
+</td>
+<td>
+<table style="text-align: left;">
 		<tr>
-			<td>Tour Place 1:</td>
 			<td>
-			<SELECT NAME="tPlace_u1" title="Must be different from 2 and 3" required="required">
+			<span>
+			<SELECT class="gate" style="height:40px;" NAME="tPlace_u1" title="Must be different from 2 and 3" required="required">
 				<option value="Select Place" disabled="disabled" selected="selected" >Select Place</option>
 				<%for (String s1 : places){%>
 					<option value="<%=s1%>"><%=s1%></option>
 				<%} %>
 			</select>
+			<label style="height:40px;">Tour Place 1:</label>
+			</span>
 			</td>
 		</tr>
-		<tr>
-			<td>Tour Place 2:</td>
+		<tr>	
 			<td>
-			<SELECT NAME="tPlace_u2" title="Must be different from 1 and 3" required="required">
+			<span>
+			<SELECT class="gate" style="height:40px;" NAME="tPlace_u2" title="Must be different from 1 and 3" required="required">
 			<option value="null">None</option>
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<%for (String s2 : places){%>
 					<option value="<%=s2%>"><%=s2%></option>
 				<%} %>
 			</select>
+			<label style="height:40px;">Tour Place 2:</label>
+			</span>
 			</td>
 		</tr>
-		<tr>
-			<td>Tour Place 3:</td>
-			<td>
-			<SELECT NAME="tPlace_u3" title="Must be different from 1 and 2" required="required">
+		<tr>	
+			<td><span>
+			<SELECT class="gate" style="height:40px;" NAME="tPlace_u3" title="Must be different from 1 and 2" required="required">
 				<option value="Select Place" disabled="disabled" selected="selected">Select Place</option>
 				<option value="null">None</option>
 				<%for (String s3 : places){%>
 					<option value="<%=s3%>"><%=s3%></option>
 				<%} %>
 			</select>
+			<label style="height:40px;">Tour Place 3:</label>
+			</span>
 			</td>
 		</tr>
+</table>
+</td>
+<td>
+<table style="text-align: left;">
 		<tr>
-		<tr>
-			<td>Total days:
+			<td><span>
+				<input class="gate" type="number" name="tDays_u" required="required" style="width: 100%"
+					placeholder="Total days">
+				<label>Total days:</label>
+			</span>
 			<div class="tooltip" >
 				<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png" >
 						<span style="width: 160px">Not more than 10 days</span>
 			</div>
 			</td>
-			<td><input type="number" name="tDays_u" required="required" style="width: 30%"></td>
 		</tr>
 		<tr>
-			<td>Total price:
+			<td><span>
+				<input class="gate" type="number" NAME="tPrice_u" required="required" style="width: 100%"
+					placeholder="Total price">
+				<label>Total price:</label>
+			</span>
 			<div class="tooltip" >
 				<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png" >
 						<span>minimun ₹10000</span>
 			</div>
 			</td>
-			<td><input type="number" NAME="tPrice_u" required="required" style="width: 50%"></td>
 		</tr>
-	</table>
+</table>
+</td>
+</tr>
+</table>
 	<br><input id="btn" class="press press-cyan press-teal press-raised press-round"
 		type="submit" name="tourFun" value="UPDATE">
 </form>
@@ -271,7 +340,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 <%}else if(((String)request.getParameter("tour")).equals("View Tours")){ 
 	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
-	<div class="f1" style="overflow: auto;height: 35%; width: 48%;">
+	<div class="f1" style="overflow: auto;height: 58%; width: 58%;">
 	<table id="t1">
 			<tr>
 				<th>T_ID</th>

@@ -15,6 +15,8 @@
 <title>Hotel portal</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/gate.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
@@ -72,20 +74,28 @@
 
 <% if(((String)request.getParameter("hotel")).equals("Add Hotel")){ %>
 <!-- Add hotel -->
-<form class="f1" action="HotelFunc" method="post">
+<form class="f1" action="HotelFunc" method="post" style="width: 30%;">
 <table>
 		<tr>
-			<td>Hotel ID:</td>
-			<td><input type="number" name="hID_a" placeholder="Auto Generated"
-					title="Leave it blank for auto generation."></td>
+			<td><span>
+				<input class="gate" type="number" name="hID_a" placeholder="Auto Generated (ID)">
+				<label>Hotel ID:</label>
+				</span>
+			</td>
+		</tr>
+		<tr>		
+			<td><span>
+					<input class="gate" name="hName_a" type="text" required="required" placeholder="Hotel Name">
+					<label>Hotel Name:</label>
+				</span>
+			</td>
 		</tr>
 		<tr>
-			<td>Hotel Name:</td>
-			<td><input name="hName_a" type="text" required="required"></td>
-		</tr>
-		<tr>
-			<td>Tour Place:</td>
-			<td><input name="hPlace_a" type="text" required="required"></td>
+			<td><span>
+					<input class="gate" name="hPlace_a" type="text" required="required" placeholder="Tour Place">
+					<label>Tour Place:</label>
+				</span>
+			</td>
 		</tr>
 	</table>
 	<br><input id="btn" class="press press-cyan press-teal press-raised press-round"
@@ -99,13 +109,17 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Delete hotel -->
-<form action="HotelFunc" class="f1" method="post">
-	Hotel Id : <SELECT id="hID_d" NAME="hID_d" required="required">
+<form action="HotelFunc" class="f1" method="post" style="width: 30%">
+	<span>
+	 	<SELECT class="gate" style="height: 40px;" id="hID_d" NAME="hID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
 					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
-			</select><br>
+			</select>
+			<label style="height: 40px;">Hotel Id :</label>
+		</span>
+			<br>
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('hID_d').value,'HD');">overview</a><br><br>
 	<input id="btn" class="press press-cyan press-teal press-raised press-round"
@@ -119,28 +133,36 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Update hotel -->
-<form class="f1" action="HotelFunc" method="post">
+<form class="f1" action="HotelFunc" method="post" style="width: 30%">
 <table>
 		<tr>
-			<td>Hotel ID:</td>
-			<td><SELECT id="hID_u" NAME="hID_u" required="required">
+			<td><span><SELECT class="gate" style="height: 40px;" id="hID_u" NAME="hID_u" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 				<%for(int i : hoteList){%>
 					<option value="<%=i%>">h<%=i%></option>
 				<%} %>
-			</select><br>
+			</select>
+			<label style="height: 40px;">Hotel ID:</label>
+			</span>
+			<br>
 			<a href="#" 
 				onclick="openPopup('overview',document.getElementById('hID_u').value,'HU');">overview</a>
 			</td>
 			
 		</tr>
 		<tr>
-			<td>Hotel Name:</td>
-			<td><input type="text" name="hName_u" required="required"></td>
+			<td><span>
+				<input class="gate" type="text" name="hName_u" required="required" placeholder="Hotel Name">
+				<label>Hotel Name:</label>
+			</span>
+			</td>
 		</tr>
 		<tr>
-			<td>Tour Place:</td>
-			<td><input type="text" name="hPalce_u" required="required"></td>
+			<td><span>
+					<input class="gate" type="text" name="hPalce_u" required="required" placeholder="Tour Place">
+					<label>Tour Place:</label>
+				</span>
+			</td>
 		</tr>
 	</table>
 	<br><input id="btn" class="press press-cyan press-teal press-raised press-round"
