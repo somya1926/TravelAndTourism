@@ -197,8 +197,8 @@ public class BookingFunc extends HttpServlet {
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/bookingFunc.css\">\r\n" + 
 				"<title>Booking Info</title>"+
 				"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/press.css\">\r\n"+
 				"<script type=\"text/javascript\" src=\""+resource+"/scripts/main.js\"></script>"+
-				
 				"</head>\r\n" + 
 				"<body>"+
 					"<div id=\"home\">\r\n" + 
@@ -275,7 +275,10 @@ public class BookingFunc extends HttpServlet {
 					"				<td>₹"+resultSetFetch.getFloat(11)+"</td>\r\n" + 
 					"			</tr>\r\n" + 
 					"		</table>\r\n" + 
-					"		</div></body></html>");
+					"		</div>"+
+					"<input class=\"press press-green press-pill press-ghost\"\r\n" + 
+					"		id=\"logout\" type=\"button\" style=\"color: black;\" value=\"Logout\" onclick=\"sendAlert();\">"+
+					"</body></html>");
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}

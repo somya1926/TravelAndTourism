@@ -24,7 +24,7 @@
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:60px;
+	    top:100px;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
@@ -33,14 +33,13 @@
 	.f1{
 	width: 600px;
 	height:250px;
-    padding: 40px;
+    padding: 30px;
     padding-right:80px;
     padding-left:30px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: silver;
     text-align: center;
 	}
 	h2 {
@@ -89,7 +88,7 @@
 		}%>
 <!-- Book Now -->
 <form class="f1" action="BookingFunc" method="post">
-<table style=" width: 650px; height: 200px;">
+<table style=" width: 680px; height: 200px;">
 	<tr>
 		<td>
 	
@@ -176,7 +175,7 @@
 		statement2.setString(1, (String)session.getAttribute("email"));
 		resultSetFetch=statement2.executeQuery();%>
 		
-		<div class="f1" style="overflow: auto; height: 39%; width: 65%; padding-right: 25px;">
+		<div class="f1" style="overflow: auto; height: 39%; width: 75%; padding-right: 25px;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -271,7 +270,7 @@
 	<%}else if(((String)request.getParameter("book")).equals("View Tours")){ 
 	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
-	<div class="f1" style="overflow: auto;height: 35%; width: 48%; padding-right: 25px">
+	<div class="f1" style="overflow: auto;height: 35%; width: 54%; padding-right: 25px">
 	<table id="t1">
 			<tr>
 				<th>T_ID</th>
@@ -302,7 +301,7 @@
 			session.setAttribute("de-reg", "true");%>
 			<script type="text/javascript">unregister();</script>
 		<%}%>
-	<br><input class="press press-black press-pill press-ghost"
-		id="logout" type="button" value="Logout" onclick="sendAlert();">
+	<br><input class="press press-green press-pill press-ghost"
+		id="logout" type="button" style="color: black;" value="Logout" onclick="sendAlert();">
 </body>
 </html>

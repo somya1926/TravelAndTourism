@@ -31,13 +31,13 @@
     	text-align: center;
 	}
 	.f1{
-	width: 300px;
+	width: 320px;
     padding: 40px;
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: silver;
     text-align: center;
 	}
 	#logout{
@@ -50,6 +50,7 @@
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
+    	color: black;
 	}
 	#btn{
 		width: 100px;
@@ -129,9 +130,9 @@
 		<tr>
 			<td>Total days:
 			<div class="tooltip" >
-				<img alt="" style="margin-bottom: -4px" 
+				<img alt="" style="margin-bottom: -4px;" 
 					src="${pageContext.request.contextPath}/Images/info.png" >
-						<span style="width: 150px">Not more than 10 days</span>
+						<span style="width: 160px">Not more than 10 days</span>
 			</div></td>
 			<td><input NAME="tDays_a" type="number" required="required" style="width: 30%"></td>
 		</tr>
@@ -246,7 +247,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 			<div class="tooltip" >
 				<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png" >
-						<span style="width: 150px">Not more than 10 days</span>
+						<span style="width: 160px">Not more than 10 days</span>
 			</div>
 			</td>
 			<td><input type="number" name="tDays_u" required="required" style="width: 30%"></td>
@@ -297,7 +298,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		</div>
 		
 	<%}%>
-	<br><input id="logout" class="press press-black press-pill press-ghost"
+	<br><input id="logout" class="press press-green press-pill press-ghost"
 		type="button" value="Logout" onclick="sendAlert();">
 	</body>
 </html>
