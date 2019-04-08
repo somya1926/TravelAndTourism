@@ -88,7 +88,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 				<td><%=resultSetFetch.getInt(7)%></td>
 			</tr>
 		</table>
-		<button id="logout" class="press press-indigo press-pill press-ghost"
+		<button id="logout" class="press press-indigo press-round press-ghost"
 			type="button" onclick="closePopup();">close</button>
 		
 		<%}else if( (key.equals("HU") && (int)session.getAttribute("auth")==1) || 
@@ -111,7 +111,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 					<td><%=resultSetFetch.getString(3)%></td>
 				</tr>
 			</table>
-			<button id="logout" class="press press-indigo press-pill press-ghost"
+			<button id="logout" class="press press-indigo press-round press-ghost"
 				style="top: -10%;" type="button" onclick="closePopup();">close</button>
 			
 			<%}else if( (key.equals("HU") && (int)session.getAttribute("auth")==1) || 
@@ -170,7 +170,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 							<td><%=resultSetFetch.getInt(8)%></td>
 						</tr>
 					</table>
-					<button id="logout" class="press press-indigo press-pill press-ghost"
+					<button id="logout" class="press press-indigo press-round press-ghost"
 						style="top: 30%;" type="button" onclick="closePopup();">close</button>
 				
 			

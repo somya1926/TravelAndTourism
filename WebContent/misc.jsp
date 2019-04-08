@@ -14,13 +14,15 @@
 <title>Miscellaneous Tasks</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/gate.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:60px;
+	    top:100px;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
@@ -82,7 +84,7 @@
 		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ 
 			resultSetFetch=statement.executeQuery("SELECT * FROM bookingInfo");%>
 		
-		<div class="f1" style="overflow: auto;height: 49%; width: 60%; padding-right: 10%;">
+		<div class="f1" style="overflow: auto;height: 55%; width: 71%;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -133,13 +135,17 @@
 					bid.add(resultSetFetch.getInt(1));
 				}%>
 		<!-- Revoke Bookings -->
-			<form action="MiscFunc" class="f1" method="post">
-				Booking Id : <SELECT id="MB_r" NAME="MB_r" required="required">
+			<form action="MiscFunc" class="f1" method="post" style="width: 30%">
+			<span>
+				 <SELECT class="gate" style="height: 40px;" id="MB_r" NAME="MB_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
 					<%for (int i2 : bid){%>
 						<option value="<%=i2%>">b<%=i2%></option>
 					<%} %>
-					</select><br>
+					</select>
+					<label style="height: 40px;">Booking Id :</label>
+				</span>
+					<br>
 				<a href="#" 
 					onclick="openPopup('overview',document.getElementById('MB_r').value,'MR');">overview</a>
 				<br><br>
@@ -152,7 +158,7 @@
 		
 		resultSetFetch=statement.executeQuery("SELECT U_ID, U_NAME, U_EMAIL, U_MOB, U_ADMIN FROM userAccount");%>
 		
-		<div class="f1" style="overflow: auto;height: 39%; width: 49%;">
+		<div class="f1" style="overflow: auto;height: 49%; width: 49%;">
 		<table id="t1">
 				<tr>
 					<th>U_ID</th>
