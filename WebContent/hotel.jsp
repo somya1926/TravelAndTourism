@@ -32,7 +32,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: silver;
     text-align: center;
 
 	}
@@ -50,6 +49,7 @@
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
+    	color: black;
 	}
 	#btn{
 		width: 100px;
@@ -169,7 +169,7 @@
 		</table>
 		</div>
 <%}%>
-<br><input id="logout" class="press press-black press-pill press-ghost"
+<br><input id="logout" class="press press-green press-pill press-ghost"
 	type="button" value="Logout" onclick="sendAlert();">
 
 </body>

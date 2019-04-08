@@ -33,7 +33,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: silver;
     text-align: center;
 	}
 	h2 {
@@ -49,6 +48,7 @@
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
+    	color: black;
 	}
 	#btn{
 		width: 100px;
@@ -82,7 +82,7 @@
 		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ 
 			resultSetFetch=statement.executeQuery("SELECT * FROM bookingInfo");%>
 		
-		<div class="f1" style="overflow: auto;height: 49%; width: 65%;">
+		<div class="f1" style="overflow: auto;height: 49%; width: 60%; padding-right: 10%;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -152,7 +152,7 @@
 		
 		resultSetFetch=statement.executeQuery("SELECT U_ID, U_NAME, U_EMAIL, U_MOB, U_ADMIN FROM userAccount");%>
 		
-		<div class="f1" style="overflow: auto;height: 39%; width: 39%;">
+		<div class="f1" style="overflow: auto;height: 39%; width: 49%;">
 		<table id="t1">
 				<tr>
 					<th>U_ID</th>
@@ -182,7 +182,7 @@
 				<mark><b>*NOTE:</b></mark> Administrators are prohibited form accessing the passwords due to privacy concern.
 			</p>
 		<%} %>
-		<br><input id="logout" class="press press-black press-pill press-ghost"
+		<br><input id="logout" class="press press-green press-pill press-ghost"
 			type="button" value="Logout" onclick="sendAlert();">
 	
 </body>

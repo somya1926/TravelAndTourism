@@ -26,7 +26,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: silver;
     text-align: center;
 	}
 	#logout{
@@ -125,8 +124,8 @@
 		</tr>
 		</table>
 		
-		<input type="button" class="press press-indigo press-pill press-ghost" 
-			id="logout" value="Logout" onclick="sendAlert();">
+		<input type="button" class="press press-green press-pill press-ghost" 
+			id="logout" style="color: black;" value="Logout" onclick="sendAlert();">
 		</div>
 </body>
 </html>

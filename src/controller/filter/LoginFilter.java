@@ -109,7 +109,6 @@ public class LoginFilter implements Filter {
 							System.out.println("\nAdmin Logged in : "+resultSet.getString(2)+"\n");
 							
 							((HttpServletResponse)response).sendRedirect("admin/adminHome");
-							//((HttpServletRequest)request).getRequestDispatcher("/AdminFilter").forward(request, response);
 						}else {
 							((HttpServletResponse)response).getWriter().
 							print("<html><head>\r\n" + 
@@ -135,7 +134,6 @@ public class LoginFilter implements Filter {
 							System.out.println("\nUser Logged in : "+resultSet.getString(2)+"\n");
 								
 							((HttpServletResponse)response).sendRedirect("user/userHome");
-							//((HttpServletRequest)request).getRequestDispatcher("/UserFilter").forward(request, response);
 						}else {
 							((HttpServletResponse)response).getWriter().
 							print("<html><head>\r\n" + 
