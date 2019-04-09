@@ -54,6 +54,8 @@ public class UserReg extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Password Mismatch !</FONT>\r\n" +  
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Retry Again</A></font>\r\n" +
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P></body></html>");
 			}else{
 				statement.setString(1, (String)request.getParameter("pass"));
@@ -79,6 +81,8 @@ public class UserReg extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">User Registration Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Login Now</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>\r\n" + 
 						"</body></html>");
 			}else {
@@ -95,6 +99,8 @@ public class UserReg extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">User Registration Unsuccessful ! <br> Retry again.</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P></body></html>");
 			}
 		}catch(SQLIntegrityConstraintViolationException e){
@@ -111,7 +117,9 @@ public class UserReg extends HttpServlet {
 					"<P align=center><IMG SRC=\""+resource+"/Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Either Email or Mobile number has already been registered !</FONT>\r\n" + 
 					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" +
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P></body></html>");
 		}catch(SQLiteException e){
 			e.printStackTrace();
@@ -128,6 +136,8 @@ public class UserReg extends HttpServlet {
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Either Email or Mobile number has already been registered !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userReg.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P></body></html>");
 		}catch(SQLException c){
 			c.printStackTrace();

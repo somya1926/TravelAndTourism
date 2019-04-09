@@ -26,10 +26,12 @@
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
+    	color: #b2ff59;
+    	border-color: #558b2f;
 	}
 </style>
 </head>
-<body style="background-color: #00b8d4; background-image: none;">
+<body style="background-color: #880e4f; background-image: none;">
 	
 <%
 System.out.print("OV-path: "+session.getServletContext().getContextPath());
@@ -88,7 +90,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 				<td><%=resultSetFetch.getInt(7)%></td>
 			</tr>
 		</table>
-		<button id="logout" class="press press-indigo press-round press-ghost"
+		<button id="logout" class="press press-blue press-round press-ghost"
 			type="button" onclick="closePopup();">close</button>
 		
 		<%}else if( (key.equals("HU") && (int)session.getAttribute("auth")==1) || 
@@ -111,7 +113,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 					<td><%=resultSetFetch.getString(3)%></td>
 				</tr>
 			</table>
-			<button id="logout" class="press press-indigo press-round press-ghost"
+			<button id="logout" class="press press-blue press-round press-ghost"
 				style="top: -10%;" type="button" onclick="closePopup();">close</button>
 			
 			<%}else if( (key.equals("HU") && (int)session.getAttribute("auth")==1) || 
@@ -170,7 +172,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 							<td><%=resultSetFetch.getInt(8)%></td>
 						</tr>
 					</table>
-					<button id="logout" class="press press-indigo press-round press-ghost"
+					<button id="logout" class="press press-blue press-round press-ghost"
 						style="top: 30%;" type="button" onclick="closePopup();">close</button>
 				
 			
@@ -188,7 +190,7 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 				<IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
 				<FONT size=5 Face="verdana">Select the tour correctly !</FONT>
 			</P>
-			<button id="logout" class="press press-indigo press-round press-ghost"
+			<button id="logout" class="press press-blue press-round press-ghost"
 			type="button" style="top: 5%;" onclick="closePopup();">close</button>
 		<%}
 	}%>

@@ -46,6 +46,7 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
 		ServletException {
 		session=(HttpSession) ((HttpServletRequest)request).getSession(true);
+		String resource=session.getServletContext().getContextPath();
 		
 		if(session.getAttribute("name")!=null) {
 			if((int)session.getAttribute("auth")==1) {
@@ -60,6 +61,8 @@ public class LoginFilter implements Filter {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">You were not logged in!<br>Admin already logged in !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else {
@@ -74,6 +77,8 @@ public class LoginFilter implements Filter {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">You were not logged in!<br>User already logged in !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}
@@ -121,6 +126,8 @@ public class LoginFilter implements Filter {
 									"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">The User is not permitted to access the Admin Portal !</FONT>\r\n" + 
 									"<BR>\r\n" + 
 									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
+									"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+									"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 									"</P></body></html>");
 						}
 						
@@ -146,6 +153,8 @@ public class LoginFilter implements Filter {
 									"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Administrators are prohibited from accessing the User Portal !</FONT>\r\n" + 
 									"<BR>\r\n" + 
 									"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
+									"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+									"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 									"</P></body></html>");
 						}
 							
@@ -173,7 +182,9 @@ public class LoginFilter implements Filter {
 						"<IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">SORRY! Invalid Email/password please try again</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Home</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Home</A></font>\r\n" +
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P></body></html>");
 			}
 		}

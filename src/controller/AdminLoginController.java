@@ -29,6 +29,7 @@ public class AdminLoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session=request.getSession(true);
+		String resource=session.getServletContext().getContextPath();
 		
 		if(session.getAttribute("name")!=null){
 			if((int)session.getAttribute("auth")==1)
@@ -44,7 +45,9 @@ public class AdminLoginController extends HttpServlet {
 					"<P align=center><IMG SRC=\"Images/warning48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">User already logged in !</FONT>\r\n" + 
 					"<BR>\r\n" + 
-					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Back</A></font>\r\n" + 
+					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"home.html\">&lt;&lt; Back</A></font>\r\n" +
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}

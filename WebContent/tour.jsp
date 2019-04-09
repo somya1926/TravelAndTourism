@@ -356,7 +356,7 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 <%}else if(((String)request.getParameter("tour")).equals("View Tours")){ 
 	resultSetFetch=statement.executeQuery("SELECT * FROM tourInfo");%>
 	
-	<div class="f1" style="overflow: auto;height: 58%; width: 58%;">
+	<div class="f1" style="overflow: auto;height: 58%; width: 58%; padding-left: 25px; padding-right: 25px;">
 	<table id="t1">
 			<tr>
 				<th>T_ID</th>

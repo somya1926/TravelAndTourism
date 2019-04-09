@@ -55,6 +55,8 @@ public class HotelFunc extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Insertion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -69,6 +71,8 @@ public class HotelFunc extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Insertion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}
@@ -86,6 +90,8 @@ public class HotelFunc extends HttpServlet {
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Place already exists !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}catch(SQLException e){
@@ -113,6 +119,8 @@ public class HotelFunc extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Updation Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}else {
@@ -127,6 +135,8 @@ public class HotelFunc extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Updation Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}
@@ -144,6 +154,8 @@ public class HotelFunc extends HttpServlet {
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Place already exists !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}catch(SQLException e){
@@ -169,6 +181,8 @@ public class HotelFunc extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Hotel Deletion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -183,6 +197,8 @@ public class HotelFunc extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Hotel Deletion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}

@@ -52,6 +52,8 @@ public class MiscFunc extends HttpServlet {
 							"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Booking Revocation Successful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+							"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+							"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 							"</P>"+
 							"</body></html>");
 				}else{
@@ -66,6 +68,8 @@ public class MiscFunc extends HttpServlet {
 							"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Booking Revocation Unsuccessful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Try again</A></font>\r\n" + 
+							"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+							"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 							"</P>"+
 							"</body></html>");
 				}
