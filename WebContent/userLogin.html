@@ -34,6 +34,14 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
+	.gate#pass{
+		text-indent: 100px;
+	}
+	.gate#pass:focus,
+	.gate#pass:active {
+	  text-indent: 0;
+	}
+	
 	</style>
 </head>
 <body>
@@ -46,16 +54,17 @@
 				<td><span><input class="gate" type="text" name="lEmail"
 					required="required"
 					pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-					title="Required field !"
 					placeholder="Email">
 					<label>Email:</label>
 					</span>
 				</td>
 			</tr>
 			<tr>
-				<td><span><input class="gate" type="password" name="lPass"
+				<td><span><input id="pass" class="gate" type="password" name="lPass"
 					required="required"
-					placeholder="Password"><label>Password:</label></span>
+					placeholder="Password">
+					<label>Password:</label>
+					</span>
 			</tr>
 			</table><br>
 			<input id="login" class="press press-raised press-round press-teal" type="submit" name="loginSubmit" value="User Login">

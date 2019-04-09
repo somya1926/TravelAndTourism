@@ -1,7 +1,7 @@
 <%@page import="org.sqlite.SQLiteException"%>
 <%@page import="java.sql.*,model.*,java.util.*"%>
 <%@ page language="java" contentType="text/html;"
-    pageEncoding="utf-8" session="true"%>
+    pageEncoding="UTF-8" session="true"%>
     <%! Statement statement=null;
     PreparedStatement statement2=null;
     	ResultSet resultSetFetch=null;
@@ -68,6 +68,19 @@
     	font-family: sans-serif;
     	font-size: 16px;
 	}
+	.gate#bID_a{
+		text-indent: 50px;
+	}
+	.gate#name{
+		text-indent: 90px;
+	}
+	.gate#place{
+		text-indent: 60px;
+	}
+	.gate#bID_a:focus ,#name:focus, #place:focus
+	.gate#bID_a:active ,#name:active, #place:active{
+	  text-indent: 0;
+	}
 	</style>
 </head>
 <body>
@@ -98,6 +111,9 @@
 	<table style="text-align: left;">
 		<tr>
 			<td>
+			<a href="#" 
+					onclick="openPopup('overview',document.getElementById('bID_a').value,'AB');">overview</a>
+					<br>
 			<span>
 				<select class="gate" style="height: 40px;" id="bID_a" NAME="bID_a" required="required">
 					<option value="Select-tour" disabled="disabled" selected="selected">Select Tour</option>
@@ -107,9 +123,7 @@
 				</select>
 				<label style="height: 40px;">Tour ID:</label>
 			</span>
-				<br>
-				<a href="#" 
-					onclick="openPopup('overview',document.getElementById('bID_a').value,'AB');">overview</a>
+				
 			</td>
 			
 		</tr>
@@ -117,15 +131,15 @@
 			<td><span>
 					<input class="gate" style="width: 100%" type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate"
 					required="required">
-					<label>Tour Date:</label>
+					<label>Date:</label>
 				</span>
 			</td>
 		</tr>
 		<tr>
 			<td ><span>
-			<input class="gate" style="width: 100%" type="number" pattern="[1-8]" title="Must be between 1 to 10."
+			<input id="name" class="gate" style="width: 100%" type="number" pattern="[1-8]" title="Must be between 1 to 10."
 					name="pNo" required="required" placeholder="Total Persons">
-					<label>Total Persons:</label>
+					<label>Persons:</label>
 				</span>
 				<div class="tooltip" >
 					<img alt="" style="margin-bottom: -4px" 
@@ -137,7 +151,7 @@
 		<tr>
 			<td>
 			<span>
-				<select class="gate" style="height: 40px;" NAME="rType" required="required">
+				<select id="place" class="gate" style="height: 40px;" NAME="rType" required="required">
 					<option value="Select-type" disabled="disabled" selected="selected">Select Type</option>
 					<option value="ST">STANDARD</option>
 					<option value="SU">SUPERIOR</option>
@@ -158,22 +172,23 @@
 	<table style="text-align: left;">
 			<tr>
 				<td><span>
-						<input class="gate" type="text" name="cName" placeholder="Card Holder`s Name">
-						<label>Full Name :</label>
+						<input id="name" class="gate" type="text" name="cName" placeholder="Card Holder">
+						<label>Name :</label>
 					</span>
 				</td>
 			</tr>
 			<tr>
 				<td><span>
-						<input class="gate" type="number" name="cNo" placeholder="0000 0000 0000 0000">
+						<input id="name" class="gate" type="number" name="cNo"
+							placeholder="0000 0000 0000 0000" style="width: 120%;">
 						<label>Card No:</label>
 					</span>
 				</td>
 			</tr>
 			<tr>
 				<td><span>
-						<input class="gate" style="width: 100%" type="text"  id="expiryDate" name="cExp" placeholder="MM/YY">
-						<label>Expire Date:</label>
+						<input  class="gate" style="width: 100%" type="text"  id="expiryDate" name="cExp" placeholder="MM/YY">
+						<label>ExpD:</label>
 					</span>
 				</td>
 			</tr>
@@ -198,7 +213,7 @@
 		statement2.setString(1, (String)session.getAttribute("email"));
 		resultSetFetch=statement2.executeQuery();%>
 		
-		<div class="f1" style="overflow: auto; height: 39%; width: 75%; padding-right: 25px;">
+		<div class="f1" style="overflow: auto; height: 39%; width: 75%; padding-right: 25%;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -251,7 +266,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" method="post" style="width: 30%; height: 30%; padding-right: 20px;">
+		<form action="BookingFunc" class="f1" method="post" style="width: 30%; height: 30%; padding-right: 5%;">
 			<span>
 		 <SELECT class="gate" style="height: 40px;" id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
@@ -280,7 +295,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" style="width: 30%; height: 30%; padding-right: 20px;" method="post">
+		<form action="BookingFunc" class="f1" style="width: 30%; height: 30%; padding-right: 5%;" method="post">
 		<span>
 		 <SELECT class="gate" style="height: 40px;" id="BID_r" NAME="BID_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>

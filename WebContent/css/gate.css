@@ -9,7 +9,7 @@ span {
 .gate {
   display: inline-block;
   width: 250px;
-  height:36px;
+  height:38px;
   padding: 10px 0 10px 15px;
   font-family: "Open Sans", sans;
   font-weight: 400;
@@ -18,7 +18,7 @@ span {
   border: 0;
   border-radius: 8px;
   outline: 0;
-  text-indent: 65px;
+  text-indent: 65px; /* Change Text position */
   transition: all .3s ease-in-out;
   box-shadow: 2px 3px 20px 3px rgba(51, 51, 51, 0.4);
 }
@@ -28,7 +28,7 @@ span {
   font-weight: 300;
 }
 .gate + label {
-  height:36px;
+  height:38px;
   font-weight: bold;
   display: inline-block;
   position: absolute;
@@ -51,7 +51,7 @@ span {
   bottom: 0;
   left: 0;
   border-radius: 8px;
-  background: #0288d1; /* changed color*/
+  background: #0288d1; 		/* changed color*/
   transform-origin: left bottom;
   transition: all .4s ease-in-out;
   pointer-events: none;
@@ -61,15 +61,6 @@ span {
   background: rgba(3, 36, 41, 0.2);
   z-index: -2;
   right: 20%;
-}
-
-span:nth-child(2) .gate {
-  text-indent: 85px;
-}
-
-span:nth-child(2) .gate:focus,
-span:nth-child(2) .gate:active {
-  text-indent: 0;
 }
 
 .gate:focus,

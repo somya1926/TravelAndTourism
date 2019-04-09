@@ -29,7 +29,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="background-color: #00b8d4; background-image: none;">
 	
 <%
 System.out.print("OV-path: "+session.getServletContext().getContextPath());
@@ -184,10 +184,12 @@ System.out.print("OV-path: "+session.getServletContext().getContextPath());
 		
 		}catch(NumberFormatException e){
 			%>
-			<P align=center style="background-color:#eeff41;">
-			<IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
-			<FONT size=5 Face="verdana">Select the tour correctly !</FONT>
-		</P>
+			<P align=center>
+				<IMG SRC="Images/warning48.png" WIDTH="48" HEIGHT="48" BORDER="0" ALT=""><br>
+				<FONT size=5 Face="verdana">Select the tour correctly !</FONT>
+			</P>
+			<button id="logout" class="press press-indigo press-round press-ghost"
+			type="button" style="top: 5%;" onclick="closePopup();">close</button>
 		<%}
 	}%>
 

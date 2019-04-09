@@ -84,7 +84,7 @@
 		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ 
 			resultSetFetch=statement.executeQuery("SELECT * FROM bookingInfo");%>
 		
-		<div class="f1" style="overflow: auto;height: 55%; width: 71%;">
+		<div class="f1" style="overflow: auto;height: 55%; width: 73%;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
