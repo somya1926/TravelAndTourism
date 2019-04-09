@@ -26,7 +26,7 @@
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:15%;
+	    top:22%;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
@@ -39,7 +39,7 @@
     padding-top: 40px;
     
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -86,10 +86,11 @@
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();
 		statement2=connection.createStatement();%>
-		<div id="home">
-			<h1><a href="adminHome">Home</a></h1>
-			<h2>Hi, ${sessionScope.name}</h2>
-		</div>
+
+			<a href="adminHome">
+			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="18%" 
+				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
+			<h2 id="home">Hi, ${sessionScope.name}</h2>
 			
 <% if(((String)request.getParameter("tour")).equals("Add Tour")){ 
 	resultSetPlace=statement.executeQuery("SELECT T_PLACE FROM hotelInfo");

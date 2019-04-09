@@ -9,26 +9,37 @@
 <style type="text/css">
 	.f1{
 	width: 600px;
-	height: 500px;
-    padding: 40px;
+	height: 300px;
+    padding: 20px;
     position: absolute;
-    top: 50%;
+    top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: transparent;
     opacity: 0.9;
 	}
+	#home{
+		width: 200px;
+	    padding: 10px;
+	    position: absolute;
+	    top:50%;
+    	left: 50%;
+    	transform: translate(-50%, 500%);
+    	font-weight: bold;
+    	font-family: sans-serif;
+    	font-size: 15px;
+	}
 </style>
 </head>
 <body>
-	<P class="f1" align=center><br><br><br><FONT COLOR="#006064" size=22 face="impact">SOMETHING WENT WRONG !</FONT><br>
-	<br><br>
-
+	<img alt="" src="Images/banner.png" width="58%" height="28%" style="position: absolute; border-radius: 20px; left: 22%; top: 1%;">
+	<P class="f1" align=center>
+	<FONT COLOR="#006064" size=22 face="impact">SOMETHING WENT WRONG !</FONT><br>
 	<IMG SRC="Images/misc_error.png" WIDTH="256" HEIGHT="256" BORDER="0" ALT="" ><br><br>
-		<button style="font-family: impact; font-size: 20px; width: 200px; color: black;" 
+	</P>
+	<button id="home" style="font-family: impact; font-size: 20px; width: 200px; color: black;" 
 			class="press press-green press-round press-ghost" 
 			onclick="location.href='home.html';">Home</button>
-	</P>
 </body>
 </html>

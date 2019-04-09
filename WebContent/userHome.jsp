@@ -33,7 +33,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:30%;
+	    top:35%;
     	left: 50%;
     	transform: translate(-50%, 500%);
     	font-weight: bold;
@@ -58,7 +58,9 @@
 			throw new ServletException();
 		}%>
 		
-		<h1 id="home"><a href="${pageContext.request.contextPath}/home.html">Home</a></h1>
+		<a href="${pageContext.request.contextPath}/home.html">
+		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="52%" height="22%" 
+		style="position: absolute; border-radius: 20px; left: 24%; top: 2%;"></a>
 		
 		<div class="f1">
 		<h2>Hi, ${sessionScope.name}</h2>
