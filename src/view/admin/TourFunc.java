@@ -52,6 +52,8 @@ public class TourFunc extends HttpServlet {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">All three places must be unique !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else if(Integer.parseInt(request.getParameter("tDays_a"))>10){
@@ -66,6 +68,8 @@ public class TourFunc extends HttpServlet {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">More than 10 days not allowed !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else if(Integer.parseInt(request.getParameter("tPrice_a"))<10000) {
@@ -80,6 +84,8 @@ public class TourFunc extends HttpServlet {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">Minimum price of ₹10000 be charged !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else {
@@ -108,6 +114,8 @@ public class TourFunc extends HttpServlet {
 							"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Tour Insertion Successful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+							"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+							"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 							"</P>"+
 							"</body></html>");
 					}else{
@@ -122,6 +130,8 @@ public class TourFunc extends HttpServlet {
 							"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Insertion Unsuccessful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Try again</A></font>\r\n" + 
+							"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+							"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 							"</P>"+
 							"</body></html>");
 					}
@@ -154,6 +164,8 @@ public class TourFunc extends HttpServlet {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">All three places must be unique !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else if(Integer.parseInt(request.getParameter("tDays_u"))>10){
@@ -168,6 +180,8 @@ public class TourFunc extends HttpServlet {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">More than 10 days not allowed !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else if(Integer.parseInt(request.getParameter("tPrice_u"))<10000) {
@@ -182,6 +196,8 @@ public class TourFunc extends HttpServlet {
 					"<FONT COLOR=\"#fb8c00\" size=5 Face=\"verdana\">Minimum price of ₹10000 be charged !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else {
@@ -210,6 +226,8 @@ public class TourFunc extends HttpServlet {
 							"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Tour Updation Successful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+							"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+							"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 							"</P>"+
 							"</body></html>");
 					}else{
@@ -224,6 +242,8 @@ public class TourFunc extends HttpServlet {
 							"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Updation Unsuccessful !</FONT>\r\n" + 
 							"<BR>\r\n" + 
 							"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+							"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+							"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 							"</P>"+
 							"</body></html>");
 					}
@@ -257,6 +277,8 @@ public class TourFunc extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Tour Deletion Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -271,6 +293,8 @@ public class TourFunc extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Tour Deletion Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}

@@ -146,7 +146,7 @@
 				<div class="tooltip" >
 					<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png">
-					<span>₹ 12000/person<br>(Above 3 years)</span>
+					<span>₹ 12000/person<br>(Above 3 years)<br>7 or less.</span>
 				</div>
 			</td>
 		</tr>

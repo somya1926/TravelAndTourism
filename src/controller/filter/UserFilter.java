@@ -34,6 +34,7 @@ public class UserFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		try {
 			session=(HttpSession)((HttpServletRequest)request).getSession(false);
+			String resource=session.getServletContext().getContextPath();
 
 			if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==1){
 				((HttpServletResponse)response).getWriter().
@@ -47,7 +48,9 @@ public class UserFilter implements Filter {
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the User Portal !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" +
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P></head></body>");
 			}else {
 				chain.doFilter(request, response);

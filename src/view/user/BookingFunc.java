@@ -62,6 +62,8 @@ public class BookingFunc extends HttpServlet {
 					"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">More than 7 persons not allowed !</FONT>\r\n" + 
 					"<BR>\r\n" + 
 					"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
+					"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+					"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 					"</P>"+
 					"</body></html>");
 			}else {
@@ -104,6 +106,8 @@ public class BookingFunc extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Booking Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}else {
@@ -120,6 +124,8 @@ public class BookingFunc extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Booking Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}
@@ -155,6 +161,8 @@ public class BookingFunc extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">Cancellation Successful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Back</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}else{
@@ -169,6 +177,8 @@ public class BookingFunc extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">Cancellation Unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; Try again</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}

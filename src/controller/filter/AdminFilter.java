@@ -32,6 +32,7 @@ public class AdminFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		session=(HttpSession)((HttpServletRequest)request).getSession(false);
+		String resource=session.getServletContext().getContextPath();
 	
 		try {
 			if(session.getAttribute("name")==null || (int)session.getAttribute("auth")==0){
@@ -46,7 +47,9 @@ public class AdminFilter implements Filter {
 						"<P align=center><IMG SRC=\"Images/error48.png\" WIDTH=\"48\" HEIGHT=\"48\" BORDER=\"0\" ALT=\"\"><br>\r\n" + 
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the Admin Portal !</FONT>\r\n" + 
 						"<BR>\r\n" + 
-						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
+						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"adminLogin.html\">&lt;&lt; Back</A></font>\r\n" +
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P></body></html>");
 			}else {
 				chain.doFilter(request, response);

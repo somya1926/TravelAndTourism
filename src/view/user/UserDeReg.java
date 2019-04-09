@@ -52,6 +52,8 @@ public class UserDeReg extends HttpServlet {
 				"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">You are not permitted to Access the User Portal !</FONT>\r\n" + 
 				"<BR>\r\n" + 
 				"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userLogin.html\">&lt;&lt; Back</A></font>\r\n" + 
+				"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+				"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 				"</P></body></html>");
 		}else{
 			if(((String)session.getAttribute("de-reg")).equals("true")){
@@ -83,6 +85,8 @@ public class UserDeReg extends HttpServlet {
 						"<FONT COLOR=\"Green\" size=5 Face=\"verdana\">user De-registered !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"../home.html\">&lt;&lt; home</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}catch(SQLiteException s){
@@ -100,6 +104,8 @@ public class UserDeReg extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">user De-registration unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; home</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}catch(SQLException s){
@@ -117,6 +123,8 @@ public class UserDeReg extends HttpServlet {
 						"<FONT COLOR=\"Red\" size=5 Face=\"verdana\">user De-registration unsuccessful !</FONT>\r\n" + 
 						"<BR>\r\n" + 
 						"<font Face=\"Comic Sans MS\" size=3><A HREF=\"userHome\">&lt;&lt; home</A></font>\r\n" + 
+						"<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"60%\" height=\"30%\" \r\n" + 
+						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P>"+
 						"</body></html>");
 				}
