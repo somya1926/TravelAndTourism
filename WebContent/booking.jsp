@@ -90,10 +90,12 @@
 	
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
-		<div id="home">
-			<h1><a href="userHome">Home</a></h1>
-			<h2>Hi, ${sessionScope.name}</h2>
-		</div>
+
+			<a href="userHome">
+			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="18%" 
+				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
+			<h2 id="home">Hi, ${sessionScope.name}</h2>
+
 
 <% if(((String)request.getParameter("book")).equals("Book now")){
 	resultSetFetch=statement.executeQuery("SELECT T_ID FROM tourInfo");
@@ -213,7 +215,7 @@
 		statement2.setString(1, (String)session.getAttribute("email"));
 		resultSetFetch=statement2.executeQuery();%>
 		
-		<div class="f1" style="overflow: auto; height: 39%; width: 75%; padding-right: 25%;">
+		<div class="f1" style="overflow: auto; height: 55%; width: 75%; padding-right: 25%;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>

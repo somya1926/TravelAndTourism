@@ -201,9 +201,10 @@ public class BookingFunc extends HttpServlet {
 				"<script type=\"text/javascript\" src=\""+resource+"/scripts/main.js\"></script>"+
 				"</head>\r\n" + 
 				"<body>"+
-					"<div id=\"home\">\r\n" + 
-					"		<h1><a href=\"userHome\">Home</a></h1>\r\n" + 
-					"		<h2>Hi, "+(String)session.getAttribute("name")+"</h2>\r\n" + 
+					"		<h1><a href=\"userHome\">"
+					+ "<img alt=\"\" src=\""+resource+"/Images/banner.png\" width=\"46%\" height=\"18%\" \r\n" + 
+					"				style=\"position: absolute; border-radius: 20px; left: 28%; top: 2%;\"></a></h1>\r\n" + 
+					"		<h2 id=\"home\">Hi, "+(String)session.getAttribute("name")+"</h2>\r\n" + 
 					"</div>\r\n");
 			out.print("<div class=\"f1\" style=\"overflow: auto;height: 35%; width: 48%;\">\r\n" + 
 					"	<table id=\"t2\">\r\n" + 

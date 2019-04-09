@@ -23,15 +23,15 @@
 		width: 30%;
 	    padding: 5%;
 	    position: absolute;
-	    top:20%;
-    	left: 50%;
+	    top:30%;
+    	left: 46%;
     	transform: translate(-20%, -75%);
 	}
 	.f1{
 	width: 300px;
     padding: 40px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -45,7 +45,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:25%;
+	    top:30%;
     	left: 50%;
     	transform: translate(-50%, 900%);
     	font-weight: bold;
@@ -82,8 +82,10 @@
 
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
-		<h1 id="home"><a href="adminHome">Home</a></h1>
-		<h2>Hi, ${sessionScope.name}</h2><br>
+		<a href="adminHome">
+			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="20%" 
+				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
+		<h2 id="home">Hi, ${sessionScope.name}</h2><br>
 
 <% if(((String)request.getParameter("hotel")).equals("Add Hotel")){ %>
 <!-- Add hotel -->
@@ -186,7 +188,7 @@
 <%}else if(((String)request.getParameter("hotel")).equals("View Hotels")){
 	resultSet=statement.executeQuery("SELECT * FROM hotelInfo");%>
 	
-	<div class="f1" style="overflow: auto;height: 45%; width: 22%;">
+	<div class="f1" style="overflow: auto;height: 45%; width: 30%;">
 	<table id="t1">
 			<tr>
 				<th>H_ID</th>

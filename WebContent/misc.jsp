@@ -22,7 +22,7 @@
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:100px;
+	    top:160px;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
@@ -32,7 +32,7 @@
 	width: 300px;
     padding: 40px;
     position: absolute;
-    top: 50%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -44,7 +44,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:80%;
+	    top:84%;
     	left: 50%;
     	transform: translate(-50%, 100%);
     	font-weight: bold;
@@ -75,10 +75,11 @@
 		
 		connection=ConnectionFactory.getInstance().getConnection();
 		statement=connection.createStatement();%>
-	<div id="home">
-			<h1><a href="adminHome">Home</a></h1>
-			<h2>Hi, ${sessionScope.name}</h2>
-		</div>
+		
+			<a href="adminHome">
+		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="18%" 
+				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
+			<h2 id="home">Hi, ${sessionScope.name}</h2>
 		
 		<!-- Show Bookings -->
 		<% if(((String)request.getParameter("misc")).equals("Show Bookings")){ 
