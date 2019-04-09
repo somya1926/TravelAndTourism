@@ -54,11 +54,24 @@
     	color: black;
 	}
 	#btn{
-		width: 100px;
-	    padding: 5px;
+		width: 120px;
+	    padding: 10px;
 		font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
+	}
+	.gate#id{
+		text-indent: 90px;
+	}
+	.gate#name{
+		text-indent: 70px;
+	}
+	.gate#place{
+		text-indent: 70px;
+	}
+	.gate#id:focus ,#name:focus, #place:focus,
+	.gate#id:active ,#name:active, #place:active {
+	  text-indent: 0;
 	}
 	</style>
 </head>
@@ -78,22 +91,22 @@
 <table>
 		<tr>
 			<td><span>
-				<input class="gate" type="number" name="hID_a" placeholder="Auto Generated (ID)">
+				<input id="id" class="gate" type="number" name="hID_a" placeholder="Auto Generated">
 				<label>Hotel ID:</label>
 				</span>
 			</td>
 		</tr>
 		<tr>		
 			<td><span>
-					<input class="gate" name="hName_a" type="text" required="required" placeholder="Hotel Name">
-					<label>Hotel Name:</label>
+					<input id="name" class="gate" name="hName_a" type="text" required="required" placeholder="Hotel Name">
+					<label>Name:</label>
 				</span>
 			</td>
 		</tr>
 		<tr>
 			<td><span>
-					<input class="gate" name="hPlace_a" type="text" required="required" placeholder="Tour Place">
-					<label>Tour Place:</label>
+					<input id="place" class="gate" name="hPlace_a" type="text" required="required" placeholder="Tour Place">
+					<label>Place:</label>
 				</span>
 			</td>
 		</tr>
@@ -152,15 +165,15 @@
 		</tr>
 		<tr>
 			<td><span>
-				<input class="gate" type="text" name="hName_u" required="required" placeholder="Hotel Name">
-				<label>Hotel Name:</label>
+				<input id="name" class="gate" type="text" name="hName_u" required="required" placeholder="Hotel Name">
+				<label>Name:</label>
 			</span>
 			</td>
 		</tr>
 		<tr>
 			<td><span>
-					<input class="gate" type="text" name="hPalce_u" required="required" placeholder="Tour Place">
-					<label>Tour Place:</label>
+					<input id="place" class="gate" type="text" name="hPalce_u" required="required" placeholder="Tour Place">
+					<label>Place:</label>
 				</span>
 			</td>
 		</tr>
