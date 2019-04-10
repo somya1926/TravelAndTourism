@@ -1,6 +1,7 @@
 <%@page import="org.sqlite.SQLiteException"%>
 <%@page import="java.sql.*,model.*,java.util.*"%>
-<%@ page language="java" contentType="text/html;" session="true"%>
+<%@ page language="java" contentType="text/html;"
+	session="true" pageEncoding="UTF-8"%>
     <%! Statement statement=null;
     PreparedStatement statement2=null;
     	ResultSet resultSetFetch=null;
@@ -9,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 
@@ -209,7 +210,7 @@
 			</tr>
 			<tr>
 				<td><span>
-						<input class="gate" style="width: 80%" type="number" pattern="{3}" name="cvv">
+						<input class="gate" style="width: 80%" type="number" pattern="{3}" name="cvv" placeholder="000">
 						<label>CVV:</label>
 					</span>
 				</td>

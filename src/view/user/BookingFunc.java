@@ -283,7 +283,7 @@ public class BookingFunc extends HttpServlet {
 					"			</tr>\r\n" + 
 					"			<tr>\r\n" + 
 					"				<th>Total Price:</th>\r\n" + 
-					"				<td>₹"+resultSetFetch.getFloat(11)+"</td>\r\n" + 
+					"				<td>₹ "+resultSetFetch.getFloat(11)+"/-</td>\r\n" + 
 					"			</tr>\r\n" + 
 					"		</table>\r\n" + 
 					"		</div>"+
