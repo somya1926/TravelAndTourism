@@ -1,7 +1,6 @@
 <%@page import="org.sqlite.SQLiteException"%>
 <%@page import="java.sql.*,model.*,java.util.*"%>
-<%@ page language="java" contentType="text/html;"
-    pageEncoding="UTF-8" session="true"%>
+<%@ page language="java" contentType="text/html;" session="true"%>
     <%! Statement statement=null;
     PreparedStatement statement2=null;
     	ResultSet resultSetFetch=null;
@@ -13,8 +12,13 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
+
+<link href="${pageContext.request.contextPath}/date_dropper/datedropper.css" rel="stylesheet"/>
+<script src="${pageContext.request.contextPath}/date_dropper/datedropper.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <title>Booking Portal</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
@@ -67,6 +71,9 @@
 		font-weight: bold;
     	font-family: sans-serif;
     	font-size: 16px;
+	}
+	.ui-datepicker-calendar {
+    	display: none;
 	}
 	.gate#bID_a{
 		text-indent: 50px;
@@ -131,9 +138,15 @@
 		</tr>
 		<tr>
 			<td><span>
-					<input class="gate" style="width: 100%" type="text" id="datepicker" placeholder="YYYY-MM-DD" name="tDate"
-					required="required">
+					<input class="gate" style="width: 100%" type="text" id="datepicker"
+						placeholder="YYYY-MM-DD" name="tDate" required="required" data-large-mode="true" data-lock="from"
+	           			data-translate-mode="false" data-theme="leaf" data-format="Y-m-d"
+	            		data-fx-mobile="false" data-large="true" data-max-year="2025"
+	            		data-min-year="2010" data-autofill="false">
 					<label>Date:</label>
+					<script>
+            $('#datepicker').dateDropper();
+        </script>
 				</span>
 			</td>
 		</tr>
@@ -146,7 +159,7 @@
 				<div class="tooltip" >
 					<img alt="" style="margin-bottom: -4px" 
 					src="${pageContext.request.contextPath}/Images/info.png">
-					<span>₹ 12000/person<br>(Above 3 years)<br>7 or less.</span>
+					<span>₹ 12000/person<br>(Above 3 years)<br>Upto 7 persons.</span>
 				</div>
 			</td>
 		</tr>

@@ -22,15 +22,6 @@ function unregister() {
 	  }
 	};
 $(function() {
-	$("#datepicker").datepicker({
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true,
-		changeYear: true,
-		minDate:'m',
-		showButtonPanel: true
-	});
-});
-$(function() {
 	$("#expiryDate").datepicker({
 		dateFormat: 'mm/y',
 		changeMonth: true,
