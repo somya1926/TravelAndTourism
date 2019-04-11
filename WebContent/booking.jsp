@@ -78,17 +78,17 @@
 	.ui-datepicker-calendar {
     	display: none;
 	}
-	.gate#bID_a{
+	#bID_a.gate{
 		text-indent: 50px;
 	}
-	.gate#name{
+	#name.gate{
 		text-indent: 90px;
 	}
-	.gate#place{
+	#place.gate{
 		text-indent: 60px;
 	}
-	.gate#bID_a:focus ,#name:focus, #place:focus
-	.gate#bID_a:active ,#name:active, #place:active{
+	#bID_a.gate:focus ,#name.gate:focus, #place.gate:focus,
+	#bID_a.gate:active ,#name.gate:active, #place.gate:active{
 	  text-indent: 0;
 	}
 	</style>
