@@ -9,6 +9,10 @@
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dialog-mobile.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/mcx-dialog.js"></script>
+
 <style type="text/css">
 #home{
 		width: 300px;
@@ -82,7 +86,21 @@
 				<td><input class="press press-blue press-round press-raised " 
 					type="submit" name="book" value="Cancel Booking"></td>
 				<td><input class="press press-pink press-round press-raised"
-					type="submit" name="book" value="De-register" title="Delete your user account."></td>
+					type="button" name="book" value="De-register" title="Delete your user account."
+						onclick="	mcxDialog.showBottom({
+					         title: 'Are you sure u want to Deregister?',
+					         btn: ['Deregister Now'],
+					         btnColor: ['#d50000',],
+					         cancelText: 'CANCEL',
+					         btnClick: function(){
+					        	 <%session.setAttribute("de-reg", "true"); %>
+					        	 var form = document.createElement('form');
+					 		    form.setAttribute('method', 'post');
+					 		    form.setAttribute('action', 'UserDeReg');
+					 	        document.body.appendChild(form);
+					 		    form.submit();
+					       }
+					  });"></td>
 			</tr>
 		</table>
 			
