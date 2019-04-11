@@ -26,6 +26,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/gate.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dialog-mobile.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/mcx-dialog.js"></script>
 <style type="text/css">
 #home{
 		width: 300px;
@@ -355,11 +357,7 @@
 		<%} resultSetFetch.close(); %>
 		</table>
 		</div>
-		
-		<!-- User De-register -->	
-		<%}else if(((String)request.getParameter("book")).equals("De-register")){
-			session.setAttribute("de-reg", "true");%>
-			<script type="text/javascript">unregister();</script>
+
 		<%}%>
 	<br><input class="press press-green press-pill press-ghost"
 		id="logout" type="button" style="color: black;" value="Logout" onclick="sendAlert();">

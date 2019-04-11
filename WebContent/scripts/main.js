@@ -1,26 +1,18 @@
-
 function sendAlert(){
-	if (confirm("Are you sure you want to logout ?")) {
-		
-		var form = document.createElement("form");
-	    form.setAttribute("method", "post");
-	    form.setAttribute("action", '../logout');
-        document.body.appendChild(form);
-	    form.submit();
-	} 
+	/*First import '/scripts/mcx-dialog.js' and '/css/dialog-mobile.css' */
+	mcxDialog.confirm('Are you sure u want to logout?',{
+        sureBtnText: 'YES',
+        cancelBtnText: 'NO',
+        sureBtnClick: function(){
+        	var form = document.createElement("form");
+    	    form.setAttribute("method", "post");
+    	    form.setAttribute("action", '../logout');
+            document.body.appendChild(form);
+    	    form.submit();
+        }
+    }); 
 };
-function unregister() {
-	  var person = prompt("To confirm De-registration please enter 'yes' :");
-	  if (person =='yes') {
-		  var form = document.createElement("form");
-		    form.setAttribute("method", "post");
-		    form.setAttribute("action", 'UserDeReg');
-	        document.body.appendChild(form);
-		    form.submit();
-	  }else{
-		  location.href='userHome'; 
-	  }
-	};
+	
 $(function() {
 	$("#expiryDate").datepicker({
 		dateFormat: 'mm/y',

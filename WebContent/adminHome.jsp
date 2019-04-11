@@ -9,6 +9,10 @@
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/Images/fabicon.png">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dialog-mobile.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/mcx-dialog.js"></script>
+
 <style type="text/css">
 #home{
 		width: 300px;

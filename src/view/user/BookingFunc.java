@@ -205,6 +205,8 @@ public class BookingFunc extends HttpServlet {
 				"<meta charset=\"UTF-8\">"+
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/theme.css\">\r\n" +
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/bookingFunc.css\">\r\n" + 
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/dialog-mobile.css\">\r\n" + 
+				"<script type=\"text/javascript\" src=\""+resource+"/scripts/mcx-dialog.js\"></script>"+
 				"<title>Booking Info</title>"+
 				"<link rel=\"shortcut icon\" type=\"image/png\" href=\""+resource+"/Images/fabicon.png\">"+
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\""+resource+"/css/press.css\">\r\n"+
