@@ -47,7 +47,7 @@
 	th,td{
 		padding: 5px;
 	}
-	input[type=submit] {
+	input[type=submit], #dereg {
    		height: 2.5em;
    		font-weight: bold;
     	font-family: sans-serif;
@@ -85,9 +85,9 @@
 					type="submit" name="book" value="View Tours"></td>
 				<td><input class="press press-blue press-round press-raised " 
 					type="submit" name="book" value="Cancel Booking"></td>
-				<td><input class="press press-pink press-round press-raised"
+				<td><input id="dereg" class="press press-pink press-round press-raised"
 					type="button" name="book" value="De-register" title="Delete your user account."
-						onclick="	mcxDialog.showBottom({
+						onclick="mcxDialog.showBottom({
 					         title: 'Are you sure u want to Deregister?',
 					         btn: ['Deregister Now'],
 					         btnColor: ['#d50000',],

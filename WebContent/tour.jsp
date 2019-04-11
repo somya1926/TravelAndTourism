@@ -67,17 +67,17 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
-	.gate#id{
+	#id.gate{
 		text-indent: 80px;
 	}
-	.gate#name{
+	#name.gate{
 		text-indent: 110px;
 	}
-	.gate#place{
+	#place.gate{
 		text-indent: 40px;
 	}
-	.gate#id:focus ,#name:focus, #place:focus,
-	.gate#id:active ,#name:active, #place:active {
+	#id.gate:focus ,#name.gate:focus, #place.gate:focus,
+	#id.gate:active ,#name.gate:active, #place.gate:active {
 	  text-indent: 0;
 	}
 	</style>
