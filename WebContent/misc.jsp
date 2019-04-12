@@ -68,6 +68,13 @@
     	font-family: sans-serif;
     	font-size: 15px;
 	}
+	#MB_r.gate{
+		width: 340px;
+		text-indent: 110px;
+	}
+	#MB_r.gate:focus ,#MB_r.gate:active{
+		text-indent: 0;
+	}
 	</style>
 </head>
 <body>
@@ -80,7 +87,7 @@
 		statement=connection.createStatement();%>
 		
 			<a href="adminHome">
-		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="18%" 
+		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="20%" 
 				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
 			<h2 id="home">Hi, ${sessionScope.name}</h2>
 		
@@ -139,7 +146,7 @@
 					bid.add(resultSetFetch.getInt(1));
 				}%>
 		<!-- Revoke Bookings -->
-			<form action="MiscFunc" class="f1" method="post" style="width: 30%">
+			<form id="revoke" action="MiscFunc" class="f1" method="post" style="width: 30%">
 			<span>
 				 <SELECT class="gate" style="height: 40px;" id="MB_r" NAME="MB_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>

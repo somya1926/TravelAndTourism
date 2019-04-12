@@ -33,7 +33,7 @@
 		width: 300px;
 	    padding: 20px;
 	    position: absolute;
-	    top:20%;
+	    top:22%;
     	left: 44%;
     	transform: translate(-20%, -60%);
     	align-items: center;
@@ -84,11 +84,21 @@
 	#name.gate{
 		text-indent: 90px;
 	}
-	#place.gate{
-		text-indent: 60px;
+	#room.gate{
+		width: 350px;
+		text-indent: 110px;
 	}
-	#bID_a.gate:focus ,#name.gate:focus, #place.gate:focus,
-	#bID_a.gate:active ,#name.gate:active, #place.gate:active{
+	#BID_d.gate, #BID_r.gate{
+		width: 340px;
+		text-indent: 110px;
+	}
+	#bID_a.gate{
+		width: 300px;
+		text-indent: 80px;
+	}
+	
+	#bID_a.gate:focus ,#name.gate:focus, #room.gate:focus, #BID_d.gate:focus, #BID_r.gate:focus,
+	#bID_a.gate:active ,#name.gate:active, #room.gate:active, #BID_d.gate:active, #BID_r.gate:active{
 	  text-indent: 0;
 	}
 	</style>
@@ -102,7 +112,7 @@
 		statement=connection.createStatement();%>
 
 			<a href="userHome">
-			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="18%" 
+			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="20%" 
 				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
 			<h2 id="home">Hi, ${sessionScope.name}</h2>
 
@@ -115,8 +125,8 @@
 			bid.add(resultSetFetch.getInt(1));
 		}%>
 <!-- Book Now -->
-<form class="f1" action="BookingFunc" method="post">
-<table style=" width: 700px; height: 200px;">
+<form class="f1" action="BookingFunc" method="post" style="width: 950px; top: 57%;">
+<table style=" width: 750px; height: 200px;">
 	<tr>
 		<td>
 	
@@ -169,7 +179,7 @@
 		<tr>
 			<td>
 			<span>
-				<select id="place" class="gate" style="height: 40px;" NAME="rType" required="required">
+				<select id="room" class="gate" style="height: 40px;" NAME="rType" required="required">
 					<option value="Select-type" disabled="disabled" selected="selected">Select Type</option>
 					<option value="ST">STANDARD</option>
 					<option value="SU">SUPERIOR</option>
@@ -198,7 +208,7 @@
 			<tr>
 				<td><span>
 						<input id="name" class="gate" type="number" name="cNo"
-							placeholder="0000 0000 0000 0000" style="width: 120%;">
+							placeholder="0000 0000 0000 0000" style="width: 145%;">
 						<label>Card No:</label>
 					</span>
 				</td>
@@ -284,7 +294,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" method="post" style="width: 30%; height: 30%; padding-right: 5%;">
+		<form action="BookingFunc" class="f1" method="post" style="width: 35%; height: 30%; padding-right: 5%;">
 			<span>
 		 <SELECT class="gate" style="height: 40px;" id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
@@ -313,7 +323,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" style="width: 30%; height: 30%; padding-right: 5%;" method="post">
+		<form action="BookingFunc" class="f1" style="width: 35%; height: 30%; padding-right: 5%;" method="post">
 		<span>
 		 <SELECT class="gate" style="height: 40px;" id="BID_r" NAME="BID_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>

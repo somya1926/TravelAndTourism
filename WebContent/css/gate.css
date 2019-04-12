@@ -22,7 +22,10 @@ span {
   transition: all .3s ease-in-out;
   box-shadow: 2px 3px 20px 3px rgba(51, 51, 51, 0.4);
 }
-.gate::-webkit-input-placeholder {
+.gate::-webkit-input-placeholder,
+.gate::-moz-placeholder,
+.gate::-ms-placeholder,
+.gate::placeholder{
   color: #efefef;
   text-indent: 0;
   font-weight: 300;
@@ -72,7 +75,14 @@ span {
   border-bottom-right-radius: 8px;
 }
 .gate:focus::-webkit-input-placeholder,
-.gate:active::-webkit-input-placeholder {
+.gate:focus::-moz-placeholder,
+.gate:focus::-ms-placeholder,
+.gate:focus::placeholder,
+
+.gate:active::-webkit-input-placeholder,
+.gate:active::-moz-placeholder,
+.gate:active::-ms-placeholder,
+.gate:active::placeholder {
   color: #aaa;
 }
 .gate:focus + label,

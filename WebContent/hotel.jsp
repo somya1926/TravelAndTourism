@@ -72,8 +72,12 @@
 	#place.gate{
 		text-indent: 70px;
 	}
-	#id.gate:focus ,#name.gate:focus, #place.gate:focus,
-	#id.gate:active ,#name.gate:active, #place.gate:active {
+	#hID_d.gate, #hID_u.gate{
+		width: 280px;
+		text-indent: 85px;
+	}
+	#id.gate:focus ,#name.gate:focus, #place.gate:focus, #hID_d.gate.gate:focus, #hID_u.gate.gate:focus,
+	#id.gate:active ,#name.gate:active, #place.gate:active, #hID_d.gate.gate:active, #hID_u.gate.gate:active {
 	  text-indent: 0;
 	}
 	</style>

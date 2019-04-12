@@ -88,7 +88,7 @@
 				<td><input id="dereg" class="press press-pink press-round press-raised"
 					type="button" name="book" value="De-register" title="Delete your user account."
 						onclick="mcxDialog.showBottom({
-					         title: 'Are you sure u want to Deregister?',
+					         title: 'Are you sure you want to Deregister?',
 					         btn: ['Deregister Now'],
 					         btnColor: ['#d50000',],
 					         cancelText: 'CANCEL',
