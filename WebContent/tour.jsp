@@ -37,7 +37,7 @@
     	text-align: center;
 	}
 	.f1{
-	width: 900px;
+	width: 72%;
     padding: 10px;
     padding-bottom: 40px;
     padding-top: 40px;
@@ -74,11 +74,16 @@
 		text-indent: 110px;
 	}
 	#place.gate{
-		text-indent: 40px;
+		width: 300px;
+		text-indent: 75px;
 	}
-	#id.gate:focus ,#name.gate:focus, #place.gate:focus,
-	#id.gate:active ,#name.gate:active, #place.gate:active {
-	  text-indent: 0;
+	#TID_d.gate, #TID_u.gate{
+		width: 270px;
+		text-indent: 80px;
+	}
+	#id.gate:focus ,#name.gate:focus, #place.gate:focus, #TID_u.gate:focus,
+	#id.gate:active ,#name.gate:active, #place.gate:active, #TID_u.gate:active{
+	  	text-indent: 0;
 	}
 	</style>
 </head>
@@ -92,7 +97,7 @@
 		statement2=connection.createStatement();%>
 
 			<a href="adminHome">
-			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="18%" 
+			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="20%" 
 				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
 			<h2 id="home">Hi, ${sessionScope.name}</h2>
 			
