@@ -54,7 +54,6 @@
 	    position: absolute;
 	    top:90%;
     	left: 580px;
-    	
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;

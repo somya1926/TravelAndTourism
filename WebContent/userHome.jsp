@@ -14,47 +14,38 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/mcx-dialog.js"></script>
 
 <style type="text/css">
-#home{
-		width: 300px;
-	    padding: 40px;
-	    position: absolute;
-	    top:20%;
-    	left: 50%;
-    	transform: translate(-20%, -50%);
-	}
 	.f1{
-	width: 350px;
-    padding: 40px;
-    padding-right: 140px;
-    position: absolute;
+	width: 500px;
+	height:240px;
+	min-width: 500px;
+	min-height:240px;
+    padding: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
+	}
+	.f1 input{
+		margin: 10px;
 	}
 	#logout{
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:35%;
+	    top:45%;
     	left: 50%;
     	transform: translate(-50%, 500%);
     	font-weight: bold;
     	font-family: sans-serif;
     	font-size: 15px;
-	}
-	th,td{
-		padding: 5px;
+    	margin-bottom: 10px;
 	}
 	input[type=submit], #dereg {
    		height: 2.5em;
    		font-weight: bold;
     	font-family: sans-serif;
 	}
-	h2{
-		transform: translate(50px, 0px);
-	}
+
 	</style>
 </head>
 <body>
@@ -63,29 +54,28 @@
 		}%>
 		
 		<a href="${pageContext.request.contextPath}/home.html">
-		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="52%" height="22%" 
-		style="position: absolute; border-radius: 20px; left: 24%; top: 2%;"></a>
+		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png"   
+			style="position: absolute; border-radius: 20px; left: 24%; top: 2%; width: 52%; height:24%;
+			margin-bottom:50px;"></a>
 		
-		<div class="f1">
-		<h2>Hi, ${sessionScope.name}</h2>
+		
+		
+		<form class="f1" action="booking" method="post">
+			<h2>Hi, ${sessionScope.name}</h2>
 		<h2>Welcome to the User portal !</h2>
 		
-		<form action="booking" method="post" style="width: 130%">
-		<table>
-			<tr>
-				<td><input class="press press-blue press-round press-raised "
-					type="submit" name="book" value="Book now"></td>
-				<td><input class="press press-pink press-round press-raised "
-					type="submit" name="book" value="Booking History"></td>
-				<td><input class="press press-lightgreen press-round press-raised "
-					type="submit" name="book" value="Booking Report"></td>
-			</tr>
-			<tr>
-				<td><input class="press press-lightgreen press-round press-raised "
-					type="submit" name="book" value="View Tours"></td>
-				<td><input class="press press-blue press-round press-raised " 
-					type="submit" name="book" value="Cancel Booking"></td>
-				<td><input id="dereg" class="press press-pink press-round press-raised"
+				<input class="press press-blue press-round press-raised "
+					type="submit" name="book" value="Book now">
+				<input class="press press-pink press-round press-raised "
+					type="submit" name="book" value="Booking History">
+				<input class="press press-lightgreen press-round press-raised "
+					type="submit" name="book" value="Booking Report">
+					<br>
+					<input class="press press-lightgreen press-round press-raised "
+					type="submit" name="book" value="View Tours">
+				<input class="press press-blue press-round press-raised " 
+					type="submit" name="book" value="Cancel Booking">
+				<input id="dereg" class="press press-pink press-round press-raised"
 					type="button" name="book" value="De-register" title="Delete your user account."
 						onclick="mcxDialog.showBottom({
 					         title: 'Are you sure you want to Deregister?',
@@ -100,13 +90,9 @@
 					 	        document.body.appendChild(form);
 					 		    form.submit();
 					       }
-					  });"></td>
-			</tr>
-		</table>
-			
+					  });">
 		</form>
 		<input type="button" class="press press-green press-pill press-ghost"
 			id="logout" style="color: black;" value="Logout" onclick="sendAlert();">
-		</div>
 </body>
 </html>

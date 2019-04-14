@@ -1,14 +1,23 @@
+html {
+    position: relative;
+    min-width: 1024px;
+    min-height: 668px;
+    resize: none;
+    width: 100%;
+    height: 100%;   
+}
 
 body {
 	background-image: url("../Images/india.jpg");
 	background-repeat: no-repeat;
-	background-position:top;
-	background-size: cover;
-	position: static;
+	background-position:top center;
+	background-size : cover cover;
+	position: fixed fixed;
 	font-family: sans-serif;
 	font-weight: bold;
 }
 form, .f1{
+	position :absolute;
 	background: silver;
     opacity: 1;
     border-radius: 10px;

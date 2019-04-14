@@ -14,24 +14,28 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/mcx-dialog.js"></script>
 
 <style type="text/css">
-#home{
-		width: 300px;
-	    padding: 40px;
-	    position: absolute;
-	    top:20%;
-    	left: 50%;
-    	transform: translate(-20%, -105%);
-	}
 	.f1{
-	width: 400px;
-    padding: 40px;
-    padding-right:150px;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+		width: 400px;
+		height :300px;
+	    padding: 40px;
+	    padding-right:150px;
+	    position: absolute;
+	    top: 55%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    text-align: center;
 	}
+	.f1 form{
+		width: 500px;
+		padding:8px;
+		position: relative;
+	}
+	
+	.f1 input{
+		margin-left: 5px;
+		margin-left: 4px;
+	}
+	
 	#logout{
 		width: 200px;
 	    padding: 10px;
@@ -43,15 +47,6 @@
     	font-family: sans-serif;
     	font-size: 15px;
     	align-content: center;
-	}
-	th,td{
-		padding: 5px;
-	}
-	.item{
-		width: 200px;
-		padding: 10px;
-		font-weight: bold;
-		font-family: fantasy;
 	}
 	input[type=submit] {
    		height: 2.5em;
@@ -68,67 +63,45 @@
 			throw new ServletException();
 		}%>
 		<a href="${pageContext.request.contextPath}/home.html">
-		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="52%" height="22%" 
-		style="position: absolute; border-radius: 20px; left: 24%; top: 2%;"></a>
+		<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" 
+			style="position: absolute; border-radius: 20px; left: 24%; top: 2%; width :52%; height: 22%;
+				margin-bottom:20px;"></a>
 		
 		<div class="f1">
 		<h2>Hi, ${sessionScope.name}</h2>
 		<h2>Welcome to the admin portal !</h2>
 		
-		<table>
-		<tr>
-			<td>
 				<form action="tour" method="post">
-				<table >
-					<tr>
-						<td><input class="press press-blue press-round press-raised"
-							type="submit" name="tour" value="Add Tour"></td>
-						<td><input class="press press-pink press-round press-raised" 
-							type="submit" name="tour" value="Update Tour" ></td>
-						<td><input class="press press-teal press-round press-raised" 
-							type="submit" name="tour" value="Delete Tour" ></td>
-						<td><input class="press press-lightgreen press-round press-raised" 
-							type="submit" name="tour" value="View Tours" ></td>
-					</tr>
-				</table> 
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td>
+
+						<input class="press press-blue press-round press-raised"
+							type="submit" name="tour" value="Add Tour">
+						<input class="press press-pink press-round press-raised" 
+							type="submit" name="tour" value="Update Tour" >
+						<input class="press press-teal press-round press-raised" 
+							type="submit" name="tour" value="Delete Tour" >
+						<input class="press press-lightgreen press-round press-raised" 
+							type="submit" name="tour" value="View Tours" >
+				</form><br>
+
 				<form action="hotel" method="post">
-				<table >
-					<tr>
-						<td><input class="press press-orange press-round press-raised" 
-							type="submit" name="hotel" value="Add Hotel" ></td>
-						<td><input class="press press-blue press-round press-raised" 
-							type="submit" name="hotel" value="Update Hotel" ></td>
-						<td><input class="press press-pink press-round press-raised" 
-							type="submit" name="hotel" value="Delete Hotel" ></td>
-						<td><input class="press press-teal press-round press-raised" 
-							type="submit" name="hotel" value="View Hotels" ></td>
-					</tr>
-				</table>
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td>
+						<input class="press press-orange press-round press-raised" 
+							type="submit" name="hotel" value="Add Hotel" >
+						<input class="press press-blue press-round press-raised" 
+							type="submit" name="hotel" value="Update Hotel" >
+						<input class="press press-pink press-round press-raised" 
+							type="submit" name="hotel" value="Delete Hotel" >
+						<input class="press press-teal press-round press-raised" 
+							type="submit" name="hotel" value="View Hotels" >
+				</form><br>
 				<form action="misc" method="post">
-				<table >
-					<tr>
-						<td><input class="press press-orange press-round press-raised" 
-							type="submit" name="misc" value="Show Bookings"></td>
-						<td><input class="press press-blue press-round press-raised" 
-							type="submit" name="misc" value="Revoke Booking"></td>
-						<td><input class="press press-pink press-round press-raised" 
-							type="submit" name="misc" value="Show Users"></td>
-					</tr>
-				</table>
+						<input class="press press-orange press-round press-raised" 
+							type="submit" name="misc" value="Show Bookings">
+						<input class="press press-blue press-round press-raised" 
+							type="submit" name="misc" value="Revoke Booking">
+						<input class="press press-pink press-round press-raised" 
+							type="submit" name="misc" value="Show Users">
+
 				</form>
-			</td>
-		</tr>
-		</table>
 		
 		<input type="button" class="press press-green press-pill press-ghost" 
 			id="logout" style="color: black;" value="Logout" onclick="sendAlert();">
