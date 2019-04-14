@@ -58,7 +58,7 @@
 		width: 200px;
 	    padding: 10px;
 	    position: absolute;
-	    top:30%;
+	    top:32%;
     	left: 50%;
     	transform: translate(-50%, 900%);
     	font-weight: bold;
@@ -125,7 +125,7 @@
 			bid.add(resultSetFetch.getInt(1));
 		}%>
 <!-- Book Now -->
-<form class="f1" action="BookingFunc" method="post" style="width: 950px; top: 57%;">
+<form class="f1" action="BookingFunc" method="post" style="width: 880px; top: 57%; padding-left: 0px;">
 <table style=" width: 750px; height: 200px;">
 	<tr>
 		<td>
@@ -241,7 +241,7 @@
 		statement2.setString(1, (String)session.getAttribute("email"));
 		resultSetFetch=statement2.executeQuery();%>
 		
-		<div class="f1" style="overflow: auto; height: 55%; width: 75%; padding-right: 25%;">
+		<div class="f1" style="overflow: auto; height: 55%; width: 75%; padding-left: 20px;">
 		<table id="t1">
 				<tr>
 					<th>B_ID</th>
@@ -294,7 +294,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" method="post" style="width: 35%; height: 30%; padding-right: 5%;">
+		<form action="BookingFunc" class="f1" method="post" style="width: 35%; height: 30%; min-width: 460px; padding-right: 5%;">
 			<span>
 		 <SELECT class="gate" style="height: 40px;" id="BID_d" NAME="BID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
@@ -323,7 +323,7 @@
 		while(resultSetFetch.next()){
 			bid.add(resultSetFetch.getInt(1));
 		}%>
-		<form action="BookingFunc" class="f1" style="width: 35%; height: 30%; padding-right: 5%;" method="post">
+		<form action="BookingFunc" class="f1" style="width: 35%; height: 30%; padding-right: 5%; min-width: 460px;" method="post">
 		<span>
 		 <SELECT class="gate" style="height: 40px;" id="BID_r" NAME="BID_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>

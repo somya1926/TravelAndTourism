@@ -96,8 +96,8 @@
 		statement2=connection.createStatement();%>
 
 			<a href="adminHome">
-			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="20%" 
-				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
+			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" 
+				style="position: absolute; border-radius: 20px; left: 26%; top: 2%; width:48%; height:20%; min-width: 600px;"></a>
 			<h2 id="home">Hi, ${sessionScope.name}</h2>
 			
 <% if(((String)request.getParameter("tour")).equals("Add Tour")){ 
@@ -108,8 +108,9 @@
 			places.add(resultSetPlace.getString(1));
 		}resultSetPlace.close();%>
 <!-- Add tour -->
-<form class="f1" action="TourFunc" method="post">
-<table >
+<form class="f1" action="TourFunc" method="post" style="width: 62%; top: 57%;  min-width: 950px;
+	padding-top: 40px; padding-bottom: 40px;">
+<table style=" width: 100%; height: 200px;">
 	<tr>
 		<td>
 <table style="text-align: left;">
@@ -249,8 +250,9 @@ resultSetTID=statement.executeQuery("SELECT T_ID FROM tourInfo");
 		}
 		resultSetTID.close();%>
 <!-- Update tour -->
-<form class="f1" action="TourFunc" method="post">
-<table>
+<form class="f1" action="TourFunc" method="post" style="width: 72%; top: 57%;  min-width: 1000px;
+	  padding-top: 40px; padding-bottom: 40px;">
+<table style=" width: 100%; height: 200px;">
 	<tr>
 		<td>
 <table style="text-align: left;">

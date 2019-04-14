@@ -91,12 +91,12 @@
 		statement=connection.createStatement();%>
 		<a href="adminHome">
 			<img alt="" src="${pageContext.request.contextPath}/Images/banner.png" width="48%" height="20%" 
-				style="position: absolute; border-radius: 20px; left: 26%; top: 2%;"></a>
+				style="position: absolute; border-radius: 20px; left: 26%; top: 2%; min-width: 500px;"></a>
 		<h2 id="home">Hi, ${sessionScope.name}</h2><br>
 
 <% if(((String)request.getParameter("hotel")).equals("Add Hotel")){ %>
 <!-- Add hotel -->
-<form class="f1" action="HotelFunc" method="post" style="width: 30%;">
+<form class="f1" action="HotelFunc" method="post" style="width: 30%; min-width: 400px;">
 <table>
 		<tr>
 			<td><span>
@@ -131,7 +131,7 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Delete hotel -->
-<form action="HotelFunc" class="f1" method="post" style="width: 30%">
+<form action="HotelFunc" class="f1" method="post" style="width: 30%; min-width: 400px; ">
 	<span>
 	 	<SELECT class="gate" style="height: 40px;" id="hID_d" NAME="hID_d" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
@@ -155,7 +155,7 @@
 			hoteList.add(resultSetHotel.getInt(1));
 		}resultSetHotel.close();%>
 <!-- Update hotel -->
-<form class="f1" action="HotelFunc" method="post" style="width: 30%">
+<form class="f1" action="HotelFunc" method="post" style="width: 30%; min-width: 400px;">
 <table>
 		<tr>
 			<td><span><SELECT class="gate" style="height: 40px;" id="hID_u" NAME="hID_u" required="required">

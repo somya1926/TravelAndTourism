@@ -146,7 +146,7 @@
 					bid.add(resultSetFetch.getInt(1));
 				}%>
 		<!-- Revoke Bookings -->
-			<form id="revoke" action="MiscFunc" class="f1" method="post" style="width: 30%">
+			<form id="revoke" action="MiscFunc" class="f1" method="post" style="width: 30%; min-width: 420px;">
 			<span>
 				 <SELECT class="gate" style="height: 40px;" id="MB_r" NAME="MB_r" required="required">
 				<option value="Select-ID" disabled="disabled" selected="selected">Select ID</option>
