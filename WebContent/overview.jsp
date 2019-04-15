@@ -16,6 +16,14 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/press.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/main.js"></script>
 <style type="text/css">
+	html {
+	    position: relative;
+	    min-width: 260px;
+	    min-height: auto;
+	    resize: none;
+	    width: 260px;
+	    height: auto;   
+	}
 	#logout{
 		width: 100px;
 	    padding: 5px;
