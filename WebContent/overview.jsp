@@ -42,7 +42,6 @@
 <body style="background-color: #880e4f; background-image: none;">
 	
 <%
-System.out.print("OV-path: "+session.getServletContext().getContextPath());
 	if(!(((String)request.getRequestURI()).contains("/overview"))){
 		throw new ServletException();
 	}
