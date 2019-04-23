@@ -194,8 +194,7 @@ public class LoginFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		String[] part= (fConfig.getServletContext().getRealPath("/").split("\\.metadata"));
-		ConnectionFactory.setDBpath(part[0]+fConfig.getServletContext().getContextPath()+"\\database");
+		ConnectionFactory.setDBpath(fConfig.getServletContext().getRealPath("/WEB-INF/database"));
 	}
 
 }
