@@ -3,7 +3,7 @@ package view.user;
 import java.io.IOException;
 import org.sqlite.SQLiteException;
 import java.sql.*;
-import model.*;
+import model.DAO.ConnectionFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

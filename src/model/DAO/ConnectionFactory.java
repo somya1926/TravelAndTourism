@@ -1,4 +1,4 @@
-package model;
+package model.DAO;
 import java.sql.*;
 import org.sqlite.SQLiteConfig;
 import org.sqlite.SQLiteException;

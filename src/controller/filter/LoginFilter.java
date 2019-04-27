@@ -13,7 +13,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.*;
+import model.PasswordHasher;
+import model.DAO.ConnectionFactory;
 
 /**
  * Servlet Filter implementation class LoginFilter
@@ -89,7 +90,8 @@ public class LoginFilter implements Filter {
 
 			statement= connection.prepareStatement(QUERY);
 			statement.setString(1, (String)((HttpServletRequest)request).getParameter("lEmail"));
-			statement.setString(2, (String)((HttpServletRequest)request).getParameter("lPass"));
+			statement.setString(2, PasswordHasher.hashNow(
+					(String)((HttpServletRequest)request).getParameter("lPass")));
 			resultSet=statement.executeQuery();
 			
 			if(resultSet.next() &&
@@ -194,7 +196,10 @@ public class LoginFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		ConnectionFactory.setDBpath(fConfig.getServletContext().getRealPath("/WEB-INF/database"));
+		//ConnectionFactory.setDBpath(fConfig.getServletContext().getRealPath("/WEB-INF/database"));
+		String[] part= (fConfig.getServletContext().getRealPath("/").split("\\.metadata"));
+		ConnectionFactory.setDBpath(part[0]+fConfig.getServletContext().getContextPath()+"\\database");
+
 	}
 
 }
