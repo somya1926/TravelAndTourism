@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.sql.*;
-import model.*;
+import model.DAO.ConnectionFactory;
 
 import org.sqlite.SQLiteException;
 

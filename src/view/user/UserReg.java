@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
-import model.*;
+import model.PasswordHasher;
+import model.DAO.ConnectionFactory;
 import org.sqlite.SQLiteException;
 
 /**
@@ -58,7 +59,7 @@ public class UserReg extends HttpServlet {
 						"		style=\"position: absolute; border-radius: 20px; left: 20%; top: 30%;\">"+
 						"</P></body></html>");
 			}else{
-				statement.setString(1, (String)request.getParameter("pass"));
+				statement.setString(1, PasswordHasher.hashNow(request.getParameter("pass")));
 			}
 			
 			statement.setString(2, (String)request.getParameter("name"));

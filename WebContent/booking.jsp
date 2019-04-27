@@ -1,5 +1,5 @@
 <%@page import="org.sqlite.SQLiteException"%>
-<%@page import="java.sql.*,model.*,java.util.*"%>
+<%@page import="java.sql.*,model.DAO.*,java.util.*"%>
 <%@ page language="java" contentType="text/html;"
 	session="true" pageEncoding="UTF-8"%>
     <%! Statement statement=null;
