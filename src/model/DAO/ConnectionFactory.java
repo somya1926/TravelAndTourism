@@ -1,7 +1,6 @@
 package model.DAO;
 import java.sql.*;
-import org.sqlite.SQLiteConfig;
-import org.sqlite.SQLiteException;
+import org.sqlite.*;
 
 
 
@@ -38,9 +37,16 @@ public class ConnectionFactory {
 		if(connection==null) {
 			try {
 				DriverManager.registerDriver(driver);
+				
 				config.enforceForeignKeys(true);
+				config.setJournalMode(SQLiteConfig.JournalMode.WAL);
+				config.setSynchronous(SynchronousMode.OFF);
+				config.setTempStore(TempStore.MEMORY);
+				config.setTransactionMode(SQLiteConfig.TransactionMode.DEFERRED);
+
 				connection=DriverManager.getConnection("jdbc:sqlite:"+URL+"\\ttmsDS.db",
 						config.toProperties());
+				connection.setAutoCommit(true);
 			}catch (SQLiteException e) {
 				e.printStackTrace();
 			}catch (SQLException s) {
