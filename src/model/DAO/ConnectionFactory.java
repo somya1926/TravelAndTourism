@@ -1,7 +1,7 @@
 package model.DAO;
 import java.sql.*;
 import org.sqlite.*;
-
+import org.sqlite.SQLiteConfig.*;
 
 
 /**
@@ -14,8 +14,7 @@ public class ConnectionFactory {
 	Connection connection=null;
 	private final Driver driver= new org.sqlite.JDBC();
 	SQLiteConfig config = new SQLiteConfig();
-	private static String URL=null;
-	
+
 	private ConnectionFactory() {}
 	
 	/**
@@ -40,25 +39,20 @@ public class ConnectionFactory {
 				
 				config.enforceForeignKeys(true);
 				config.setJournalMode(SQLiteConfig.JournalMode.WAL);
-				config.setSynchronous(SynchronousMode.OFF);
-				config.setTempStore(TempStore.MEMORY);
+				config.setSynchronous(SynchronousMode.NORMAL);
 				config.setTransactionMode(SQLiteConfig.TransactionMode.DEFERRED);
+				config.setCacheSize(500);
 
-				connection=DriverManager.getConnection("jdbc:sqlite:"+URL+"\\ttmsDS.db",
+				connection=DriverManager.getConnection("jdbc:sqlite:"+this.getClass().getResource("/").getPath()+"/database/ttmsDS.db",
 						config.toProperties());
 				connection.setAutoCommit(true);
 			}catch (SQLiteException e) {
-				e.printStackTrace();
+				System.err.println(e.getClass().getName()+": "+e.getMessage());
 			}catch (SQLException s) {
 				s.printStackTrace();
 			}
 		}
 		return connection;
-	}
-	
-	public static void setDBpath(String url) {
-		if(URL==null)
-			URL=url;
 	}
 	
 }
